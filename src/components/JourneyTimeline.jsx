@@ -132,8 +132,7 @@ export default function JourneyTimeline() {
                     className="absolute -top-3 sm:-top-5 left-1/2 -translate-x-1/2 flex flex-col items-start gap-1"
                   >
                     {/* Phase Ring */}
-                    <div className="w-6 h-6 rounded-full border-2"
-                           className={`${phaseConfig.border} ${watchedCount >= firstMovie.id ? phaseConfig.accent : 'border-white/10'}`}>
+                    <div className={`w-6 h-6 rounded-full border-2 ${phaseConfig.border} ${watchedCount >= firstMovie.id ? phaseConfig.accent : 'border-white/10'}`}>
                       <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,_var(--color-bg)_0%,_var(--color-bg)_70%)]"></div>
                     </div>
 
@@ -250,8 +249,8 @@ export default function JourneyTimeline() {
                               </h3>
                               <p className="text-xs text-muted/60 uppercase tracking-wider flex items-center gap-2">
                                 {/* Type indicator with colored dot */}
-                                <span className="w-2 h-2 rounded-full
-                                        bg-${movie.type === "series" ? 'steel-bright' : movie.type === "special" ? 'warm-yellow' : 'accent-bright'}/20">
+                                <span className={`w-2 h-2 rounded-full
+                                        bg-${movie.type === "series" ? 'steel-bright' : movie.type === "special" ? 'warm-yellow' : 'accent-bright'}/20`}>
                                 </span>
                                 <span className="ml-1">
                                   {movie.type === "series" ? "SERIES" : movie.type === "special" ? "SPECIAL" : "FILM"}
@@ -342,9 +341,9 @@ export default function JourneyTimeline() {
                         </div>
 
                         {/* Background enhancement for alternating rows */}
-                        <div className="absolute inset-0 -z-10
-                                ${index % 2 === 1 ? 'bg-gradient-to-r from-cosmic/5 via-transparent to-cosmic/5' : 'bg-gradient-to-l from-cosmic/5 via-transparent to-cosmic/5'}"
-                                pointer-events-none"></div>
+                        <div className={`absolute inset-0 -z-10
+                                ${index % 2 === 1 ? 'bg-gradient-to-r from-cosmic/5 via-transparent to-cosmic/5' : 'bg-gradient-to-l from-cosmic/5 via-transparent to-cosmic/5'}`}
+                                style={{ pointerEvents: 'none' }}></div>
                       </div>
                     </div>
 

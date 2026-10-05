@@ -221,9 +221,9 @@ export default function CharacterTimeline({ movieIds = [] }) {
                                   hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(99,102,241,0.2)]
                                   transition-all duration-600">
                             {/* Background enhancement */}
-                            <div className="absolute inset-0 -z-10
-                                    ${index % 2 === 1 ? 'bg-gradient-to-r from-[rgba(99,102,241,0.03)] via-transparent to-[rgba(99,102,241,0.03)]' : 'bg-gradient-to-l from-[rgba(99,102,241,0.03)] via-transparent to-[rgba(99,102,241,0.03)]'}"
-                                    pointer-events-none"></div>
+                            <div className={`absolute inset-0 -z-10
+                                    ${index % 2 === 1 ? 'bg-gradient-to-r from-[rgba(99,102,241,0.03)] via-transparent to-[rgba(99,102,241,0.03)]' : 'bg-gradient-to-l from-[rgba(99,102,241,0.03)] via-transparent to-[rgba(99,102,241,0.03)]'}`}
+                                    style={{ pointerEvents: 'none' }}></div>
 
                             {/* Main Content */}
                             <div className="relative">
@@ -384,9 +384,9 @@ export default function CharacterTimeline({ movieIds = [] }) {
                     className="hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(99,102,241,0.2)] transition-all duration-500"
                   />
                   {/* Personal background enhancement for grid items */}
-                  <div className="absolute inset-0 -z-10
-                          ${items.indexOf(item) % 2 === 1 ? 'bg-gradient-to-r from-[rgba(99,102,241,0.02)] via-transparent to-[rgba(99,102,241,0.02)]' : 'bg-gradient-to-l from-[rgba(99,102,241,0.02)] via-transparent to-[rgba(99,102,241,0.02)]'}"
-                          pointer-events-none"></div>
+                  <div className={`absolute inset-0 -z-10
+                          ${items.indexOf(item) % 2 === 1 ? 'bg-gradient-to-r from-[rgba(99,102,241,0.02)] via-transparent to-[rgba(99,102,241,0.02)]' : 'bg-gradient-to-l from-[rgba(99,102,241,0.02)] via-transparent to-[rgba(99,102,241,0.02)]'}`}
+                          style={{ pointerEvents: 'none' }}></div>
                 </motion.div>
               ))}
             </div>
