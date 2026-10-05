@@ -8,25 +8,55 @@ const links = [
   { href: "/archive", label: "Archive" },
 ];
 ---
-
 <nav class="sticky top-0 z-40 border-b border-white/[0.06] bg-bg/80 backdrop-blur-2xl">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <a href="/" class="group flex items-center gap-2">
-      <span class="font-display text-sm sm:text-base tracking-[0.2em] text-text font-semibold uppercase">
+    <a href="/" class="group relative flex items-center gap-2">
+      <span class="font-display text-sm sm:text-base tracking-[0.2em] text-text font-semibold uppercase
+              relative z-10">
         Road to <span class="text-accent-bright">Doomsday</span>
       </span>
+      {/* Animated logo accent */}
+      <div className="absolute -z-10
+              bg-gradient-to-r from-accent-bright via-transparent to-accent-bright/20
+              w-16 h-4 blur-[4px] opacity-0
+              group-hover:opacity-60 transition-opacity duration-300"></div>
     </a>
     <div class="hidden sm:flex items-center gap-8">
       {links.map((link) => (
-        <a
+        <motion.a
+          key={link.href}
           href={link.href}
-          class="text-[11px] font-medium uppercase tracking-[0.15em] text-muted hover:text-accent-bright transition-colors duration-300"
-        >
-          {link.label}
-        </a>
+          whileTap={{ scale: [0.95, 1] }}
+          className="relative flex items-center gap-2
+                  text-[11px] font-medium uppercase tracking-[0.15em] text-muted
+                  hover:text-accent-bright transition-colors duration-300
+                  after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px
+                  after:bg-gradient-to-r from-transparent via-accent-bright/20 to-transparent
+                  after:transition-all after:duration-300
+                  hover:after:w-full"
+          >
+            {link.label}
+            {/* Enhanced hover effects */}
+            <div className="absolute inset-0 -z-10
+                    bg-gradient-to-r from-accent-bright/20 via-transparent to-accent-bright/20
+                    blur-[4px] opacity-0
+                    hover:opacity-60 transition-opacity duration-300"></div>
+          </motion.a>
       ))}
     </div>
   </div>
-  <!-- Cinematic bottom accent line -->
-  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+  {/* Enhanced Cinematic bottom accent line with motion */}
+  <div className="relative">
+    <div className="absolute bottom-0 left-0 right-0 h-px
+            bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+    {/* Animated particles */}
+    <div className="absolute inset-x-0 bottom-0 -z-10
+            bg-[url('/public/bg/nav-particles.png')] bg-repeat opacity-[0.03]
+            animate-[navParticles_8s_linear_infinite]"></div>
+    {/* Pulsing effect */}
+    <div className="absolute inset-0 -z-10
+            bg-gradient-to-r from-transparent via-accent/10 to-transparent
+            blur-[8px] opacity-0
+            hover:opacity-30 transition-opacity duration-300"></div>
+  </div>
 </nav>

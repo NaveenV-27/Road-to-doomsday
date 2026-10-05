@@ -1,0 +1,11 @@
+---
+import Layout from "../layouts/Layout.astro";
+import App from "../components/App.jsx";
+
+export function getStaticPaths() {
+  return [{ params: {} }];
+}
+---
+<Layout title="Timeline — Way to Doomsday" description="Explore the Marvel Cinematic Universe in chronological or release order">
+  <App client:visible />
+</Layout>
