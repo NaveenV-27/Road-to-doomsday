@@ -1,24 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import JourneyStats from "../components/JourneyStats.jsx";
-import MilestoneProgress from "../components/MilestoneProgress.jsx";
+import JourneyTimeline from "../components/JourneyTimeline.jsx";
 
 export function getStaticPaths() {
   return [{ params: {} }];
 }
 ---
 <Layout title="My Journey — Way to Doomsday" description="Track your progress through the Marvel Cinematic Universe">
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-    <h2 className="font-display text-3xl sm:text-4xl tracking-wide text-center mb-8">
-      MY JOURNEY
-    </h2>
-
-    <div className="grid gap-8 sm:grid-cols-[1fr_1fr] sm:gap-12">
-      {/* Stats Card */}
-      <JourneyStats client:load />
-
-      {/* Milestones Card */}
-      <MilestoneProgress client:load />
-    </div>
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+    <JourneyTimeline client:visible />
   </section>
 </Layout>

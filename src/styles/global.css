@@ -8,23 +8,40 @@
   --color-elevated: #1a1a1f;
 
   /* ── Text ── */
-  --color-text: #e8e6e3;
-  --color-text-secondary: #b8b8bc;
-  --color-muted: #8a8a8e;
-  --color-muted-dark: #6a6a6e;
+  --color-text: #f8f4f0;
+  --color-text-secondary: #d4c8b8;
+  --color-muted: #a89a8a;
+  --color-muted-dark: #887a70;
 
-  /* ── Accent: refined crimson (less dominant) ── */
-  --color-accent: #a91c1c;
-  --color-accent-bright: #c92626;
-  --color-accent-dim: #6f1515;
-  --color-accent-glow: rgba(169, 28, 28, 0.2);
+  /* ── Cosmic Accent: Electric purple and cosmic blue ── */
+  --color-accent: #6366f1;
+  --color-accent-bright: #818cf8;
+  --color-accent-dim: #4f46e5;
+  --color-accent-glow: rgba(99, 102, 241, 0.2);
+  --color-accent-secondary: #a78bfa;
+  --color-accent-tertiary: #c4b5fd;
 
-  /* ── Secondary: charcoal and subtle gold ── */
-  --color-charcoal: #2a2a2f;
-  --color-charcoal-light: #3a3a3f;
-  --color-gold: #a8860b;
-  --color-gold-bright: #c4a017;
-  --color-gold-dim: rgba(168, 134, 11, 0.12);
+  /* ── Cinematic Crimson ── */
+  --color-crimson: #dc2626;
+  --color-crimson-bright: #ef4444;
+  --color-crimson-dim: #b91c1c;
+  --color-crimson-glow: rgba(220, 38, 38, 0.2);
+
+  /* ── Warm Journey Tones ── */
+  --color-warm-red: #f97316;
+  --color-warm-orange: #fb923c;
+  --color-warm-yellow: #fbbf24;
+  --color-warm-cream: #fef3c7;
+
+  /* ── Cool Journey Tones ── */
+  --color-cool-blue: #3b82f6;
+  --color-cool-purple: #8b5cf6;
+  --color-cool-cyan: #06b6d4;
+
+  /* ── Neutral Tones for Timeline ── */
+  --color-neutral-light: #fafafa;
+  --color-neutral-medium: #f3f4f6;
+  --color-neutral-dark: #e5e7eb;
 
   /* ── Tertiary: steel for series badges ── */
   --color-steel: #4a7fa7;
@@ -32,9 +49,9 @@
   --color-steel-dim: rgba(74, 127, 167, 0.15);
 
   /* ── Borders & dividers ── */
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-light: rgba(255, 255, 255, 0.1);
-  --color-border-strong: rgba(255, 255, 255, 0.15);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-light: rgba(255, 255, 255, 0.12);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
 
   /* ── Fonts ── */
   --font-display: "Cinzel", "Bebas Neue", "Georgia", serif;
@@ -211,5 +228,180 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ── Cinematic Gradients ── */
+.bg-gradient-cosmic {
+  background: linear-gradient(
+    135deg,
+    #6366f1 0%,
+    #8b5cf6 50%,
+    #ec4899 100%
+  );
+}
+
+.bg-gradient-crimson {
+  background: linear-gradient(
+    135deg,
+    #dc2626 0%,
+    #ef4444 50%,
+    #f97316 100%
+  );
+}
+
+.bg-gradient-warm {
+  background: linear-gradient(
+    135deg,
+    #fbbf24 0%,
+    #f97316 50%,
+    #ef4444 100%
+  );
+}
+
+.bg-gradient-cool {
+  background: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #06b6d4 50%,
+    #8b5cf6 100%
+  );
+}
+
+.bg-gradient-neutral {
+  background: linear-gradient(
+    135deg,
+    #f3f4f6 0%,
+    #e5e7eb 100%
+  );
+}
+
+/* ── Animated Gradient Text ── */
+.gradient-text {
+  background: var(--gradient, linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-cosmic {
+  --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+}
+
+.gradient-text-crimson {
+  --gradient: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f97316 100%);
+}
+
+/* ── Cinematic Shadows ── */
+.shadow-cosmic {
+  box-shadow:
+    0 0 30px rgba(99, 102, 241, 0.3),
+    0 0 60px rgba(99, 102, 241, 0.15),
+    inset 0 0 40px rgba(99, 102, 241, 0.1);
+}
+
+.shadow-crimson {
+  box-shadow:
+    0 0 30px rgba(220, 38, 38, 0.3),
+    0 0 60px rgba(220, 38, 38, 0.15),
+    inset 0 0 40px rgba(220, 38, 38, 0.1);
+}
+
+.shadow-warm {
+  box-shadow:
+    0 0 30px rgba(249, 115, 22, 0.3),
+    0 0 60px rgba(249, 115, 22, 0.15),
+    inset 0 0 40px rgba(249, 115, 22, 0.1);
+}
+
+/* ── Floating Animation Keyframes ── */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+}
+
+/* ── Staggered Children Animation (for use with Framer Motion) ── */
+.stagger-children {
+  > * + * {
+    margin-top: 0.75rem;
+  }
+}
+
+/* ── Glass Morphism ── */
+.glass-panel {
+  background: rgba(20, 20, 24, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Neon Border ── */
+.neon-border {
+  position: relative;
+  border: none;
+}
+
+.neon-border::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    #6366f1,
+    #8b5cf6,
+    #ec4899,
+    #f97316,
+    #ec4899,
+    #8b5cf6,
+    #6366f1
+  );
+  background-size: 400%;
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(8px);
+  animation: glowMove 6s linear infinite;
+}
+
+@keyframes glowMove {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
   }
 }

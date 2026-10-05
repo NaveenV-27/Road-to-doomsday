@@ -2,135 +2,704 @@
   {
     "id": "captain-america-first-avenger",
     "title": "Captain America: The First Avenger",
-    "mediaType": "movie",
-    "release": {
-      "year": 2011,
-      "date": "2011-07-22"
-    },
-    "timeline": {
-      "phase": 1,
-      "storyYear": 1943
-    },
-    "art": {
-      "poster": "/posters/Captain_America_The_First_Avenger.jpg"
-    },
-    "content": {
-      "description": "Steve Rogers becomes the first super soldier to fight in WWII.",
-      "cast": "Chris Evans"
-    },
-    "watch": {
-      "official": [
-        { "platform": "Disney+", "url": "https://disneyplus.com" }
-      ],
-      "legalLocator": "https://justwatch.com"
-    },
-    "connections": {
-      "characters": ["captain-america"],
-      "relatedTitles": ["avengers", "captain-america-winter-soldier"]
-    },
-    "journey": {
-      "importance": "essential",
-      "spoilerLevel": 0
-    }
+    "type": "movie",
+    "year": 2011,
+    "phase": 1,
+    "chronologicalYear": 1943,
+    "poster": "/posters/Captain_America_The_First_Avenger.jpg",
+    "desc": "Steve Rogers becomes the first super soldier to fight in WWII.",
+    "cast": "Chris Evans",
+    "link": "https://drive.google.com/file/d/1pyDfNCAHoes5WzeG1__tGz4QFXJGNj_J/view?usp=drivesdk",
+    "play": "https://vegamovie.site/15888-captain-america-the-first-avenger-2011-hindi-dual-audio-movie-hevc-170mb-brrip.html"
+  },
+  {
+    "id": "captain-marvel",
+    "title": "Captain Marvel",
+    "type": "movie",
+    "year": 2019,
+    "phase": 3,
+    "chronologicalYear": 1995,
+    "poster": "/posters/Captain_Marvel.jpg",
+    "desc": "Carol Danvers discovers her past and her powers while caught in a Kree-Skrull war.",
+    "cast": "Brie Larson",
+    "link": "https://drive.google.com/file/d/1iC589abEQE9OW0D0Qq6otrg3QiYUkIVm/view?usp=drivesdk",
+    "play": "https://vegamovie.site/2940-captain-marvel-2019-hindi-720p.html"
   },
   {
     "id": "iron-man",
     "title": "Iron Man",
-    "mediaType": "movie",
-    "release": {
-      "year": 2008,
-      "date": "2008-05-02"
-    },
-    "timeline": {
-      "phase": 1,
-      "storyYear": 2010
-    },
-    "art": {
-      "poster": "/posters/Iron_Man.jpg"
-    },
-    "content": {
-      "description": "Tony Stark builds his first armored suit after being held captive.",
-      "cast": "Robert Downey Jr."
-    },
-    "watch": {
-      "official": [
-        { "platform": "Disney+", "url": "https://disneyplus.com" }
-      ],
-      "legalLocator": "https://justwatch.com"
-    },
-    "connections": {
-      "characters": ["iron-man"],
-      "relatedTitles": ["iron-man-2", "avengers"]
-    },
-    "journey": {
-      "importance": "essential",
-      "spoilerLevel": 0
-    }
+    "type": "movie",
+    "year": 2008,
+    "phase": 1,
+    "chronologicalYear": 2010,
+    "poster": "/posters/Iron_Man.jpg",
+    "desc": "Tony Stark builds his first armored suit after being held captive.",
+    "cast": "Robert Downey Jr.",
+    "link": "https://drive.google.com/file/d/12htxsq3w372_HYDbnRppYi5QusiKvcAM/view?usp=drivesdk",
+    "play": "https://new1.hdhub4u.af/iron-man-2008-hindi-bluray/"
+  },
+  {
+    "id": "incredible-hulk",
+    "title": "The Incredible Hulk",
+    "type": "movie",
+    "year": 2008,
+    "phase": 1,
+    "chronologicalYear": 2011,
+    "poster": "/posters/The_Incredible_Hulk.jpg",
+    "desc": "Bruce Banner evades the military while trying to control his rage.",
+    "cast": "Edward Norton",
+    "link": "https://drive.google.com/file/d/1mVdHoJeI6zAkZhLHUHfeXSWPNiq6vAKj/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/17499-the-incredible-hulk-2008-hindi-dual-audio-720p-bluray-900mb.html"
+  },
+  {
+    "id": "iron-man-2",
+    "title": "Iron Man 2",
+    "type": "movie",
+    "year": 2010,
+    "phase": 1,
+    "chronologicalYear": 2011,
+    "poster": "/posters/Iron_Man_2.jpg",
+    "desc": "Tony faces new threats while his health quietly deteriorates.",
+    "cast": "Robert Downey Jr.",
+    "link": "https://drive.google.com/file/d/1VHWftfT7r8dizh63kk2HPvc5g5lldxk6/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/24108-iron-man-2-2010-hindi-dual-audio-480p-bluray-350mb.html"
+  },
+  {
+    "id": "thor",
+    "title": "Thor",
+    "type": "movie",
+    "year": 2011,
+    "phase": 1,
+    "chronologicalYear": 2011,
+    "poster": "/posters/Thor.jpg",
+    "desc": "Thor is banished to Earth and must learn humility to reclaim his hammer.",
+    "cast": "Chris Hemsworth",
+    "link": "https://drive.google.com/file/d/1zaHAefO8yPANrTWfV0RCX5EtCef9BA8X/view?usp=drivesdk",
+    "play": "https://hdstream4u.com/file/7vozr67g0ivo"
+  },
+  {
+    "id": "avengers",
+    "title": "The Avengers",
+    "type": "movie",
+    "year": 2012,
+    "phase": 1,
+    "chronologicalYear": 2012,
+    "poster": "/posters/The_Avengers.jpg",
+    "desc": "Earth's mightiest heroes assemble to stop Loki and the Chitauri.",
+    "cast": "Ensemble",
+    "link": "https://drive.google.com/file/d/16j-9L8G74ruil8wHC_muRItIdJjDpToc/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/26388-the-avengers-2012-hindi-dual-audio-480p-bluray-450mb.html"
+  },
+  {
+    "id": "iron-man-3",
+    "title": "Iron Man 3",
+    "type": "movie",
+    "year": 2013,
+    "phase": 2,
+    "chronologicalYear": 2012,
+    "poster": "/posters/Iron_Man_3.jpg",
+    "desc": "Tony battles PTSD and a new enemy calling himself the Mandarin.",
+    "cast": "Robert Downey Jr.",
+    "link": "https://drive.google.com/file/d/1E4OnUbyx0Yqq_PCyT94wxjndSKuqH5Lh/view?usp=drivesdk",
+    "play": "https://prmovies.directory/iron-man-3-2013-Watch-online-full-movie/"
+  },
+  {
+    "id": "thor-dark-world",
+    "title": "Thor: The Dark World",
+    "type": "movie",
+    "year": 2013,
+    "phase": 2,
+    "chronologicalYear": 2013,
+    "poster": "/posters/Thor_The_Dark_World.jpg",
+    "desc": "Thor fights to save the universe from the ancient Dark Elves.",
+    "cast": "Chris Hemsworth",
+    "link": "https://drive.google.com/file/d/1psbOCq3V2IaC4jRYXmuyM6xKe_XGvtii/view?usp=drivesdk",
+    "play": "https://prmovies.directory/thor-the-dark-world-2013-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "captain-america-winter-soldier",
+    "title": "Captain America: The Winter Soldier",
+    "type": "movie",
+    "year": 2014,
+    "phase": 2,
+    "chronologicalYear": 2014,
+    "poster": "/posters/Captain_America_The_Winter_Soldier.jpg",
+    "desc": "Cap uncovers a conspiracy embedded inside S.H.I.E.L.D. itself.",
+    "cast": "Chris Evans",
+    "link": "https://drive.google.com/file/d/1iPXMC1uKeb9c6wZE0JhnZXDUl8Jhocin/view?usp=drivesdk",
+    "play": "https://prmovies.directory/captain-america-the-winter-soldier-2014-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "guardians-vol-1",
+    "title": "Guardians of the Galaxy",
+    "type": "movie",
+    "year": 2014,
+    "phase": 2,
+    "chronologicalYear": 2014,
+    "poster": "/posters/Guardians_of_the_Galaxy.jpg",
+    "desc": "A ragtag crew protects the galaxy from a fanatical warlord.",
+    "cast": "Chris Pratt",
+    "link": "https://drive.google.com/file/d/1bFUk1tNGqfsUhkMG15sxkDWXjKLi1Lge/view?usp=drivesdk",
+    "play": "https://prmovies.directory/guardians-of-the-galaxy-2014-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "guardians-vol-2",
+    "title": "Guardians of the Galaxy Vol. 2",
+    "type": "movie",
+    "year": 2017,
+    "phase": 3,
+    "chronologicalYear": 2014,
+    "poster": "/posters/Guardians_of_the_Galaxy_Vol_2.jpg",
+    "desc": "The Guardians uncover Peter Quill's true parentage while dodging a new threat.",
+    "cast": "Chris Pratt",
+    "link": "https://drive.google.com/file/d/1z-n4kKXasupQR8Rjn9uWCD3JENRzRTHU/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/5823-guardians-of-the-galaxy-vol-2-2017-hindi-dual-audio-hevc-720p-bluray.html"
+  },
+  {
+    "id": "avengers-age-of-ultron",
+    "title": "Avengers: Age of Ultron",
+    "type": "movie",
+    "year": 2015,
+    "phase": 2,
+    "chronologicalYear": 2015,
+    "poster": "/posters/Avengers_Age_of_Ultron.jpg",
+    "desc": "The Avengers face an artificial intelligence of their own making.",
+    "cast": "Ensemble",
+    "link": "https://drive.google.com/file/d/11ZrGifbBMJ3bW2SU3NUk3nLBEzZCHglh/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/7014-avengers-age-of-ultron-2015-hindi-dual-audio-480p-bluray-400mb.html"
+  },
+  {
+    "id": "ant-man",
+    "title": "Ant-Man",
+    "type": "movie",
+    "year": 2015,
+    "phase": 2,
+    "chronologicalYear": 2015,
+    "poster": "/posters/Ant_Man.jpg",
+    "desc": "Scott Lang becomes the size-shifting hero, Ant-Man.",
+    "cast": "Paul Rudd",
+    "link": "https://drive.google.com/file/d/1Q9252SjS0rFSR6fAJgfkHlIBhPygomwe/view?usp=drivesdk",
+    "play": "https://prmovies.directory/ant-man-2015-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "captain-america-civil-war",
+    "title": "Captain America: Civil War",
+    "type": "movie",
+    "year": 2016,
+    "phase": 3,
+    "chronologicalYear": 2016,
+    "poster": "/posters/Captain_America_Civil_War.jpg",
+    "desc": "The Avengers split into two camps over a government accountability act.",
+    "cast": "Chris Evans",
+    "link": "https://drive.google.com/file/d/1-QcffVwfyoVQLjWPkPbCGksEhVvFoOIg/view?usp=drivesdk",
+    "play": "https://prmovies.directory/captain-america-civil-war-2016-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "black-widow",
+    "title": "Black Widow",
+    "type": "movie",
+    "year": 2021,
+    "phase": 4,
+    "chronologicalYear": 2016,
+    "poster": "/posters/Black_Widow.jpg",
+    "desc": "Natasha Romanoff confronts her past as a spy while on the run.",
+    "cast": "Scarlett Johansson",
+    "link": "https://drive.google.com/file/d/1pziYZwJnPI6lgVMud4eEycR82tmwbAy8/view?usp=drivesdk",
+    "play": "https://prmovies.directory/black-widow-2021-Watch-online-full-movie/"
+  },
+  {
+    "id": "black-panther",
+    "title": "Black Panther",
+    "type": "movie",
+    "year": 2018,
+    "phase": 3,
+    "chronologicalYear": 2016,
+    "poster": "/posters/Black_Panther.jpg",
+    "desc": "T'Challa returns home to claim the throne and protect Wakanda's secrets.",
+    "cast": "Chadwick Boseman",
+    "link": "https://drive.google.com/file/d/1KjATC-E4ZLq1kRbp9VCLGeTe3QgAWl97/view?usp=drivesdk",
+    "play": "https://prmovies.directory/black-panther-2018-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "spider-man-homecoming",
+    "title": "Spider-Man: Homecoming",
+    "type": "movie",
+    "year": 2017,
+    "phase": 3,
+    "chronologicalYear": 2016,
+    "poster": "/posters/Spider-Man_Homecoming.jpg",
+    "desc": "Peter Parker balances high school life with his new Avengers ambitions.",
+    "cast": "Tom Holland",
+    "link": "https://drive.google.com/file/d/1ogSXcFRKoTecsIT4UIllUuN8jKf2oocO/view?usp=drivesdk",
+    "play": "https://prmovies.directory/spider-man-homecoming-2017-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "doctor-strange",
+    "title": "Doctor Strange",
+    "type": "movie",
+    "year": 2016,
+    "phase": 3,
+    "chronologicalYear": 2016,
+    "poster": "/posters/Doctor_Strange.jpg",
+    "desc": "A brilliant surgeon learns the mystic arts after a career-ending accident.",
+    "cast": "Benedict Cumberbatch",
+    "link": "https://drive.google.com/file/d/18kySU-SHYIc1T8GwYmRh3l59y2kSOu9v/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/18231-doctor-strange-hinid-dubbed-hevc-720p-khatrimaza.html"
+  },
+  {
+    "id": "thor-ragnarok",
+    "title": "Thor: Ragnarok",
+    "type": "movie",
+    "year": 2017,
+    "phase": 3,
+    "chronologicalYear": 2017,
+    "poster": "/posters/Thor_Ragnarok.jpg",
+    "desc": "Thor must escape captivity and stop Hela from destroying Asgard.",
+    "cast": "Chris Hemsworth",
+    "link": "https://drive.google.com/file/d/1bs_YJTPwwTwwaAOuEUlNiFOf-kA8RCao/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/16857-thor-ragnarok-2017-dual-audio-hindi-480p-bluray-420mb.html"
+  },
+  {
+    "id": "avengers-infinity-war",
+    "title": "Avengers: Infinity War",
+    "type": "movie",
+    "year": 2018,
+    "phase": 3,
+    "chronologicalYear": 2018,
+    "poster": "/posters/Avengers_Infinity_War.jpg",
+    "desc": "The Avengers race to stop Thanos from collecting the Infinity Stones.",
+    "cast": "Ensemble",
+    "link": "https://drive.google.com/file/d/1SalTeTJ8QekB8U2wiJeH0hURtp4KRVn1/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/25038-avengers-infinity-war-2018-hindi-dual-audio-bluray-hevc-250mb-esubs.html"
+  },
+  {
+    "id": "ant-man-wasp",
+    "title": "Ant-Man and the Wasp",
+    "type": "movie",
+    "year": 2018,
+    "phase": 3,
+    "chronologicalYear": 2018,
+    "poster": "/posters/Ant_Man_and_the_Wasp.jpg",
+    "desc": "Scott teams up with Hope van Dyne on a rescue mission into the Quantum Realm.",
+    "cast": "Paul Rudd",
+    "link": "https://drive.google.com/file/d/1gQgVSAaqJcv9xV5YFFyNEzJNSFVAd4Kz/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/16458-ant-man-and-the-wasp-2018-hindi-org-dual-audio-720p-bluray-1-1gb.html"
   },
   {
     "id": "avengers-endgame",
     "title": "Avengers: Endgame",
-    "mediaType": "movie",
-    "release": {
-      "year": 2019,
-      "date": "2019-04-26"
-    },
-    "timeline": {
-      "phase": 3,
-      "storyYear": 2023
-    },
-    "art": {
-      "poster": "/posters/Avengers_Endgame.jpg"
-    },
-    "content": {
-      "description": "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the cosmos.",
-      "cast": "Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johansson, Jeremy Renner, Don Cheadle, Paul Rudd, Brie Larson, Karen Gillan"
-    },
-    "watch": {
-      "official": [
-        { "platform": "Disney+", "url": "https://disneyplus.com" }
-      ],
-      "legalLocator": "https://justwatch.com"
-    },
-    "connections": {
-      "characters": ["iron-man", "captain-america", "thor", "hulk", "black-widow", "hawkeye"],
-      "relatedTitles": ["avengers-infinity-war", "avengers"]
-    },
-    "journey": {
-      "importance": "essential",
-      "spoilerLevel": 2
-    }
+    "type": "movie",
+    "year": 2019,
+    "phase": 3,
+    "chronologicalYear": 2023,
+    "poster": "/posters/Avengers_Endgame.jpg",
+    "desc": "The remaining Avengers attempt a time heist to undo the Blip.",
+    "cast": "Ensemble",
+    "link": "https://drive.google.com/file/d/1sP0fM6lKK_7aQdIS9PrlxMcF2Gn50dK2/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/426-avengers-endgame-2019-hindi-dual-audio-720p.html"
+  },
+  {
+    "id": "wandavision",
+    "title": "WandaVision",
+    "type": "series",
+    "year": 2021,
+    "phase": 4,
+    "chronologicalYear": 2023,
+    "poster": "/posters/WandaVision.jpg",
+    "desc": "Wanda Maximoff builds a sitcom reality in Westview to bury her grief.",
+    "cast": "Elizabeth Olsen",
+    "link": "",
+    "play": "https://prmovies.directory/wandavision-2021-season-1-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "falcon-winter-soldier",
+    "title": "The Falcon and the Winter Soldier",
+    "type": "series",
+    "year": 2021,
+    "phase": 4,
+    "chronologicalYear": 2024,
+    "poster": "/posters/The_Falcon_and_the_Winter_Soldier.jpg",
+    "desc": "Sam Wilson and Bucky Barnes team up against a new Super Soldier threat.",
+    "cast": "Anthony Mackie",
+    "link": "",
+    "play": "https://new1.hdhub4u.af/the-falcon-and-the-winter-soldier-season-1-webrip-all-episodes/"
+  },
+  {
+    "id": "loki",
+    "title": "Loki",
+    "type": "series",
+    "year": 2021,
+    "phase": 4,
+    "chronologicalYear": 2023,
+    "poster": "/posters/Loki.jpg",
+    "desc": "A variant Loki is recruited by the TVA to fix fractures in the timeline.",
+    "cast": "Tom Hiddleston",
+    "link": "",
+    "play": "https://new1.hdhub4u.af/loki-season-1-webrip-all-episodes/"
+  },
+  {
+    "id": "what-if",
+    "title": "What If...?",
+    "type": "series",
+    "year": 2021,
+    "phase": 4,
+    "chronologicalYear": 2023,
+    "poster": "/posters/What_If.jpg",
+    "desc": "The Watcher explores alternate realities born from single changed moments.",
+    "cast": "Jeffrey Wright",
+    "link": "",
+    "play": "https://new1.hdhub4u.af/what-if-season-3-hindi-hq-dub-webrip-all-episodes/"
+  },
+  {
+    "id": "shang-chi",
+    "title": "Shang-Chi and the Legend of the Ten Rings",
+    "type": "movie",
+    "year": 2021,
+    "phase": 4,
+    "chronologicalYear": 2024,
+    "poster": "/posters/Shang-Chi_and_the_Legend_of_the_Ten_Rings.jpg",
+    "desc": "Shang-Chi confronts his father's legacy and the mysterious Ten Rings.",
+    "cast": "Simu Liu",
+    "link": "https://drive.google.com/file/d/1aYBHbSfznlTioOHT9WH-gC4Q6-DcZBHk/view?usp=drivesdk",
+    "play": "https://new1.hdhub4u.af/shang-chi-and-the-legend-of-the-ten-rings-2021-bluray-hindi-dd5-1-english-1080p-720p-480p-dual-audio-esubs-full-movie/"
+  },
+  {
+    "id": "eternals",
+    "title": "Eternals",
+    "type": "movie",
+    "year": 2021,
+    "phase": 4,
+    "chronologicalYear": 2024,
+    "poster": "/posters/Eternals.jpg",
+    "desc": "An ancient group of immortals reunites to face the emergence of the Deviants.",
+    "cast": "Gemma Chan",
+    "link": "https://drive.google.com/file/d/1LcCENpJFvs7nAbFKdsDh95tlmheE98YZ/view?usp=drivesdk",
+    "play": ""
+  },
+  {
+    "id": "hawkeye",
+    "title": "Hawkeye",
+    "type": "series",
+    "year": 2021,
+    "phase": 4,
+    "chronologicalYear": 2024,
+    "poster": "/posters/Hawkeye.jpg",
+    "desc": "Clint Barton trains Kate Bishop while an old enemy resurfaces at Christmas.",
+    "cast": "Jeremy Renner",
+    "link": "",
+    "play": "https://vegamoviess.pro/26433-hawkeye-2021-season-1-dual-audio-hindi-hdrip-720p-480p.html"
+  },
+  {
+    "id": "spider-man-far-from-home",
+    "title": "Spider-Man: Far From Home",
+    "type": "movie",
+    "year": 2019,
+    "phase": 3,
+    "chronologicalYear": 2024,
+    "poster": "/posters/Spider-Man_Far_From_Home.jpg",
+    "desc": "Peter Parker faces Mysterio while grieving Tony Stark on a school trip to Europe.",
+    "cast": "Tom Holland",
+    "link": "https://drive.google.com/file/d/1P8JN-5fZIpwYv2ENeRDaCs4-TJBKa3Na/view?usp=drivesdk",
+    "play": ""
+  },
+  {
+    "id": "spider-man-no-way-home",
+    "title": "Spider-Man: No Way Home",
+    "type": "movie",
+    "year": 2021,
+    "phase": 4,
+    "chronologicalYear": 2024,
+    "poster": "/posters/Spider-Man_No_Way_Home.jpg",
+    "desc": "A spell gone wrong tears open the multiverse and Peter's secret identity.",
+    "cast": "Tom Holland",
+    "link": "https://drive.google.com/file/d/1jaIBXijrmc4Oy4lLqWnonufdPY2mET_f/view?usp=drivesdk",
+    "play": ""
+  },
+  {
+    "id": "moon-knight",
+    "title": "Moon Knight",
+    "type": "series",
+    "year": 2022,
+    "phase": 4,
+    "chronologicalYear": 2024,
+    "poster": "/posters/Moon_Knight.jpg",
+    "desc": "Steven Grant discovers he shares a body with mercenary Marc Spector.",
+    "cast": "Oscar Isaac",
+    "link": "",
+    "play": "https://new1.hdhub4u.af/moon-knight-season-1-webrip-all-episodes/"
+  },
+  {
+    "id": "ms-marvel",
+    "title": "Ms. Marvel",
+    "type": "series",
+    "year": 2022,
+    "phase": 4,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Ms._Marvel.jpg",
+    "desc": "Kamala Khan discovers her powers and becomes her idols' biggest fan turned hero.",
+    "cast": "Iman Vellani",
+    "link": "",
+    "play": "https://prmovies.directory/ms-marvel-2022-season-1-hindi-dubbed-hotstar-specials-Watch-online-full-movie/"
+  },
+  {
+    "id": "doctor-strange-multiverse-of-madness",
+    "title": "Doctor Strange in the Multiverse of Madness",
+    "type": "movie",
+    "year": 2022,
+    "phase": 4,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Doctor_Strange_in_the_Multiverse_of_Madness.jpg",
+    "desc": "Strange journeys across realities to protect a girl who can travel between them.",
+    "cast": "Benedict Cumberbatch",
+    "link": "https://drive.google.com/file/d/1m9JD9RklN3jCKl-rpuvbNsLMBZkCDG_3/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/15135-doctor-strange-in-the-multiverse-of-madness-2022.html"
+  },
+  {
+    "id": "thor-love-and-thunder",
+    "title": "Thor: Love and Thunder",
+    "type": "movie",
+    "year": 2022,
+    "phase": 4,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Thor_Love_and_Thunder.webp",
+    "desc": "Thor seeks inner peace but must face Gorr the God Butcher instead.",
+    "cast": "Chris Hemsworth",
+    "link": "https://drive.google.com/file/d/1yfbPJKcEHcHdWtugtjtFi4i6bVc_FVrR/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/26010-thor-love-and-thunder-2022-hindi-dual-audio-hdcam-720p-480p.html"
+  },
+  {
+    "id": "she-hulk",
+    "title": "She-Hulk: Attorney at Law",
+    "type": "series",
+    "year": 2022,
+    "phase": 4,
+    "chronologicalYear": 2025,
+    "poster": "/posters/She-Hulk_Attorney_at_Law.jpg",
+    "desc": "Jennifer Walters navigates life and law as a newly-minted Hulk.",
+    "cast": "Tatiana Maslany",
+    "link": "",
+    "play": "https://prmovies.directory/she-hulk-attorney-at-law-2022-season-1-hindi-dubbed-hotstar-specials-Watch-online-full-movie/"
+  },
+  {
+    "id": "black-panther-wakanda-forever",
+    "title": "Black Panther: Wakanda Forever",
+    "type": "movie",
+    "year": 2022,
+    "phase": 4,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Black_Panther_Wakanda_Forever.jpg",
+    "desc": "Wakanda fights to protect its nation from world powers while mourning T'Challa and confronting Namor's underwater kingdom.",
+    "cast": "Letitia Wright",
+    "link": "https://drive.google.com/file/d/1rtl5P0iJ0IJpyDadNsie8Cpo7uFb7J02/view?usp=drivesdk",
+    "play": "https://new1.hdhub4u.af/black-panther-wakanda-forever-2022-hindi-bluray-full-movie/"
+  },
+  {
+    "id": "werewolf-by-night",
+    "title": "Werewolf by Night",
+    "type": "special",
+    "year": 2022,
+    "phase": 4,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Werewolf_By_Night.webp",
+    "desc": "Monster hunters compete in a deadly contest at a gothic mansion.",
+    "cast": "Gael Garc\u00eda Bernal",
+    "link": "",
+    "play": "https://prmovies.directory/werewolf-by-night-2022-Watch-online-full-movie/"
+  },
+  {
+    "id": "secret-invasion",
+    "title": "Secret Invasion",
+    "type": "series",
+    "year": 2023,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Secret_Invasion.jpg",
+    "desc": "Nick Fury uncovers a shape-shifting Skrull conspiracy on Earth.",
+    "cast": "Samuel L. Jackson",
+    "link": "",
+    "play": "https://new1.hdhub4u.af/secret-invasion-season-1-hindi-webrip-all-episodes/"
+  },
+  {
+    "id": "ant-man-quantumania",
+    "title": "Ant-Man and the Wasp: Quantumania",
+    "type": "movie",
+    "year": 2023,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Ant_Man_and_the_Wasp_Quantumania.jpg",
+    "desc": "The Lang-van Dyne family is pulled into the Quantum Realm to face Kang.",
+    "cast": "Paul Rudd",
+    "link": "https://drive.google.com/file/d/1Gcv3ekgK4XvD88XcQQjdJyCEWB0pFKNe/view?usp=drivesdk",
+    "play": "https://prmovies.directory/ant-man-and-the-wasp-quantumania-2023-Watch-online-full-movie/"
+  },
+  {
+    "id": "guardians-vol-3",
+    "title": "Guardians of the Galaxy Vol. 3",
+    "type": "movie",
+    "year": 2023,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Guardians_of_the_Galaxy_Vol_3.jpg",
+    "desc": "The Guardians risk everything to save Rocket from his dark origins.",
+    "cast": "Chris Pratt",
+    "link": "https://drive.google.com/file/d/1zSNyNMvnHQ-4byyynzyZsPfqEzOK6o02/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/32631-guardians-of-the-galaxy-vol-3-2023-hindi-cleaned-dual-audio-hdts-720p-480p.html"
+  },
+  {
+    "id": "the-marvels",
+    "title": "The Marvels",
+    "type": "movie",
+    "year": 2023,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/The_Marvels.jpg",
+    "desc": "Carol Danvers, Kamala Khan, and Monica Rambeau swap places when their powers entangle.",
+    "cast": "Brie Larson",
+    "link": "https://drive.google.com/file/d/1LP49ipNG9ZzDqw75mXEmlH_AOmwHDurX/view?usp=drivesdk",
+    "play": "https://prmovies.directory/the-marvels-2023-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "echo",
+    "title": "Echo",
+    "type": "series",
+    "year": 2024,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Echo.jpg",
+    "desc": "Maya Lopez returns home and confronts her family ties to Kingpin's empire.",
+    "cast": "Alaqua Cox",
+    "link": "",
+    "play": "https://prmovies.directory/echo-2024-season-1-hindi-dubbed-hotstar-specials-Watch-online-full-movie/"
+  },
+  {
+    "id": "agatha-all-along",
+    "title": "Agatha All Along",
+    "type": "series",
+    "year": 2024,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Agatha_All_Along.jpg",
+    "desc": "A stripped-of-power Agatha Harkness walks the Witches' Road for a shot at redemption.",
+    "cast": "Kathryn Hahn",
+    "link": "",
+    "play": "https://prmovies.directory/agatha-all-along-2024-season-1-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "deadpool-and-wolverine",
+    "title": "Deadpool & Wolverine",
+    "type": "movie",
+    "year": 2024,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Deadpool_and_Wolverine.webp",
+    "desc": "Deadpool drags a reluctant Wolverine variant into a fight to save his universe.",
+    "cast": "Ryan Reynolds",
+    "link": "https://drive.google.com/file/d/1IpgSUBdPoSlP29UvPBUPbbZpPwEqKsoC/view?usp=drivesdk",
+    "play": "https://prmovies.directory/deadpool-wolverine-2024-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "captain-america-brave-new-world",
+    "title": "Captain America: Brave New World",
+    "type": "movie",
+    "year": 2025,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Captain_America_Brave_New_World.jpg",
+    "desc": "Sam Wilson steps fully into the Captain America mantle amid a global crisis.",
+    "cast": "Anthony Mackie",
+    "link": "https://drive.google.com/file/d/1c1MatpQkIAjqnKFlWGBfKKVoPMsTvVgF/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/38520-captain-america-brave-new-world-2025-hindi-dubbed-camrip-1080p-720p-480p.html"
+  },
+  {
+    "id": "daredevil-born-again",
+    "title": "Daredevil: Born Again",
+    "type": "series",
+    "year": 2025,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Daredevil_Born_Again.jpg",
+    "desc": "Matt Murdock and Wilson Fisk's paths collide again in New York.",
+    "cast": "Charlie Cox",
+    "link": "",
+    "play": "https://prmovies.directory/daredevil-born-again-2025-season-1-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "ironheart",
+    "title": "Ironheart",
+    "type": "series",
+    "year": 2025,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Ironheart.jpg",
+    "desc": "Genius inventor Riri Williams builds her own armored suit and crosses paths with magic.",
+    "cast": "Dominique Thorne",
+    "link": "",
+    "play": "https://prmovies.directory/ironheart-2025-season-1-episode-4-6-hindi-dubbed-hotstar-specials-Watch-online-full-movie/"
+  },
+  {
+    "id": "thunderbolts",
+    "title": "Thunderbolts*",
+    "type": "movie",
+    "year": 2025,
+    "phase": 5,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Thunderbolts.jpg",
+    "desc": "A team of morally grey antiheroes is thrown together on a doomed black-ops mission.",
+    "cast": "Florence Pugh",
+    "link": "https://drive.google.com/file/d/1LojebgyU_sA2jWdnYAhH9HHMx069a7p6/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/43437-thunderbolts-2025-hindi-dual-audio-web-dl-720p-480p-1080p.html"
+  },
+  {
+    "id": "fantastic-four-first-steps",
+    "title": "The Fantastic Four: First Steps",
+    "type": "movie",
+    "year": 2025,
+    "phase": 6,
+    "chronologicalYear": 2025,
+    "poster": "/posters/Fantastic_Four.jpg",
+    "desc": "Marvel's First Family defends their retro-futuristic Earth from Galactus.",
+    "cast": "Pedro Pascal",
+    "link": "https://drive.google.com/file/d/1hyzhIDBXb52XTK40wqhOoG4OtXDs5aTt/view?usp=drivesdk",
+    "play": "https://vegamoviess.pro/45582-the-fantastic-4-first-steps-2025-hindi-dual-audio-web-dl-720p-480p-1080p.html"
+  },
+  {
+    "id": "wonder-man",
+    "title": "Wonder Man",
+    "type": "series",
+    "year": 2026,
+    "phase": 6,
+    "chronologicalYear": 2026,
+    "poster": "/posters/Wonder_Man.jpg",
+    "desc": "Stuntman Simon Williams gets pulled into the superhero life he's always doubled for.",
+    "cast": "Yahya Abdul-Mateen II",
+    "link": "",
+    "play": "https://prmovies.directory/wonder-man-2026-season-1-hindi-dubbed-Watch-online-full-movie/"
+  },
+  {
+    "id": "spider-man-brand-new-day",
+    "title": "Spider-Man: Brand New Day",
+    "type": "movie",
+    "year": 2026,
+    "phase": 6,
+    "chronologicalYear": 2028,
+    "poster": "/posters/Spider-Man_Brand_New_Day.jpg",
+    "desc": "Peter Parker fights crime full-time in a world that's forgotten him, until a hidden new threat forces a change he can't control.",
+    "cast": "Tom Holland",
+    "link": "https://drive.google.com/file/d/1-PNNQH-An7npeCFK8FUsC2E-ixqgOQuo/view?usp=drivesdk",
+    "play": "https://slast430did.com/play/tt22084616"
   },
   {
     "id": "avengers-doomsday",
     "title": "Avengers: Doomsday",
-    "mediaType": "movie",
-    "release": {
-      "year": 2026,
-      "date": "2026-12-18"
-    },
-    "timeline": {
-      "phase": 6,
-      "storyYear": 2029
-    },
-    "art": {
-      "poster": "/posters/Avengers_Doomsday.jpg"
-    },
-    "content": {
-      "description": "The Avengers face their greatest challenge yet as Doctor Doom threatens to reshape reality itself.",
-      "cast": "Robert Downey Jr., Chris Evans, Chris Hemsworth, Scarlet Johansson, etc."
-    },
-    "watch": {
-      "official": [],
-      "legalLocator": "https://justwatch.com"
-    },
-    "connections": {
-      "characters": ["iron-man", "captain-america", "thor", "hulk", "black-widow"],
-      "relatedTitles": []
-    },
-    "journey": {
-      "importance": "essential",
-      "spoilerLevel": 2
-    }
+    "type": "movie",
+    "year": 2026,
+    "phase": 6,
+    "chronologicalYear": 2029,
+    "poster": "/posters/Avengers_Doomsday.jpg",
+    "desc": "The Avengers face Doctor Doom in a battle that reshapes the multiverse.",
+    "cast": "Ensemble",
+    "releaseDate": "2026-12-18",
+    "link": "",
+    "play": ""
   }
 ]

@@ -5,6 +5,7 @@ import CountdownTimer from "../components/CountdownTimer.jsx";
 import SectionVideo from "../components/SectionVideo.jsx";
 import CharacterSpotlight from "../components/CharacterSpotlight.jsx";
 import JourneyProgress from "../components/JourneyProgress.jsx";
+import App from "../components/App.jsx";
 import { movies } from "../data/movies.json";
 
 const HERO_PLAYLIST = ["/bg/doomsday.mp4"];
@@ -14,52 +15,71 @@ const HERO_PLAYLIST = ["/bg/doomsday.mp4"];
 
   <!-- ═══ HERO SECTION ═══ -->
   <section class="relative min-h-[85vh] flex items-center overflow-hidden">
-    <SectionVideo client:load playlist={HERO_PLAYLIST} overlay="soft" />
+    <SectionVideo client:load playlist={HERO_PLAYLIST} overlay="cosmic" />
 
-    <!-- Atmospheric background -->
+    <!-- Cosmic atmospheric background -->
     <div class="pointer-events-none absolute inset-0 z-[1]">
-      <div class="absolute top-1/4 left-1/10 w-[400px] h-[300px] rounded-full bg-accent/[0.03] blur-[80px]" />
-      <div class="absolute bottom-1/4 right-1/10 w-[350px] h-[250px] rounded-full bg-gold/[0.02] blur-[60px]" />
+      <div class="absolute top-1/6 left-1/12 w-[500px] h-[400px] rounded-full bg-gradient-cosmic/10 blur-[100px]" />
+      <div class="absolute bottom-1/6 right-1/12 w-[400px] h-[300px] rounded-full bg-gradient-crimson/10 blur-[80px]" />
+      <div class="absolute top-1/3 left-2/3 w-[200px] h-[200px] rounded-full bg-gradient-cosmic/20 blur-[60px]" />
+      <div class="absolute bottom-1/4 left-1/6 w-[150px] h-[150px] rounded-full bg-gradient-warm/15 blur-[50px]" />
+
+      <!-- Subtle stars -->
+      <div class="absolute inset-0 bg-[url('/public/bg/stars.png')] bg-repeat opacity-[0.03]" />
     </div>
 
-    <div class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 py-20">
+    <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 py-24">
       <div class="text-center">
-        <!-- Section label -->
-        <span class="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-accent-bright/80">
+        <!-- Section label with animated gradient -->
+        <span class="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] shimmer">
           Way to Doomsday
         </span>
 
-        <h1 class="font-display text-5xl sm:text-6xl tracking-[0.02em] leading-[1.1] mb-6 drop-shadow-[0_2px_16px_rgba(0,0,0,0.7)]">
-          Your journey through the<br class="hidden sm:inline" />
-          <span class="text-accent-bright">Marvel Multiverse</span>
+        <h1 class="font-display text-6xl sm:text-7xl tracking-[0] leading-[1.05] mb-8 relative">
+          <span class="relative z-10">
+            Your journey through the
+          </span>
+          <span class="block relative z-10">
+            <span class="gradient-text-cosmic block">
+              Marvel Multiverse
+            </span>
+          </span>
         </h1>
 
-        <p class="text-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-          Every movie and series in chronological order, building toward Avengers: Doomsday.
+        <p class="text-muted max-w-3xl mx-auto text-base leading-relaxed mb-10">
+          Experience every Marvel Cinematic Universe story in chronological order,
+          building toward the ultimate confrontation in Avengers: Doomsday.
         </p>
 
-        <!-- Countdown -->
-        <div class="flex items-center justify-center mt-8">
-          <span class="text-[10px] uppercase tracking-[0.2em] text-muted font-medium mr-3">
+        <!-- Countdown with cinematic styling -->
+        <div class="flex items-center justify-center mb-12">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-muted-dark font-medium mr-6">
             Countdown to Doomsday
           </span>
-          <CountdownTimer client:load />
+          <CountdownTimer client:load className="text-[4rem] sm:text-[5rem] font-mono leading-none text-white tracking-tighter relative" />
         </div>
 
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-          <a href="#timeline" class="btn-primary w-full sm:w-auto">
-            Continue Journey
+        <!-- CTA Buttons with enhanced styling -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <a href="#timeline" class="btn-primary btn-neon px-8 py-3 text-base sm:text-lg w-full sm:w-auto">
+            Begin Your Journey
           </a>
-          <a href="/multiverse" class="btn-secondary w-full sm:w-auto">
+          <a href="/multiverse" class="btn-secondary btn-outline px-8 py-3 text-base sm:text-lg w-full sm:w-auto">
             Explore the Multiverse
           </a>
         </div>
+
+        <!-- Fun tagline -->
+        <p class="text-xs text-muted-dark mt-6 tracking-wider uppercase font-mono">
+          "One timeline. Zero chill."
+        </p>
       </div>
     </div>
 
-    <!-- Bottom fade -->
-    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg to-transparent z-[2]" />
+    <!-- Enhanced bottom fade with cosmic touch -->
+    <div class="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[rgba(8,8,10,0.9)] to-[rgba(8,8,10,0)] z-[2]">
+      <div class="absolute inset-0 bg-gradient-to-b from-cosmic/5 to-transparent" />
+    </div>
   </section>
 
   <!-- ═══ JOURNEY PROGRESS ═══ -->
@@ -82,6 +102,11 @@ const HERO_PLAYLIST = ["/bg/doomsday.mp4"];
         Experience the MCU in story order, tracking your progress toward the ultimate confrontation.
       </p>
     </div>
+  </section>
+
+  <!-- ═══ MAIN TIMELINE ═══ -->
+  <section id="timeline">
+    <App client:visible />
   </section>
 
   <!-- Footer will be added by Layout -->
