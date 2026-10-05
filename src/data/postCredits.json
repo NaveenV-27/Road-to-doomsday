@@ -1,0 +1,74 @@
+[
+  {
+    "movieId": "iron-man",
+    "scenes": [
+      {
+        "position": "post-credit",
+        "spoiler": true,
+        "title": "Nick Fury Appears",
+        "description": "Nick Fury arrives at Tony Stark's home to discuss the Avengers Initiative, setting up the MCU's interconnected future."
+      }
+    ]
+  },
+  {
+    "movieId": "avengers-infinity-war",
+    "scenes": [
+      {
+        "position": "post-credit",
+        "spoiler": true,
+        "title": "The Pager",
+        "description": "As people turn to dust, Nick Fury sends a distress signal on a modified pager. The screen shows Captain Marvel's symbol."
+      }
+    ]
+  },
+  {
+    "movieId": "captain-marvel",
+    "scenes": [
+      {
+        "position": "post-credit",
+        "spoiler": true,
+        "title": "The Avengers Find the Pager",
+        "description": "The remaining Avengers study Fury's pager when Captain Marvel suddenly appears, asking 'Where's Fury?'"
+      }
+    ]
+  },
+  {
+    "movieId": "avengers-endgame",
+    "scenes": [
+      {
+        "position": "mid-credit",
+        "spoiler": false,
+        "title": "No Post-Credits",
+        "description": "Avengers: Endgame has no traditional post-credits scene. Instead, you hear the sound of Tony Stark forging his first armor from Iron Man."
+      }
+    ]
+  },
+  {
+    "movieId": "spider-man-far-from-home",
+    "scenes": [
+      {
+        "position": "mid-credit",
+        "spoiler": true,
+        "title": "Identity Revealed",
+        "description": "Mysterio's team releases doctored footage revealing Spider-Man's identity as Peter Parker to the world."
+      },
+      {
+        "position": "post-credit",
+        "spoiler": true,
+        "title": "Skrulls Revealed",
+        "description": "Nick Fury is revealed to be Talos the Skrull, while the real Fury commands a Skrull ship in space."
+      }
+    ]
+  },
+  {
+    "movieId": "spider-man-no-way-home",
+    "scenes": [
+      {
+        "position": "mid-credit",
+        "spoiler": true,
+        "title": "Venom in the MCU",
+        "description": "A piece of the Venom symbiote is left behind in the MCU after Eddie Brock returns to his universe."
+      }
+    ]
+  }
+]

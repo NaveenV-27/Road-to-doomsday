@@ -1,0 +1,111 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CharacterTimeline from "../../components/CharacterTimeline.jsx";
+import CHARACTERS from "../../data/characters.json";
+import movies from "../../data/movies.json";
+import { getMovieData } from "../../lib/movieUtils.js";
+
+export function getStaticPaths() {
+  return CHARACTERS.map((character) => ({
+    params: { slug: character.slug },
+    props: { character },
+  }));
+}
+
+const { character } = Astro.props;
+
+// Get related characters (characters that appear in the same movies)
+const relatedCharacters = [];
+character.movieIds.forEach(movieId => {
+  const movie = movies.find(m => m.id === movieId);
+  if (movie) {
+    const movieData = getMovieData(movie);
+    movieData.connections.characters.forEach(charId => {
+      const relatedChar = CHARACTERS.find(c => c.slug === charId);
+      if (relatedChar && relatedChar.slug !== character.slug && !relatedCharacters.find(rc => rc.slug === charId)) {
+        relatedCharacters.push(relatedChar);
+      }
+    });
+  }
+});
+---
+<Layout title={`${character.name} — Way to Doomsday`} description="Explore ${character.name}'s journey through the Marvel Cinematic Universe">
+  <!-- Character hero banner -->
+  <section class="relative min-h-[50vh] flex items-end overflow-hidden border-b border-white/5">
+    <div class="absolute inset-0">
+      <img
+        src={character.poster}
+        alt={character.name}
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/70 to-black/40" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+    </div>
+
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pb-12 pt-24">
+      <a
+        href="/"
+        class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-muted hover:text-white transition-colors mb-6"
+      >
+        ← Back to timeline
+      </a>
+      <span class="text-[11px] uppercase tracking-widest text-accent-bright font-bold">
+        Character Spotlight
+      </span>
+      <h1 class="font-display text-5xl sm:text-7xl tracking-wide leading-none mt-2">
+        {character.name}
+      </h1>
+      <p class="text-muted mt-3 text-sm sm:text-base">
+        Played by {character.actor} · {character.tagline}
+      </p>
+    </div>
+  </section>
+
+  <!-- Character's movie playlist -->
+  <section class="relative pt-12">
+    <CharacterTimeline client:load movieIds={character.movieIds} />
+  </section>
+
+  {/* Related Characters Section */}
+  {relatedCharacters.length > 0 && (
+    <section class="relative pt-16 pb-20 border-t border-white/[0.06]">
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 className="font-display text-2xl sm:text-3xl tracking-wide text-center mb-6">
+          Related Characters
+        </h2>
+        <p className="text-muted max-w-xl mx-auto text-center">
+          Characters who have appeared alongside {character.name} in the MCU
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {relatedCharacters.map((relatedChar) => (
+            <a
+              key={relatedChar.slug}
+              href={`/character/${relatedChar.slug}`}
+              className="group block rounded-xl overflow-hidden border border-white/[0.08] transition-all duration-300 hover:border-white/20 hover:shadow-lg"
+            >
+              <div className="relative aspect-[2/3] w-full rounded-xl overflow-hidden shadow-2xl shadow-black/60">
+                <img
+                  src={relatedChar.poster}
+                  alt={`${relatedChar.name} poster`}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              </div>
+              <div className="mt-4 p-4">
+                <h3 className="font-display text-lg tracking-wide mb-2">
+                  {relatedChar.name}
+                </h3>
+                <p className="text-muted text-sm">
+                  {relatedChar.tagline}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Footer will be added by Layout -->
+</Layout>

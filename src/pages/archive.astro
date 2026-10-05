@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FactCard from "../components/FactCard.jsx";
+import facts from "../data/facts.json";
+
+export function getStaticPaths() {
+  return [{ params: {} }];
+}
+---
+<Layout title="Archive — Way to Doomsday" description="Discover fascinating facts, behind-the-scenes trivia, and hidden connections in the MCU">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+    <h2 className="font-display text-3xl sm:text-4xl tracking-wide text-center mb-8">
+      ARCHIVE
+    </h2>
+
+    <div className="space-y-8">
+      {/* Random Fact Button */}
+      <div className="text-center">
+        <button
+          onClick={() => {
+            // In a real implementation, this would fetch a random fact
+            // For now, we'll just show an alert
+            alert("Random fact feature coming soon!");
+          }}
+          className="btn-primary"
+        >
+          Random Fact
+        </button>
+      </div>
+
+      {/* Facts by Type */}
+      <div className="space-y-6">
+        {/* History Facts */}
+        <div>
+          <h3 className="font-display text-xl tracking-wide mb-4">Did You Know? (History)</h3>
+          <div className="space-y-4">
+            {facts
+              .filter(fact => fact.type === "history")
+              .map((fact) => (
+                <FactCard key={fact.id} fact={fact} />
+              ))}
+          </div>
+        </div>
+
+        {/* Production Facts */}
+        <div>
+          <h3 className="font-display text-xl tracking-wide mb-4">Behind the Scenes (Production)</h3>
+          <div className="space-y-4">
+            {facts
+              .filter(fact => fact.type === "production")
+              .map((fact) => (
+                <FactCard key={fact.id} fact={fact} />
+              ))}
+          </div>
+        </div>
+
+        {/* Comic Connections */}
+        <div>
+          <h3 className="font-display text-xl tracking-wide mb-4">Comic Connections</h3>
+          <div className="space-y-4">
+            {facts
+              .filter(fact => fact.type === "comic")
+              .map((fact) => (
+                <FactCard key={fact.id} fact={fact} />
+              ))}
+          </div>
+        </div>
+
+        {/* Easter Eggs */}
+        <div>
+          <h3 className="font-display text-xl tracking-wide mb-4">Easter Eggs</h3>
+          <div className="space-y-4">
+            {facts
+              .filter(fact => fact.type === "easter-egg")
+              .map((fact) => (
+                <FactCard key={fact.id} fact={fact} />
+              ))}
+          </div>
+        </div>
+
+        {/* Character Facts */}
+        <div>
+          <h3 className="font-display text-xl tracking-wide mb-4">Character Facts</h3>
+          <div className="space-y-4">
+            {facts
+              .filter(fact => fact.type === "character")
+              .map((fact) => (
+                <FactCard key={fact.id} fact={fact} />
+              ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

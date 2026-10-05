@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import CountdownTimer from "../components/CountdownTimer.jsx";
+import SectionVideo from "../components/SectionVideo.jsx";
+import CharacterSpotlight from "../components/CharacterSpotlight.jsx";
+import JourneyProgress from "../components/JourneyProgress.jsx";
+import { movies } from "../data/movies.json";
+
+const HERO_PLAYLIST = ["/bg/doomsday.mp4"];
+---
+<Layout>
+  <SiteNav />
+
+  <!-- ═══ HERO SECTION ═══ -->
+  <section class="relative min-h-[85vh] flex items-center overflow-hidden">
+    <SectionVideo client:load playlist={HERO_PLAYLIST} overlay="soft" />
+
+    <!-- Atmospheric background -->
+    <div class="pointer-events-none absolute inset-0 z-[1]">
+      <div class="absolute top-1/4 left-1/10 w-[400px] h-[300px] rounded-full bg-accent/[0.03] blur-[80px]" />
+      <div class="absolute bottom-1/4 right-1/10 w-[350px] h-[250px] rounded-full bg-gold/[0.02] blur-[60px]" />
+    </div>
+
+    <div class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 py-20">
+      <div class="text-center">
+        <!-- Section label -->
+        <span class="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-accent-bright/80">
+          Way to Doomsday
+        </span>
+
+        <h1 class="font-display text-5xl sm:text-6xl tracking-[0.02em] leading-[1.1] mb-6 drop-shadow-[0_2px_16px_rgba(0,0,0,0.7)]">
+          Your journey through the<br class="hidden sm:inline" />
+          <span class="text-accent-bright">Marvel Multiverse</span>
+        </h1>
+
+        <p class="text-muted max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+          Every movie and series in chronological order, building toward Avengers: Doomsday.
+        </p>
+
+        <!-- Countdown -->
+        <div class="flex items-center justify-center mt-8">
+          <span class="text-[10px] uppercase tracking-[0.2em] text-muted font-medium mr-3">
+            Countdown to Doomsday
+          </span>
+          <CountdownTimer client:load />
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <a href="#timeline" class="btn-primary w-full sm:w-auto">
+            Continue Journey
+          </a>
+          <a href="/multiverse" class="btn-secondary w-full sm:w-auto">
+            Explore the Multiverse
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg to-transparent z-[2]" />
+  </section>
+
+  <!-- ═══ JOURNEY PROGRESS ═══ -->
+  <JourneyProgress client:load />
+
+  <!-- ═══ CHARACTER SPOTLIGHT ═══ -->
+  <section class="relative pt-16 pb-20 border-t border-white/[0.06]">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+      <CharacterSpotlight client:load />
+    </div>
+  </section>
+
+  <!-- ═══ TIMELINE INTRODUCTION ═══ -->
+  <section class="relative pt-20 pb-24 border-t border-white/[0.06]">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="font-display text-2xl sm:text-3xl tracking-wide text-center mb-6">
+        TIMELINE
+      </h2>
+      <p class="text-muted max-w-xl mx-auto text-center">
+        Experience the MCU in story order, tracking your progress toward the ultimate confrontation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer will be added by Layout -->
+</Layout>

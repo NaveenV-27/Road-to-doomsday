@@ -1,0 +1,32 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/journey", label: "Journey" },
+  { href: "/timeline", label: "Timeline" },
+  { href: "/multiverse", label: "Multiverse" },
+  { href: "/characters", label: "Characters" },
+  { href: "/archive", label: "Archive" },
+];
+---
+
+<nav class="sticky top-0 z-40 border-b border-white/[0.06] bg-bg/80 backdrop-blur-2xl">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="/" class="group flex items-center gap-2">
+      <span class="font-display text-sm sm:text-base tracking-[0.2em] text-text font-semibold uppercase">
+        Road to <span class="text-accent-bright">Doomsday</span>
+      </span>
+    </a>
+    <div class="hidden sm:flex items-center gap-8">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="text-[11px] font-medium uppercase tracking-[0.15em] text-muted hover:text-accent-bright transition-colors duration-300"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+  <!-- Cinematic bottom accent line -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+</nav>

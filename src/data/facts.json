@@ -1,0 +1,66 @@
+[
+  {
+    "id": "fact-001",
+    "title": "The Beginning",
+    "body": "Iron Man launched the Marvel Cinematic Universe in 2008, with Robert Downey Jr.'s iconic performance as Tony Stark setting the tone for everything that followed.",
+    "type": "history",
+    "relatedMovies": ["iron-man"],
+    "spoilerLevel": 0
+  },
+  {
+    "id": "fact-002",
+    "title": "Post-Credit Pioneer",
+    "body": "Iron Man's post-credits scene featuring Nick Fury established the template for MCU's interconnected storytelling, teasing the Avengers Initiative.",
+    "type": "production",
+    "relatedMovies": ["iron-man"],
+    "spoilerLevel": 1
+  },
+  {
+    "id": "fact-003",
+    "title": "Infinity Stones",
+    "body": "The Infinity Saga spans 23 films across Phases 1-3, culminating in Avengers: Endgame. The six Infinity Stones were introduced gradually throughout the saga.",
+    "type": "history",
+    "relatedMovies": ["avengers-infinity-war", "avengers-endgame"],
+    "spoilerLevel": 0
+  },
+  {
+    "id": "fact-004",
+    "title": "The Snap",
+    "body": "Avengers: Infinity War shocked audiences worldwide with its ending. Half of all life in the universe disappeared, including many beloved heroes.",
+    "type": "history",
+    "relatedMovies": ["avengers-infinity-war"],
+    "spoilerLevel": 2
+  },
+  {
+    "id": "fact-005",
+    "title": "Multiverse Opens",
+    "body": "Spider-Man: No Way Home and Doctor Strange in the Multiverse of Madness opened the door to the multiverse, bringing back characters from previous Marvel film franchises.",
+    "type": "history",
+    "relatedMovies": ["spider-man-no-way-home", "doctor-strange-multiverse"],
+    "spoilerLevel": 1
+  },
+  {
+    "id": "fact-006",
+    "title": "Practical Effects",
+    "body": "Despite heavy CGI use, the MCU often employs practical effects. Captain America's shield was often a real prop, and many stunts were performed by actors and stunt teams.",
+    "type": "production",
+    "relatedMovies": [],
+    "spoilerLevel": 0
+  },
+  {
+    "id": "fact-007",
+    "title": "Stan Lee Cameos",
+    "body": "Stan Lee appeared in nearly every MCU film until his passing in 2018. His cameos became a beloved tradition, celebrating the creator of many Marvel characters.",
+    "type": "character",
+    "relatedMovies": [],
+    "spoilerLevel": 0
+  },
+  {
+    "id": "fact-008",
+    "title": "Comic Origins",
+    "body": "The Infinity Gauntlet storyline from the comics inspired the Infinity Saga, though the MCU took creative liberties with character roles and outcomes.",
+    "type": "comic",
+    "relatedMovies": ["avengers-infinity-war", "avengers-endgame"],
+    "spoilerLevel": 0
+  }
+]

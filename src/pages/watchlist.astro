@@ -1,0 +1,11 @@
+---
+import Layout from "../layouts/Layout.astro";
+import WatchlistTabs from "../components/WatchlistTabs.jsx";
+
+export function getStaticPaths() {
+  return [{ params: {} }];
+}
+---
+<Layout title="Watchlist — Way to Doomsday" description="Your personal watchlist for tracking Marvel movies and series">
+  <WatchlistTabs client:load />
+</Layout>

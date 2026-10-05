@@ -1,0 +1,1735 @@
+{
+  "schemaVersion": 2,
+  "project": "way-to-doomsday",
+  "description": "Static content dataset for the Way to Doomsday frontend. User-specific state must not be stored here.",
+  "movies": [
+    {
+      "id": "captain-america-first-avenger",
+      "title": "Captain America: The First Avenger",
+      "mediaType": "movie",
+      "release": {
+        "year": 2011,
+        "date": null
+      },
+      "timeline": {
+        "phase": 1,
+        "storyYear": 1943
+      },
+      "art": {
+        "poster": "/posters/Captain_America_The_First_Avenger.jpg"
+      },
+      "content": {
+        "description": "Steve Rogers becomes the first super soldier to fight in WWII.",
+        "cast": "Chris Evans"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "captain-marvel",
+      "title": "Captain Marvel",
+      "mediaType": "movie",
+      "release": {
+        "year": 2019,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 1995
+      },
+      "art": {
+        "poster": "/posters/Captain_Marvel.jpg"
+      },
+      "content": {
+        "description": "Carol Danvers discovers her past and her powers while caught in a Kree-Skrull war.",
+        "cast": "Brie Larson"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "iron-man",
+      "title": "Iron Man",
+      "mediaType": "movie",
+      "release": {
+        "year": 2008,
+        "date": null
+      },
+      "timeline": {
+        "phase": 1,
+        "storyYear": 2010
+      },
+      "art": {
+        "poster": "/posters/Iron_Man.jpg"
+      },
+      "content": {
+        "description": "Tony Stark builds his first armored suit after being held captive.",
+        "cast": "Robert Downey Jr."
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "incredible-hulk",
+      "title": "The Incredible Hulk",
+      "mediaType": "movie",
+      "release": {
+        "year": 2008,
+        "date": null
+      },
+      "timeline": {
+        "phase": 1,
+        "storyYear": 2011
+      },
+      "art": {
+        "poster": "/posters/The_Incredible_Hulk.jpg"
+      },
+      "content": {
+        "description": "Bruce Banner evades the military while trying to control his rage.",
+        "cast": "Edward Norton"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "iron-man-2",
+      "title": "Iron Man 2",
+      "mediaType": "movie",
+      "release": {
+        "year": 2010,
+        "date": null
+      },
+      "timeline": {
+        "phase": 1,
+        "storyYear": 2011
+      },
+      "art": {
+        "poster": "/posters/Iron_Man_2.jpg"
+      },
+      "content": {
+        "description": "Tony faces new threats while his health quietly deteriorates.",
+        "cast": "Robert Downey Jr."
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "thor",
+      "title": "Thor",
+      "mediaType": "movie",
+      "release": {
+        "year": 2011,
+        "date": null
+      },
+      "timeline": {
+        "phase": 1,
+        "storyYear": 2011
+      },
+      "art": {
+        "poster": "/posters/Thor.jpg"
+      },
+      "content": {
+        "description": "Thor is banished to Earth and must learn humility to reclaim his hammer.",
+        "cast": "Chris Hemsworth"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "avengers",
+      "title": "The Avengers",
+      "mediaType": "movie",
+      "release": {
+        "year": 2012,
+        "date": null
+      },
+      "timeline": {
+        "phase": 1,
+        "storyYear": 2012
+      },
+      "art": {
+        "poster": "/posters/The_Avengers.jpg"
+      },
+      "content": {
+        "description": "Earth's mightiest heroes assemble to stop Loki and the Chitauri.",
+        "cast": "Ensemble"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "iron-man-3",
+      "title": "Iron Man 3",
+      "mediaType": "movie",
+      "release": {
+        "year": 2013,
+        "date": null
+      },
+      "timeline": {
+        "phase": 2,
+        "storyYear": 2012
+      },
+      "art": {
+        "poster": "/posters/Iron_Man_3.jpg"
+      },
+      "content": {
+        "description": "Tony battles PTSD and a new enemy calling himself the Mandarin.",
+        "cast": "Robert Downey Jr."
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "thor-dark-world",
+      "title": "Thor: The Dark World",
+      "mediaType": "movie",
+      "release": {
+        "year": 2013,
+        "date": null
+      },
+      "timeline": {
+        "phase": 2,
+        "storyYear": 2013
+      },
+      "art": {
+        "poster": "/posters/Thor_The_Dark_World.jpg"
+      },
+      "content": {
+        "description": "Thor fights to save the universe from the ancient Dark Elves.",
+        "cast": "Chris Hemsworth"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "captain-america-winter-soldier",
+      "title": "Captain America: The Winter Soldier",
+      "mediaType": "movie",
+      "release": {
+        "year": 2014,
+        "date": null
+      },
+      "timeline": {
+        "phase": 2,
+        "storyYear": 2014
+      },
+      "art": {
+        "poster": "/posters/Captain_America_The_Winter_Soldier.jpg"
+      },
+      "content": {
+        "description": "Cap uncovers a conspiracy embedded inside S.H.I.E.L.D. itself.",
+        "cast": "Chris Evans"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "guardians-vol-1",
+      "title": "Guardians of the Galaxy",
+      "mediaType": "movie",
+      "release": {
+        "year": 2014,
+        "date": null
+      },
+      "timeline": {
+        "phase": 2,
+        "storyYear": 2014
+      },
+      "art": {
+        "poster": "/posters/Guardians_of_the_Galaxy.jpg"
+      },
+      "content": {
+        "description": "A ragtag crew protects the galaxy from a fanatical warlord.",
+        "cast": "Chris Pratt"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "guardians-vol-2",
+      "title": "Guardians of the Galaxy Vol. 2",
+      "mediaType": "movie",
+      "release": {
+        "year": 2017,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 2014
+      },
+      "art": {
+        "poster": "/posters/Guardians_of_the_Galaxy_Vol_2.jpg"
+      },
+      "content": {
+        "description": "The Guardians uncover Peter Quill's true parentage while dodging a new threat.",
+        "cast": "Chris Pratt"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "avengers-age-of-ultron",
+      "title": "Avengers: Age of Ultron",
+      "mediaType": "movie",
+      "release": {
+        "year": 2015,
+        "date": null
+      },
+      "timeline": {
+        "phase": 2,
+        "storyYear": 2015
+      },
+      "art": {
+        "poster": "/posters/Avengers_Age_of_Ultron.jpg"
+      },
+      "content": {
+        "description": "The Avengers face an artificial intelligence of their own making.",
+        "cast": "Ensemble"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "ant-man",
+      "title": "Ant-Man",
+      "mediaType": "movie",
+      "release": {
+        "year": 2015,
+        "date": null
+      },
+      "timeline": {
+        "phase": 2,
+        "storyYear": 2015
+      },
+      "art": {
+        "poster": "/posters/Ant_Man.jpg"
+      },
+      "content": {
+        "description": "Scott Lang becomes the size-shifting hero, Ant-Man.",
+        "cast": "Paul Rudd"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "captain-america-civil-war",
+      "title": "Captain America: Civil War",
+      "mediaType": "movie",
+      "release": {
+        "year": 2016,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 2016
+      },
+      "art": {
+        "poster": "/posters/Captain_America_Civil_War.jpg"
+      },
+      "content": {
+        "description": "The Avengers split into two camps over a government accountability act.",
+        "cast": "Chris Evans"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "black-widow",
+      "title": "Black Widow",
+      "mediaType": "movie",
+      "release": {
+        "year": 2021,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2016
+      },
+      "art": {
+        "poster": "/posters/Black_Widow.jpg"
+      },
+      "content": {
+        "description": "Natasha Romanoff confronts her past as a spy while on the run.",
+        "cast": "Scarlett Johansson"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "black-panther",
+      "title": "Black Panther",
+      "mediaType": "movie",
+      "release": {
+        "year": 2018,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 2016
+      },
+      "art": {
+        "poster": "/posters/Black_Panther.jpg"
+      },
+      "content": {
+        "description": "T'Challa returns home to claim the throne and protect Wakanda's secrets.",
+        "cast": "Chadwick Boseman"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "spider-man-homecoming",
+      "title": "Spider-Man: Homecoming",
+      "mediaType": "movie",
+      "release": {
+        "year": 2017,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 2016
+      },
+      "art": {
+        "poster": "/posters/Spider-Man_Homecoming.jpg"
+      },
+      "content": {
+        "description": "Peter Parker balances high school life with his new Avengers ambitions.",
+        "cast": "Tom Holland"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "doctor-strange",
+      "title": "Doctor Strange",
+      "mediaType": "movie",
+      "release": {
+        "year": 2016,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 2016
+      },
+      "art": {
+        "poster": "/posters/Doctor_Strange.jpg"
+      },
+      "content": {
+        "description": "A brilliant surgeon learns the mystic arts after a career-ending accident.",
+        "cast": "Benedict Cumberbatch"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "thor-ragnarok",
+      "title": "Thor: Ragnarok",
+      "mediaType": "movie",
+      "release": {
+        "year": 2017,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 2017
+      },
+      "art": {
+        "poster": "/posters/Thor_Ragnarok.jpg"
+      },
+      "content": {
+        "description": "Thor must escape captivity and stop Hela from destroying Asgard.",
+        "cast": "Chris Hemsworth"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "avengers-infinity-war",
+      "title": "Avengers: Infinity War",
+      "mediaType": "movie",
+      "release": {
+        "year": 2018,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 2018
+      },
+      "art": {
+        "poster": "/posters/Avengers_Infinity_War.jpg"
+      },
+      "content": {
+        "description": "The Avengers race to stop Thanos from collecting the Infinity Stones.",
+        "cast": "Ensemble"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "ant-man-wasp",
+      "title": "Ant-Man and the Wasp",
+      "mediaType": "movie",
+      "release": {
+        "year": 2018,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 2018
+      },
+      "art": {
+        "poster": "/posters/Ant_Man_and_the_Wasp.jpg"
+      },
+      "content": {
+        "description": "Scott teams up with Hope van Dyne on a rescue mission into the Quantum Realm.",
+        "cast": "Paul Rudd"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "avengers-endgame",
+      "title": "Avengers: Endgame",
+      "mediaType": "movie",
+      "release": {
+        "year": 2019,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 2023
+      },
+      "art": {
+        "poster": "/posters/Avengers_Endgame.jpg"
+      },
+      "content": {
+        "description": "The remaining Avengers attempt a time heist to undo the Blip.",
+        "cast": "Ensemble"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "wandavision",
+      "title": "WandaVision",
+      "mediaType": "series",
+      "release": {
+        "year": 2021,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2023
+      },
+      "art": {
+        "poster": "/posters/WandaVision.jpg"
+      },
+      "content": {
+        "description": "Wanda Maximoff builds a sitcom reality in Westview to bury her grief.",
+        "cast": "Elizabeth Olsen"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "falcon-winter-soldier",
+      "title": "The Falcon and the Winter Soldier",
+      "mediaType": "series",
+      "release": {
+        "year": 2021,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2024
+      },
+      "art": {
+        "poster": "/posters/The_Falcon_and_the_Winter_Soldier.jpg"
+      },
+      "content": {
+        "description": "Sam Wilson and Bucky Barnes team up against a new Super Soldier threat.",
+        "cast": "Anthony Mackie"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "loki",
+      "title": "Loki",
+      "mediaType": "series",
+      "release": {
+        "year": 2021,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2023
+      },
+      "art": {
+        "poster": "/posters/Loki.jpg"
+      },
+      "content": {
+        "description": "A variant Loki is recruited by the TVA to fix fractures in the timeline.",
+        "cast": "Tom Hiddleston"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "what-if",
+      "title": "What If...?",
+      "mediaType": "series",
+      "release": {
+        "year": 2021,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2023
+      },
+      "art": {
+        "poster": "/posters/What_If.jpg"
+      },
+      "content": {
+        "description": "The Watcher explores alternate realities born from single changed moments.",
+        "cast": "Jeffrey Wright"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "shang-chi",
+      "title": "Shang-Chi and the Legend of the Ten Rings",
+      "mediaType": "movie",
+      "release": {
+        "year": 2021,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2024
+      },
+      "art": {
+        "poster": "/posters/Shang-Chi_and_the_Legend_of_the_Ten_Rings.jpg"
+      },
+      "content": {
+        "description": "Shang-Chi confronts his father's legacy and the mysterious Ten Rings.",
+        "cast": "Simu Liu"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "eternals",
+      "title": "Eternals",
+      "mediaType": "movie",
+      "release": {
+        "year": 2021,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2024
+      },
+      "art": {
+        "poster": "/posters/Eternals.jpg"
+      },
+      "content": {
+        "description": "An ancient group of immortals reunites to face the emergence of the Deviants.",
+        "cast": "Gemma Chan"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "hawkeye",
+      "title": "Hawkeye",
+      "mediaType": "series",
+      "release": {
+        "year": 2021,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2024
+      },
+      "art": {
+        "poster": "/posters/Hawkeye.jpg"
+      },
+      "content": {
+        "description": "Clint Barton trains Kate Bishop while an old enemy resurfaces at Christmas.",
+        "cast": "Jeremy Renner"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "spider-man-far-from-home",
+      "title": "Spider-Man: Far From Home",
+      "mediaType": "movie",
+      "release": {
+        "year": 2019,
+        "date": null
+      },
+      "timeline": {
+        "phase": 3,
+        "storyYear": 2024
+      },
+      "art": {
+        "poster": "/posters/Spider-Man_Far_From_Home.jpg"
+      },
+      "content": {
+        "description": "Peter Parker faces Mysterio while grieving Tony Stark on a school trip to Europe.",
+        "cast": "Tom Holland"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "spider-man-no-way-home",
+      "title": "Spider-Man: No Way Home",
+      "mediaType": "movie",
+      "release": {
+        "year": 2021,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2024
+      },
+      "art": {
+        "poster": "/posters/Spider-Man_No_Way_Home.jpg"
+      },
+      "content": {
+        "description": "A spell gone wrong tears open the multiverse and Peter's secret identity.",
+        "cast": "Tom Holland"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "moon-knight",
+      "title": "Moon Knight",
+      "mediaType": "series",
+      "release": {
+        "year": 2022,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2024
+      },
+      "art": {
+        "poster": "/posters/Moon_Knight.jpg"
+      },
+      "content": {
+        "description": "Steven Grant discovers he shares a body with mercenary Marc Spector.",
+        "cast": "Oscar Isaac"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "ms-marvel",
+      "title": "Ms. Marvel",
+      "mediaType": "series",
+      "release": {
+        "year": 2022,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Ms._Marvel.jpg"
+      },
+      "content": {
+        "description": "Kamala Khan discovers her powers and becomes her idols' biggest fan turned hero.",
+        "cast": "Iman Vellani"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "doctor-strange-multiverse-of-madness",
+      "title": "Doctor Strange in the Multiverse of Madness",
+      "mediaType": "movie",
+      "release": {
+        "year": 2022,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Doctor_Strange_in_the_Multiverse_of_Madness.jpg"
+      },
+      "content": {
+        "description": "Strange journeys across realities to protect a girl who can travel between them.",
+        "cast": "Benedict Cumberbatch"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "thor-love-and-thunder",
+      "title": "Thor: Love and Thunder",
+      "mediaType": "movie",
+      "release": {
+        "year": 2022,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Thor_Love_and_Thunder.webp"
+      },
+      "content": {
+        "description": "Thor seeks inner peace but must face Gorr the God Butcher instead.",
+        "cast": "Chris Hemsworth"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "she-hulk",
+      "title": "She-Hulk: Attorney at Law",
+      "mediaType": "series",
+      "release": {
+        "year": 2022,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/She-Hulk_Attorney_at_Law.jpg"
+      },
+      "content": {
+        "description": "Jennifer Walters navigates life and law as a newly-minted Hulk.",
+        "cast": "Tatiana Maslany"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "black-panther-wakanda-forever",
+      "title": "Black Panther: Wakanda Forever",
+      "mediaType": "movie",
+      "release": {
+        "year": 2022,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Black_Panther_Wakanda_Forever.jpg"
+      },
+      "content": {
+        "description": "Wakanda fights to protect its nation from world powers while mourning T'Challa and confronting Namor's underwater kingdom.",
+        "cast": "Letitia Wright"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "werewolf-by-night",
+      "title": "Werewolf by Night",
+      "mediaType": "special",
+      "release": {
+        "year": 2022,
+        "date": null
+      },
+      "timeline": {
+        "phase": 4,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Werewolf_By_Night.webp"
+      },
+      "content": {
+        "description": "Monster hunters compete in a deadly contest at a gothic mansion.",
+        "cast": "Gael García Bernal"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "secret-invasion",
+      "title": "Secret Invasion",
+      "mediaType": "series",
+      "release": {
+        "year": 2023,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Secret_Invasion.jpg"
+      },
+      "content": {
+        "description": "Nick Fury uncovers a shape-shifting Skrull conspiracy on Earth.",
+        "cast": "Samuel L. Jackson"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "ant-man-quantumania",
+      "title": "Ant-Man and the Wasp: Quantumania",
+      "mediaType": "movie",
+      "release": {
+        "year": 2023,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Ant_Man_and_the_Wasp_Quantumania.jpg"
+      },
+      "content": {
+        "description": "The Lang-van Dyne family is pulled into the Quantum Realm to face Kang.",
+        "cast": "Paul Rudd"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "guardians-vol-3",
+      "title": "Guardians of the Galaxy Vol. 3",
+      "mediaType": "movie",
+      "release": {
+        "year": 2023,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Guardians_of_the_Galaxy_Vol_3.jpg"
+      },
+      "content": {
+        "description": "The Guardians risk everything to save Rocket from his dark origins.",
+        "cast": "Chris Pratt"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "the-marvels",
+      "title": "The Marvels",
+      "mediaType": "movie",
+      "release": {
+        "year": 2023,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/The_Marvels.jpg"
+      },
+      "content": {
+        "description": "Carol Danvers, Kamala Khan, and Monica Rambeau swap places when their powers entangle.",
+        "cast": "Brie Larson"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "echo",
+      "title": "Echo",
+      "mediaType": "series",
+      "release": {
+        "year": 2024,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Echo.jpg"
+      },
+      "content": {
+        "description": "Maya Lopez returns home and confronts her family ties to Kingpin's empire.",
+        "cast": "Alaqua Cox"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "agatha-all-along",
+      "title": "Agatha All Along",
+      "mediaType": "series",
+      "release": {
+        "year": 2024,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Agatha_All_Along.jpg"
+      },
+      "content": {
+        "description": "A stripped-of-power Agatha Harkness walks the Witches' Road for a shot at redemption.",
+        "cast": "Kathryn Hahn"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "deadpool-and-wolverine",
+      "title": "Deadpool & Wolverine",
+      "mediaType": "movie",
+      "release": {
+        "year": 2024,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Deadpool_and_Wolverine.webp"
+      },
+      "content": {
+        "description": "Deadpool drags a reluctant Wolverine variant into a fight to save his universe.",
+        "cast": "Ryan Reynolds"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "captain-america-brave-new-world",
+      "title": "Captain America: Brave New World",
+      "mediaType": "movie",
+      "release": {
+        "year": 2025,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Captain_America_Brave_New_World.jpg"
+      },
+      "content": {
+        "description": "Sam Wilson steps fully into the Captain America mantle amid a global crisis.",
+        "cast": "Anthony Mackie"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "daredevil-born-again",
+      "title": "Daredevil: Born Again",
+      "mediaType": "series",
+      "release": {
+        "year": 2025,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Daredevil_Born_Again.jpg"
+      },
+      "content": {
+        "description": "Matt Murdock and Wilson Fisk's paths collide again in New York.",
+        "cast": "Charlie Cox"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "ironheart",
+      "title": "Ironheart",
+      "mediaType": "series",
+      "release": {
+        "year": 2025,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Ironheart.jpg"
+      },
+      "content": {
+        "description": "Genius inventor Riri Williams builds her own armored suit and crosses paths with magic.",
+        "cast": "Dominique Thorne"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "thunderbolts",
+      "title": "Thunderbolts*",
+      "mediaType": "movie",
+      "release": {
+        "year": 2025,
+        "date": null
+      },
+      "timeline": {
+        "phase": 5,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Thunderbolts.jpg"
+      },
+      "content": {
+        "description": "A team of morally grey antiheroes is thrown together on a doomed black-ops mission.",
+        "cast": "Florence Pugh"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "fantastic-four-first-steps",
+      "title": "The Fantastic Four: First Steps",
+      "mediaType": "movie",
+      "release": {
+        "year": 2025,
+        "date": null
+      },
+      "timeline": {
+        "phase": 6,
+        "storyYear": 2025
+      },
+      "art": {
+        "poster": "/posters/Fantastic_Four.jpg"
+      },
+      "content": {
+        "description": "Marvel's First Family defends their retro-futuristic Earth from Galactus.",
+        "cast": "Pedro Pascal"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "wonder-man",
+      "title": "Wonder Man",
+      "mediaType": "series",
+      "release": {
+        "year": 2026,
+        "date": null
+      },
+      "timeline": {
+        "phase": 6,
+        "storyYear": 2026
+      },
+      "art": {
+        "poster": "/posters/Wonder_Man.jpg"
+      },
+      "content": {
+        "description": "Stuntman Simon Williams gets pulled into the superhero life he's always doubled for.",
+        "cast": "Yahya Abdul-Mateen II"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "spider-man-brand-new-day",
+      "title": "Spider-Man: Brand New Day",
+      "mediaType": "movie",
+      "release": {
+        "year": 2026,
+        "date": null
+      },
+      "timeline": {
+        "phase": 6,
+        "storyYear": 2028
+      },
+      "art": {
+        "poster": "/posters/Spider-Man_Brand_New_Day.jpg"
+      },
+      "content": {
+        "description": "Peter Parker fights crime full-time in a world that's forgotten him, until a hidden new threat forces a change he can't control.",
+        "cast": "Tom Holland"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    },
+    {
+      "id": "avengers-doomsday",
+      "title": "Avengers: Doomsday",
+      "mediaType": "movie",
+      "release": {
+        "year": 2026,
+        "date": "2026-12-18"
+      },
+      "timeline": {
+        "phase": 6,
+        "storyYear": 2029
+      },
+      "art": {
+        "poster": "/posters/Avengers_Doomsday.jpg"
+      },
+      "content": {
+        "description": "The Avengers face Doctor Doom in a battle that reshapes the multiverse.",
+        "cast": "Ensemble"
+      },
+      "watch": {
+        "official": [],
+        "legalLocator": null
+      },
+      "connections": {
+        "characters": [],
+        "relatedTitles": []
+      },
+      "journey": {
+        "importance": "essential",
+        "spoilerLevel": 0
+      }
+    }
+  ]
+}

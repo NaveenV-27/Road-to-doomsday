@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Way to Doomsday Content",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "project",
+    "movies"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer"
+    },
+    "project": {
+      "const": "way-to-doomsday"
+    },
+    "movies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "mediaType",
+          "release",
+          "timeline",
+          "art",
+          "content",
+          "watch",
+          "connections",
+          "journey"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "mediaType": {
+            "enum": [
+              "movie",
+              "series",
+              "special"
+            ]
+          },
+          "release": {
+            "type": "object",
+            "required": [
+              "year"
+            ],
+            "properties": {
+              "year": {
+                "type": "integer"
+              },
+              "date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              }
+            }
+          },
+          "timeline": {
+            "type": "object",
+            "properties": {
+              "phase": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "maximum": 6
+              },
+              "storyYear": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              }
+            }
+          },
+          "art": {
+            "type": "object",
+            "required": [
+              "poster"
+            ],
+            "properties": {
+              "poster": {
+                "type": "string"
+              }
+            }
+          },
+          "content": {
+            "type": "object",
+            "required": [
+              "description",
+              "cast"
+            ],
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "cast": {
+                "type": "string"
+              }
+            }
+          },
+          "watch": {
+            "type": "object",
+            "required": [
+              "official",
+              "legalLocator"
+            ],
+            "properties": {
+              "official": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "legalLocator": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              }
+            }
+          },
+          "connections": {
+            "type": "object",
+            "properties": {
+              "characters": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "relatedTitles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "journey": {
+            "type": "object",
+            "properties": {
+              "importance": {
+                "enum": [
+                  "essential",
+                  "recommended",
+                  "optional"
+                ]
+              },
+              "spoilerLevel": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

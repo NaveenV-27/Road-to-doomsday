@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import UniverseCard from "../components/UniverseCard.jsx";
+import universes from "../data/universes.json";
+---
+<Layout title="Multiverse Explorer — Way to Doomsday" description="Explore the various realities, timelines, and universes that exist beyond the main MCU timeline">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 className="font-display text-3xl sm:text-4xl tracking-wide text-center mb-6">
+        Multiverse Explorer
+      </h2>
+      <p className="text-muted max-w-xl mx-auto text-center">
+        Discover the various realities, timelines, and universes that exist beyond the main MCU timeline.
+      </p>
+    </div>
+
+    <div className="mt-12">
+      <h2 className="font-display text-2xl sm:text-3xl tracking-wide mb-8">
+        Known Universes
+      </h2>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {universes.map((uni) => (
+          <UniverseCard key={uni.id} universe={uni} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

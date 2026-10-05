@@ -1,0 +1,88 @@
+[
+  {
+    "id": "milestone-beginning",
+    "title": "The Beginning",
+    "description": "The birth of the MCU with Iron Man",
+    "movieIds": ["iron-man"],
+    "completionCondition": "watched-all"
+  },
+  {
+    "id": "milestone-avengers-assemble",
+    "title": "Avengers Assemble",
+    "description": "The first team-up of Earth's Mightiest Heroes",
+    "movieIds": ["avengers"],
+    "completionCondition": "watched-all"
+  },
+  {
+    "id": "milestone-infinity-saga",
+    "title": "Infinity Saga Complete",
+    "description": "Experience the complete 23-film Infinity Saga",
+    "movieIds": [
+      "iron-man",
+      "incredible-hulk",
+      "iron-man-2",
+      "thor",
+      "captain-america-first-avenger",
+      "avengers",
+      "iron-man-3",
+      "thor-dark-world",
+      "captain-america-winter-soldier",
+      "guardians-vol-1",
+      "avengers-age-of-ultron",
+      "ant-man",
+      "captain-america-civil-war",
+      "doctor-strange",
+      "guardians-vol-2",
+      "spider-man-homecoming",
+      "thor-ragnarok",
+      "black-panther",
+      "avengers-infinity-war",
+      "ant-man-and-the-wasp",
+      "captain-marvel",
+      "avengers-endgame",
+      "spider-man-far-from-home"
+    ],
+    "completionCondition": "watched-all"
+  },
+  {
+    "id": "milestone-the-blip",
+    "title": "The Blip",
+    "description": "Witness the universe-shattering event",
+    "movieIds": ["avengers-infinity-war", "avengers-endgame"],
+    "completionCondition": "watched-all"
+  },
+  {
+    "id": "milestone-multiverse-opens",
+    "title": "The Multiverse Opens",
+    "description": "The multiverse saga begins",
+    "movieIds": ["spider-man-no-way-home", "doctor-strange-multiverse"],
+    "completionCondition": "watched-all"
+  },
+  {
+    "id": "milestone-phase-4",
+    "title": "Phase 4 Complete",
+    "description": "New heroes, new threats, new realities",
+    "movieIds": [
+      "black-widow",
+      "shang-chi",
+      "eternals",
+      "spider-man-no-way-home",
+      "doctor-strange-multiverse",
+      "thor-love-and-thunder",
+      "black-panther-wakanda-forever"
+    ],
+    "completionCondition": "watched-all"
+  },
+  {
+    "id": "milestone-approaching-doomsday",
+    "title": "Approaching Doomsday",
+    "description": "Phase 6 complete - ready for the ultimate confrontation",
+    "movieIds": [
+      "captain-america-brave-new-world",
+      "thunderbolts",
+      "fantastic-four",
+      "avengers-doomsday"
+    ],
+    "completionCondition": "watched-all"
+  }
+]

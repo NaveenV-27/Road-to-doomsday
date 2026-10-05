@@ -1,0 +1,136 @@
+[
+  {
+    "id": "captain-america-first-avenger",
+    "title": "Captain America: The First Avenger",
+    "mediaType": "movie",
+    "release": {
+      "year": 2011,
+      "date": "2011-07-22"
+    },
+    "timeline": {
+      "phase": 1,
+      "storyYear": 1943
+    },
+    "art": {
+      "poster": "/posters/Captain_America_The_First_Avenger.jpg"
+    },
+    "content": {
+      "description": "Steve Rogers becomes the first super soldier to fight in WWII.",
+      "cast": "Chris Evans"
+    },
+    "watch": {
+      "official": [
+        { "platform": "Disney+", "url": "https://disneyplus.com" }
+      ],
+      "legalLocator": "https://justwatch.com"
+    },
+    "connections": {
+      "characters": ["captain-america"],
+      "relatedTitles": ["avengers", "captain-america-winter-soldier"]
+    },
+    "journey": {
+      "importance": "essential",
+      "spoilerLevel": 0
+    }
+  },
+  {
+    "id": "iron-man",
+    "title": "Iron Man",
+    "mediaType": "movie",
+    "release": {
+      "year": 2008,
+      "date": "2008-05-02"
+    },
+    "timeline": {
+      "phase": 1,
+      "storyYear": 2010
+    },
+    "art": {
+      "poster": "/posters/Iron_Man.jpg"
+    },
+    "content": {
+      "description": "Tony Stark builds his first armored suit after being held captive.",
+      "cast": "Robert Downey Jr."
+    },
+    "watch": {
+      "official": [
+        { "platform": "Disney+", "url": "https://disneyplus.com" }
+      ],
+      "legalLocator": "https://justwatch.com"
+    },
+    "connections": {
+      "characters": ["iron-man"],
+      "relatedTitles": ["iron-man-2", "avengers"]
+    },
+    "journey": {
+      "importance": "essential",
+      "spoilerLevel": 0
+    }
+  },
+  {
+    "id": "avengers-endgame",
+    "title": "Avengers: Endgame",
+    "mediaType": "movie",
+    "release": {
+      "year": 2019,
+      "date": "2019-04-26"
+    },
+    "timeline": {
+      "phase": 3,
+      "storyYear": 2023
+    },
+    "art": {
+      "poster": "/posters/Avengers_Endgame.jpg"
+    },
+    "content": {
+      "description": "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the cosmos.",
+      "cast": "Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johansson, Jeremy Renner, Don Cheadle, Paul Rudd, Brie Larson, Karen Gillan"
+    },
+    "watch": {
+      "official": [
+        { "platform": "Disney+", "url": "https://disneyplus.com" }
+      ],
+      "legalLocator": "https://justwatch.com"
+    },
+    "connections": {
+      "characters": ["iron-man", "captain-america", "thor", "hulk", "black-widow", "hawkeye"],
+      "relatedTitles": ["avengers-infinity-war", "avengers"]
+    },
+    "journey": {
+      "importance": "essential",
+      "spoilerLevel": 2
+    }
+  },
+  {
+    "id": "avengers-doomsday",
+    "title": "Avengers: Doomsday",
+    "mediaType": "movie",
+    "release": {
+      "year": 2026,
+      "date": "2026-12-18"
+    },
+    "timeline": {
+      "phase": 6,
+      "storyYear": 2029
+    },
+    "art": {
+      "poster": "/posters/Avengers_Doomsday.jpg"
+    },
+    "content": {
+      "description": "The Avengers face their greatest challenge yet as Doctor Doom threatens to reshape reality itself.",
+      "cast": "Robert Downey Jr., Chris Evans, Chris Hemsworth, Scarlet Johansson, etc."
+    },
+    "watch": {
+      "official": [],
+      "legalLocator": "https://justwatch.com"
+    },
+    "connections": {
+      "characters": ["iron-man", "captain-america", "thor", "hulk", "black-widow"],
+      "relatedTitles": []
+    },
+    "journey": {
+      "importance": "essential",
+      "spoilerLevel": 2
+    }
+  }
+]

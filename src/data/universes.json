@@ -1,0 +1,51 @@
+[
+  {
+    "id": "earth-616",
+    "name": "Earth-616",
+    "label": "MCU",
+    "description": "The primary Marvel Cinematic Universe timeline, encompassing the interconnected stories of Phase 1 through Phase 6 and beyond.",
+    "relatedTitles": ["iron-man", "the-avengers", "avengers-infinity-war", "avengers-endgame", "spider-man-no-way-home"]
+  },
+  {
+    "id": "fox-xmen",
+    "name": "Fox X-Men Universe",
+    "label": "Legacy",
+    "description": "The X-Men film series produced by 20th Century Fox, featuring mutants like Wolverine, Professor X, and Magneto in a separate cinematic continuity.",
+    "relatedTitles": []
+  },
+  {
+    "id": "raimi-spiderman",
+    "name": "Raimi Spider-Man Universe",
+    "label": "Legacy",
+    "description": "Sam Raimi's Spider-Man trilogy starring Tobey Maguire, which established the modern superhero movie template in the early 2000s.",
+    "relatedTitles": []
+  },
+  {
+    "id": "amazing-spiderman",
+    "name": "Amazing Spider-Man Universe",
+    "label": "Legacy",
+    "description": "The Marc Webb-directed Spider-Man films starring Andrew Garfield, presenting a different take on Peter Parker's story.",
+    "relatedTitles": []
+  },
+  {
+    "id": "ssu",
+    "name": "Sony's Spider-Man Universe",
+    "label": "Legacy",
+    "description": "Sony's Spider-Man adjacent films featuring characters like Venom, Morbius, and Kraven the Hunter, existing in a separate universe from the MCU.",
+    "relatedTitles": []
+  },
+  {
+    "id": "whatif",
+    "name": "Marvel Animated Multiverse",
+    "label": "Animated",
+    "description": "The animated stories explored in Marvel's What If...? series, showcasing alternate outcomes and branching timelines from key MCU events.",
+    "relatedTitles": []
+  },
+  {
+    "id": "netflix-defenders",
+    "name": "Netflix Defenders Universe",
+    "label": "Legacy",
+    "description": "The Marvel Television series produced for Netflix, including Daredevil, Jessica Jones, Luke Cage, Iron Fist, and The Defenders.",
+    "relatedTitles": []
+  }
+]
