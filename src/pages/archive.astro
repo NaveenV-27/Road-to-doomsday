@@ -1,336 +1,74 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FactCard from "../components/FactCard.jsx";
-import { motion } from "framer-motion";
 import facts from "../data/facts.json";
-
-export function getStaticPaths() {
-  return [{ params: {} }];
-}
 ---
-<Layout title="Archive — Way to Doomsday" description="Discover fascinating facts, behind-the-scenes trivia, and hidden connections in the Marvel Cinematic Universe">
-  {/* Enhanced Archive Background with Collectible Feel */}
-  <div className="absolute inset-0 -z-10 pointer-events-none">
-    {/* Aged paper texture */}
-    <div className="absolute inset-0 bg-[url('/public/bg/archive-aged-paper.png')] bg-repeat opacity-[0.03]" />
 
-    {/* Faint archive markings */}
-    <div className="absolute inset-0 bg-[url('/public/bg/archive-markings.png')] bg-repeat opacity-[0.015]" />
+<Layout
+  title="The MCU Archives & Classified Lore — Road to Doomsday"
+  description="Explore verified records, behind-the-scenes trivia, comic book roots, and hidden connections across the Marvel Cinematic Universe."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16">
+    <!-- ── Archive Header ── -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-white/90">
+        <span class="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse"></span>
+        <span class="text-[11px] font-mono font-bold uppercase tracking-[0.25em]">
+          CLASSIFIED HISTORICAL INTEL
+        </span>
+      </div>
 
-    {/* Floating dust particles for archive feel */}
-    <div className="absolute inset-0 bg-[url('/public/bg/archive-dust.png')] bg-repeat opacity-[0.02] animate-[floatDust_20s_linear_infinite]" />
+      <h1 class="font-display text-4xl sm:text-6xl font-extrabold text-white tracking-wide title-glow">
+        THE MCU <span class="text-crimson-bright">ARCHIVES</span>
+      </h1>
 
-    {/* Subtle light leaks for vintage feel */}
-    <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent_0%,transparent_2px,rgba(255,255,255,0.01)_2px,transparent_4px)] bg-[size:800%_800%] animate-[lightLeak_15s_ease-in-out_infinite]" />
-  </div>
+      <p class="text-sm sm:text-base text-text-secondary leading-relaxed">
+        A curated reference library detailing production breakthroughs, comic book inspirations, Stan Lee legacy cameos, and hidden easter eggs.
+      </p>
+    </div>
 
-  <section className="relative z-10 min-h-[calc(100vh-14rem)]">
-    {/* Enhanced Archive Header with Collectible Treatment */}
-    <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-16">
-      <div className="text-center">
-        {/* Archive Label with Enhanced Collectible Treatment */}
-        <div className="inline-flex items-center gap-4 mb-6">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.4em] text-muted-dark/60">
-            ARCHIVE
-          </span>
-          <div className="h-0.5 w-20 bg-gradient-to-r from-cosmic via-crimson to-warm-cream/40" />
-          <span className="text-[10px] font-semibold uppercase tracking-[0.4em] text-muted-dark/60">
-            DIVISION
-          </span>
-        </div>
-
-        <h1 className="font-display text-5xl sm:text-6xl tracking-[-0.02em] leading-none mb-4
-                relative inline-block
-                bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent
-                drop-shadow-[0_0_25px_rgba(99,102,241,0.3)]">
-          MCU ARCHIVE
-        </h1>
-
-        <p className="text-muted max-w-3xl mx-auto text-base leading-relaxed mb-6">
-          Discover fascinating facts, behind-the-scenes trivia, and hidden connections
-          that enrich the Marvel Cinematic Universe experience.
-        </p>
-
-        {/* Enhanced Archive Stats with Collectible Presentation */}
-        <div className="grid gap-6 sm:grid-cols-4 text-center mb-10">
-          <div className="relative">
-            <p className="text-muted/60 text-xs font-mono tracking-wider mb-1">TOTAL FACTS</p>
-            <p className="font-display text-2xl text-white relative">
-              <span className="relative z-10">{facts.length}</span>
-              <div className="absolute inset-0 -z-10
-                      bg-gradient-to-r from-cosmic/20 via-crimson/20 to-warm-cream/20
-                      blur-[4px] opacity-0
-                      hover:opacity-30 transition-opacity duration-300"></div>
-            </p>
-          </div>
-          <div className="relative">
-            <p className="text-muted/60 text-xs font-mono tracking-wider mb-1">HISTORY</p>
-            <p className="font-display text-2xl text-white relative">
-              <span className="relative z-10">{facts.filter(f => f.type === "history").length}</span>
-              <div className="absolute inset-0 -z-10
-                      bg-gradient-to-r from-cosmic/20 via-crimson/20 to-warm-cream/20
-                      blur-[4px] opacity-0
-                      hover:opacity-30 transition-opacity duration-300"></div>
-            </p>
-          </div>
-          <div className="relative">
-            <p className="text-muted/60 text-xs font-mono tracking-wider mb-1">PRODUCTION</p>
-            <p className="font-display text-2xl text-white relative">
-              <span className="relative z-10">{facts.filter(f => f.type === "production").length}</span>
-              <div className="absolute inset-0 -z-10
-                      bg-gradient-to-r from-cosmic/20 via-crimson/20 to-warm-cream/20
-                      blur-[4px] opacity-0
-                      hover:opacity-30 transition-opacity duration-300"></div>
-            </p>
-          </div>
-          <div className="relative">
-            <p className="text-muted/60 text-xs font-mono tracking-wider mb-1">EASTER EGGS</p>
-            <p className="font-display text-2xl text-white relative">
-              <span className="relative z-10">{facts.filter(f => f.type === "easter-egg").length}</span>
-              <div className="absolute inset-0 -z-10
-                      bg-gradient-to-r from-cosmic/20 via-crimson/20 to-warm-cream/20
-                      blur-[4px] opacity-0
-                      hover:opacity-30 transition-opacity duration-300"></div>
-            </p>
-          </div>
-        </div>
-
-        {/* Divider with Collectible Feel */}
-        <div className="relative mb-10">
-          <div className="w-16 h-0.5 mx-auto bg-gradient-to-r from-cosmic via-crimson to-warm-cream/50" />
-          <div className="absolute inset-x-0 -z-10
-                  bg-[repeating-linear-gradient(90deg,transparent_0%,transparent_2px,rgba(99,102,241,0.1)_2px,transparent_4px)]
-                  bg-[size:200%_100%] animate-[archiveScan_8s_linear_infinite]"></div>
-        </div>
+    <!-- ── Quick Statistics Dossier ── -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
+      <div class="p-4 rounded-2xl bg-[#0c0e18] border border-white/[0.08] text-center">
+        <span class="text-[10px] font-mono uppercase tracking-wider text-muted-dark block">TOTAL DOSSIERS</span>
+        <span class="font-mono text-2xl font-bold text-white mt-1 block">{facts.length}</span>
+      </div>
+      <div class="p-4 rounded-2xl bg-[#0c0e18] border border-white/[0.08] text-center">
+        <span class="text-[10px] font-mono uppercase tracking-wider text-muted-dark block">CANON HISTORY</span>
+        <span class="font-mono text-2xl font-bold text-amber-400 mt-1 block">
+          {facts.filter((f) => f.type === "history").length}
+        </span>
+      </div>
+      <div class="p-4 rounded-2xl bg-[#0c0e18] border border-white/[0.08] text-center">
+        <span class="text-[10px] font-mono uppercase tracking-wider text-muted-dark block">BEHIND THE SCENES</span>
+        <span class="font-mono text-2xl font-bold text-sky-400 mt-1 block">
+          {facts.filter((f) => f.type === "production").length}
+        </span>
+      </div>
+      <div class="p-4 rounded-2xl bg-[#0c0e18] border border-white/[0.08] text-center">
+        <span class="text-[10px] font-mono uppercase tracking-wider text-muted-dark block">EASTER EGGS</span>
+        <span class="font-mono text-2xl font-bold text-emerald-400 mt-1 block">
+          {facts.filter((f) => f.type === "easter-egg").length}
+        </span>
       </div>
     </div>
 
-    {/* Enhanced Random Fact Button with Collectible Design */}
-    <section className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-10 pb-16">
-      <div className="text-center">
-        <motion.button
-          whileTap={{ scale: [0.95, 1] }}
-          onClick={() => {
-            // In a real implementation, this would fetch a random fact
-            // For now, we'll just show an alert
-            alert("Random fact feature coming soon!");
-          }}
-          className="relative w-full max-w-md mx-auto px-6 py-4 text-[11px] font-bold uppercase tracking-wider rounded-xl
-                  border border-white/[0.12] backdrop-blur-xl
-                  hover:border-white/[0.20] hover:bg-white/[0.08] transition-all duration-500
-                  shadow-[0_0_15px_rgba(255,255,255,0.1)]"
-        >
-          <span className="relative z-10">RANDOM ARCHIVE ITEM</span>
-          <div className="absolute inset-0 -z-10
-                  bg-gradient-to-r from-cosmic via-crimson to-warm-cream/20
-                  blur-[4px] opacity-0
-                  hover:opacity-50 transition-opacity duration-300"></div>
+    <!-- ── Archival Fact Cards Grid ── -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {facts.map((fact) => (
+        <FactCard fact={fact} client:load />
+      ))}
+    </div>
 
-          {/* Collectible Stamp Effect */}
-          <div className="absolute inset-0 -z-10
-                  bg-[url('/public/bg/archive-stamp.png')] bg-contain opacity-[0.03] pointer-events-none"></div>
-        </motion.button>
-      </div>
-    </section>
-
-    {/* Enhanced Facts by Type with Collectible Presentation */}
-    <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20">
-      <div className="space-y-16">
-        {/* History Facts */}
-        <div>
-          <h2 className="font-display text-3xl sm:text-4xl tracking-wide text-center mb-8
-                  relative inline-block
-                  bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-            DID YOU KNOW? (HISTORY)
-          </h2>
-          <p className="text-muted max-w-2xl mx-auto text-center mb-6">
-            Fascinating historical facts and real-world connections that shaped the MCU
-          </p>
-          <div className="relative">
-            <div className="space-y-8">
-              {facts
-                .filter(fact => fact.type === "history")
-                .map((fact) => (
-                  <FactCard key={fact.id} fact={fact} className="hover:shadow-[0_0_25px_rgba(99,102,241,0.2)]" />
-                ))}
-            </div>
-
-            {/* Collectible Footer for Section */}
-            <div className="relative mt-8">
-              <div className="text-center text-xs text-muted/60 font-mono tracking-wider">
-                END OF HISTORY SECTION
-              </div>
-              <div className="absolute inset-x-0 top-[-8px] -z-10
-                      bg-[repeating-linear-gradient(90deg,transparent_0%,transparent_1px,rgba(99,102,241,0.2)_1px,transparent_2px)]
-                      bg-[size:200%_100%] animate-[sectionDivider_6s_linear_infinite]"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Production Facts */}
-        <div>
-          <h2 className="font-display text-3xl sm:text-4xl tracking-wide text-center mb-8
-                  relative inline-block
-                  bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-            BEHIND THE SCENES (PRODUCTION)
-          </h2>
-          <p className="text-muted max-w-2xl mx-auto text-center mb-6">
-            Insider secrets and production stories from the making of the MCU
-          </p>
-          <div className="relative">
-            <div className="space-y-8">
-              {facts
-                .filter(fact => fact.type === "production")
-                .map((fact) => (
-                  <FactCard key={fact.id} fact={fact} className="hover:shadow-[0_0_25px_rgba(99,102,241,0.2)]" />
-                ))}
-            </div>
-
-            {/* Collectible Footer for Section */}
-            <div className="relative mt-8">
-              <div className="text-center text-xs text-muted/60 font-mono tracking-wider">
-                END OF PRODUCTION SECTION
-              </div>
-              <div className="absolute inset-x-0 top-[-8px] -z-10
-                      bg-[repeating-linear-gradient(90deg,transparent_0%,transparent_1px,rgba(99,102,241,0.2)_1px,transparent_2px)]
-                      bg-[size:200%_100%] animate-[sectionDivider_6s_linear_infinite]"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Comic Connections */}
-        <div>
-          <h2 className="font-display text-3xl sm:text-4xl tracking-wide text-center mb-8
-                  relative inline-block
-                  bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-            COMIC CONNECTIONS
-          </h2>
-          <p className="text-muted max-w-2xl mx-auto text-center mb-6">
-            The comic book origins and adaptations that inspired the MCU
-          </p>
-          <div className="relative">
-            <div className="space-y-8">
-              {facts
-                .filter(fact => fact.type === "comic")
-                .map((fact) => (
-                  <FactCard key={fact.id} fact={fact} className="hover:shadow-[0_0_25px_rgba(99,102,241,0.2)]" />
-                ))}
-            </div>
-
-            {/* Collectible Footer for Section */}
-            <div className="relative mt-8">
-              <div className="text-center text-xs text-muted/60 font-mono tracking-wider">
-                END OF COMIC SECTION
-              </div>
-              <div className="absolute inset-x-0 top-[-8px] -z-10
-                      bg-[repeating-linear-gradient(90deg,transparent_0%,transparent_1px,rgba(99,102,241,0.2)_1px,transparent_2px)]
-                      bg-[size:200%_100%] animate-[sectionDivider_6s_linear_infinite]"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Easter Eggs */}
-        <div>
-          <h2 className="font-display text-3xl sm:text-4xl tracking-wide text-center mb-8
-                  relative inline-block
-                  bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-            EASTER EGGS & SECRETS
-          </h2>
-          <p className="text-muted max-w-2xl mx-auto text-center mb-6">
-            Hidden details, references, and secrets hidden throughout the MCU
-          </p>
-          <div className="relative">
-            <div className="space-y-8">
-              {facts
-                .filter(fact => fact.type === "easter-egg")
-                .map((fact) => (
-                  <FactCard key={fact.id} fact={fact} className="hover:shadow-[0_0_25px_rgba(99,102,241,0.2)]" />
-                ))}
-            </div>
-
-            {/* Collectible Footer for Section */}
-            <div className="relative mt-8">
-              <div className="text-center text-xs text-muted/60 font-mono tracking-wider">
-                END OF EASTER EGG SECTION
-              </div>
-              <div className="absolute inset-x-0 top-[-8px] -z-10
-                      bg-[repeating-linear-gradient(90deg,transparent_0%,transparent_1px,rgba(99,102,241,0.2)_1px,transparent_2px)]
-                      bg-[size:200%_100%] animate-[sectionDivider_6s_linear_infinite]"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Character Facts */}
-        <div>
-          <h2 className="font-display text-3xl sm:text-4xl tracking-wide text-center mb-8
-                  relative inline-block
-                  bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-            CHARACTER INSIGHTS
-          </h2>
-          <p className="text-muted max-w-2xl mx-auto text-center mb-6">
-            Deep dives into your favorite characters' development and stories
-          </p>
-          <div className="relative">
-            <div className="space-y-8">
-              {facts
-                .filter(fact => fact.type === "character")
-                .map((fact) => (
-                  <FactCard key={fact.id} fact={fact} className="hover:shadow-[0_0_25px_rgba(99,102,241,0.2)]" />
-                ))}
-            </div>
-
-            {/* Collectible Footer for Section */}
-            <div className="relative mt-8">
-              <div className="text-center text-xs text-muted/60 font-mono tracking-wider">
-                END OF CHARACTER SECTION
-              </div>
-              <div className="absolute inset-x-0 top-[-8px] -z-10
-                      bg-[repeating-linear-gradient(90deg,transparent_0%,transparent_1px,rgba(99,102,241,0.2)_1px,transparent_2px)]
-                      bg-[size:200%_100%] animate-[sectionDivider_6s_linear_infinite]"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Enhanced Archive Footer with Collectible Feel */}
-    <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-24">
-      <div className="relative">
-        {/* Archive Watermark */}
-        <div className="absolute inset-0 -z-20 pointer-events-none
-                bg-[url('/public/bg/archive-watermark.png')] bg-contain opacity-[0.01]"></div>
-
-        <div className="text-center">
-          <p className="text-muted dark:text-muted/60 text-base leading-relaxed">
-            Every fact in this archive has been carefully curated to enhance your
-            understanding and appreciation of the Marvel Cinematic Universe.
-          </p>
-          <p className="text-xs text-muted/60 mt-6">
-            An unofficial fan project — not affiliated with Marvel Studios or Disney.
-          </p>
-
-          {/* Collectible Archive Seal */}
-          <div className="relative inline-block mt-8">
-            <div className="w-16 h-16 rounded-full
-                    bg-gradient-to-r from-cosmic via-crimson to-warm-cream/20
-                    border-2 border-white/[0.15]
-                    backdrop-blur-sm
-                    hover:border-white/[0.25] hover:bg-white/[0.05] transition-all duration-500">
-              <div className="absolute inset-0 rounded-full
-                      bg-[radial-gradient(circle_at_center,_var(--color-bg)_0%,_var(--color-bg)_70%)]"></div>
-              <span className="absolute inset-[2px] flex items-center justify-center
-                      text-[xs] font-bold text-white tracking-wider">
-                ✓
-              </span>
-              {/* Seal Animation */}
-              <div className="absolute inset-0 -z-10
-                      bg-gradient-to-r from-cosmic/30 via-crimson/30 to-warm-cream/30
-                      blur-[4px] opacity-0
-                      hover:opacity-40 transition-opacity duration-300"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </section>
+    <!-- ── Quote Banner ── -->
+    <div class="p-8 sm:p-10 rounded-3xl border border-white/[0.08] bg-[#0a0d16] text-center max-w-3xl mx-auto space-y-3">
+      <span class="text-3xl">🛡️</span>
+      <h3 class="font-display text-xl font-bold text-white">
+        "Part of the journey is the end."
+      </h3>
+      <p class="text-xs text-muted max-w-md mx-auto">
+        Every fact, cameo, and origin story is a thread in the grand tapestry weaving toward Avengers: Doomsday.
+      </p>
+    </div>
+  </div>
 </Layout>

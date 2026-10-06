@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CHARACTERS from "../data/characters.json";
 
-const AUTO_INTERVAL = 5000;
+const AUTO_INTERVAL = 6000;
 
 export default function CharacterSpotlight() {
   const [index, setIndex] = useState(0);
@@ -22,7 +22,7 @@ export default function CharacterSpotlight() {
     return () => clearInterval(timerRef.current);
   }, []);
 
-  const goTo = (newIndex, dir) => {
+  const goTo = (newIndex, dir = 1) => {
     setDirection(dir);
     setIndex(newIndex);
     resetTimer();
@@ -33,138 +33,156 @@ export default function CharacterSpotlight() {
 
   const current = CHARACTERS[index];
 
-  const variants = {
-    enter: (dir) => ({ opacity: 0, x: dir > 0 ? 30 : -30, scale: 0.95 }),
-    center: { opacity: 1, x: 0, scale: 1 },
-    exit: (dir) => ({ opacity: 0, x: dir > 0 ? -30 : 30, scale: 0.95 }),
-  };
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative w-full max-w-[400px] mx-auto lg:mx-0 rounded-3xl overflow-hidden border border-white/10 backdrop-blur-xl shadow-3xl shadow-black/50"
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      {/* Poster area with character-specific gradient overlay */}
-      <div className="relative aspect-[3/4] overflow-hidden">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.img
-            key={current.slug}
-            src={current.poster}
-            alt={current.name}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="absolute inset-0 w-full h-full object-cover"
-            whileHover={{ scale: 1.04, rotate: [0, 3, -3, 0] }}
-            whileTap={{ scale: 0.99 }}
-          />
-        </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--character-gradient-start)_0%,_transparent_70%)]" />
-        </div>
-
-        {/* Enhanced nav arrows with better hover effects */}
-        <motion.button
-          onClick={prev}
-          aria-label="Previous character"
-          whileTap={{ scale: 0.9 }}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-white/80 hover:bg-white/20 hover:text-white transition-colors duration-300"
-        >
-          ‹
-        </motion.button>
-        <motion.button
-          onClick={next}
-          aria-label="Next character"
-          whileTap={{ scale: 0.9 }}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-white/80 hover:bg-white/20 hover:text-white transition-colors duration-300"
-        >
-          ›
-        </motion.button>
-
-        {/* Label overlay with enhanced styling */}
-        <div className="absolute bottom-0 left-0 right-0 p-6">
-          <motion.div
-            whileInView={{ opacity: [0, 1], y: [20, 0] }}
-            transition={{ duration: 0.4 }}
-          >
-            <span className="text-[11px] uppercase tracking-widest font-bold text-white/90">
-              Character Spotlight
-            </span>
-          </motion.div>
-          <motion.h3
-            whileInView={{ opacity: [0, 1], y: [20, 0] }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl text-white leading-none mt-2"
-          >
-            {current.name}
-          </motion.h3>
-          <motion.p
-            whileInView={{ opacity: [0, 1], y: [20, 0] }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-muted mt-3 max-w-md"
-          >
-            {current.tagline}
-          </motion.p>
-        </div>
+    <div className="relative w-full rounded-3xl overflow-hidden border border-white/[0.08] bg-[#090b12]/90 backdrop-blur-2xl shadow-2xl">
+      {/* Decorative ambient color field based on active character */}
+      <div className="absolute inset-0 -z-10 pointer-events-none opacity-20 transition-all duration-700">
+        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-crimson blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-accent blur-3xl" />
       </div>
 
-      {/* CTA — real navigation to the character's dedicated page */}
-      <div className="p-6">
-        <motion.a
-          href={`/character/${current.slug}`}
-          whileTap={{ scale: 0.95 }}
-          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-bold uppercase tracking-wide rounded-3xl border border-white/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:text-white"
-        >
-          Explore {current.name}'s Story
-        </motion.a>
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-center min-h-[500px]">
+        {/* Character Portrait with Animation */}
+        <div className="lg:col-span-5 relative aspect-[3/4] lg:aspect-auto lg:h-[540px] overflow-hidden bg-black/40">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current.slug}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="absolute inset-0"
+            >
+              <img
+                src={current.poster}
+                alt={`${current.name} portrait`}
+                className="w-full h-full object-cover object-top"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#090b12] via-transparent to-black/30 lg:bg-gradient-to-r lg:from-transparent lg:via-[#090b12]/30 lg:to-[#090b12]" />
+            </motion.div>
+          </AnimatePresence>
 
-        {/* Enhanced character dots with better hover effects */}
-        <div className="flex items-center justify-center gap-2 mt-5">
-          {CHARACTERS.map((c, i) => (
-            <motion.button
-              key={c.slug}
-              onClick={() => goTo(i, i > index ? 1 : -1)}
-              aria-label={`Go to ${c.name}`}
-              whileTap={{ scale: 0.8 }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === index ? "w-6 h-6 bg-white/90" : "w-2 h-2 bg-white/20 hover:bg-white/30"
-              }`}
-            />
-          ))}
+          {/* Quick arrow controls on image */}
+          <div className="absolute bottom-6 left-6 flex items-center gap-2 z-20">
+            <button
+              onClick={prev}
+              aria-label="Previous character"
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-black/60 border border-white/15 text-white hover:bg-white/20 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next character"
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-black/60 border border-white/15 text-white hover:bg-white/20 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Character Story Dossier */}
+        <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-crimson-bright">
+                MCU ROSTER SPOTLIGHT
+              </span>
+              <span className="w-6 h-px bg-white/20" />
+              <span className="text-[11px] font-mono uppercase tracking-wider text-muted-dark">
+                {index + 1} of {CHARACTERS.length}
+              </span>
+            </div>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current.slug}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.4 }}
+                className="space-y-4"
+              >
+                <div className="flex flex-wrap items-center gap-3">
+                  <h3 className="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-wide">
+                    {current.name}
+                  </h3>
+                  <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-white/[0.08] text-white border border-white/10">
+                    {current.tagline}
+                  </span>
+                </div>
+
+                <p className="text-base text-text-secondary font-medium">
+                  Portrayed by <strong className="text-white font-semibold">{current.actor}</strong>
+                </p>
+
+                <p className="text-sm text-muted leading-relaxed max-w-xl pt-2">
+                  Key anchor of the Marvel Cinematic Universe whose decisions, battles, and sacrifices directly paved the trajectory toward Avengers: Doomsday.
+                </p>
+
+                {/* Character Film Highlights */}
+                <div className="pt-4">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-muted-dark block mb-2">
+                    Key Appearances ({current.movieIds.length} titles):
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {current.movieIds.slice(0, 5).map((mId) => (
+                      <span
+                        key={mId}
+                        className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] border border-white/[0.08] text-muted-dark capitalize"
+                      >
+                        {mId.replace(/-/g, " ")}
+                      </span>
+                    ))}
+                    {current.movieIds.length > 5 && (
+                      <span className="px-2 py-1 text-[11px] font-mono text-muted-dark">
+                        +{current.movieIds.length - 5} more
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Action Row & Tabs */}
+          <div className="mt-8 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <a
+              href={`/character/${current.slug}`}
+              className="btn-primary text-xs tracking-[0.16em]"
+            >
+              Explore {current.name}'s MCU Arc &rarr;
+            </a>
+
+            {/* Quick Character Thumbnails Selector */}
+            <div className="flex items-center gap-2">
+              {CHARACTERS.map((char, i) => (
+                <button
+                  key={char.slug}
+                  onClick={() => goTo(i, i > index ? 1 : -1)}
+                  aria-label={`Select ${char.name}`}
+                  className={`relative transition-all duration-300 rounded-lg overflow-hidden border ${
+                    i === index
+                      ? "w-11 h-11 border-crimson-bright shadow-[0_0_10px_rgba(220,38,38,0.5)] scale-105"
+                      : "w-8 h-8 border-white/10 opacity-50 hover:opacity-90"
+                  }`}
+                >
+                  <img
+                    src={char.poster}
+                    alt={char.name}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Enhanced background elements for depth */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        {/* Subtle animated gradient */}
-        <div className="absolute inset-0 -z-10
-                bg-[repeating-linear-gradient(45deg,transparent_0%,transparent_1px,rgba(255,255,255,0.02)_1px,transparent_2px)]
-                bg-[size:400%_400%]
-                opacity-[0.008]
-                animate-[gradientMove_12s_ease-in-out_infinite]"></div>
-
-        {/* Floating particles */}
-        <div className="absolute inset-0 -z-10
-                bg-[url('/public/bg/character-float.png')] bg-repeat opacity-[0.015]
-                animate-[floatParticles_10s_linear_infinite]"></div>
-
-        {/* Corner enhancements */}
-        <div className="absolute top-3 left-3 -z-10 w-4 h-4
-                bg-gradient-to-r from-accent via-accent-bright to-accent/20
-                blur-[2px] opacity-[0.25]
-                animate-[float_3s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-3 right-3 -z-10 w-4 h-4
-                bg-gradient-to-b from-accent via-accent-bright to-accent/20
-                blur-[2px] opacity-[0.25]
-                animate-[float_4s_ease-in-out_infinite]"></div>
-      </div>
-    </motion.div>
+    </div>
   );
 }

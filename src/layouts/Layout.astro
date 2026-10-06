@@ -1,16 +1,23 @@
 ---
 import "../styles/global.css";
-import Footer from '../components/Footer.astro';
+import SiteNav from "../components/SiteNav.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  hideNav?: boolean;
 }
 
 const {
-  title = "Road to Doomsday — MCU Watch Tracker",
-  description = "Track every Marvel Cinematic Universe movie and series in chronological order before Avengers: Doomsday hits theaters.",
+  title = "Road to Doomsday — MCU Watch Companion & Timeline",
+  description = "Experience every Marvel Cinematic Universe movie and series in story order before Avengers: Doomsday. Track your progress across phases and multiversal realities.",
+  ogImage = "/banner/marvel.jpg",
+  hideNav = false,
 } = Astro.props;
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -24,19 +31,34 @@ const {
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
+    
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#08080a" />
+    <meta name="theme-color" content="#06070a" />
 
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Google Fonts: Cinzel, Inter, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body>
-    <slot />
+  <body class="bg-bg text-text selection:bg-crimson/30 selection:text-white">
+    {!hideNav && <SiteNav currentPath={currentPath} />}
+    <main class="flex-1">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

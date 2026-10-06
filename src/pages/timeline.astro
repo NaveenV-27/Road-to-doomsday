@@ -1,11 +1,26 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import App from "../components/App.jsx";
-
-export function getStaticPaths() {
-  return [{ params: {} }];
-}
 ---
-<Layout title="Timeline — Way to Doomsday" description="Explore the Marvel Cinematic Universe in chronological or release order">
-  <App client:visible />
+
+<Layout
+  title="Complete MCU Timeline & Watch Order — Road to Doomsday"
+  description="Explore all 54 Marvel Cinematic Universe movies and series in chronological story order or release order. Track watched status and filter by phase."
+>
+  <div class="pt-8 pb-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+    <div class="inline-flex items-center gap-2 mb-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse"></span>
+      <span class="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-crimson-bright">
+        THE MASTER TIMELINE
+      </span>
+    </div>
+    <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-wide">
+      CHRONOLOGY &amp; <span class="text-crimson-bright">WATCH ORDER</span>
+    </h1>
+    <p class="text-sm text-muted max-w-2xl mt-2 leading-relaxed">
+      Switch between in-universe Story Order and real-world Theatrical Release sequence. Search across cast, filter by phase, and track your progress toward Doomsday.
+    </p>
+  </div>
+
+  <App client:load />
 </Layout>

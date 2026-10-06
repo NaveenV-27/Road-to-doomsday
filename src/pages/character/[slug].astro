@@ -3,7 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 import CharacterTimeline from "../../components/CharacterTimeline.jsx";
 import CHARACTERS from "../../data/characters.json";
 import movies from "../../data/movies.json";
-import { getMovieData } from "../../lib/movieUtils.js";
 
 export function getStaticPaths() {
   return CHARACTERS.map((character) => ({
@@ -14,98 +13,101 @@ export function getStaticPaths() {
 
 const { character } = Astro.props;
 
-// Get related characters (characters that appear in the same movies)
-const relatedCharacters = [];
-character.movieIds.forEach(movieId => {
-  const movie = movies.find(m => m.id === movieId);
-  if (movie) {
-    const movieData = getMovieData(movie);
-    movieData.connections.characters.forEach(charId => {
-      const relatedChar = CHARACTERS.find(c => c.slug === charId);
-      if (relatedChar && relatedChar.slug !== character.slug && !relatedCharacters.find(rc => rc.slug === charId)) {
-        relatedCharacters.push(relatedChar);
-      }
-    });
-  }
-});
+// Other characters in roster for cross-linking
+const otherCharacters = CHARACTERS.filter((c) => c.slug !== character.slug);
 ---
-<Layout title={`${character.name} — Way to Doomsday`} description="Explore ${character.name}'s journey through the Marvel Cinematic Universe">
-  <!-- Character hero banner -->
-  <section class="relative min-h-[50vh] flex items-end overflow-hidden border-b border-white/5">
-    <div class="absolute inset-0">
+
+<Layout
+  title={`${character.name} MCU Timeline & Arc — Road to Doomsday`}
+  description={`Follow ${character.name}'s complete Marvel Cinematic Universe arc from origin to Doomsday.`}
+  ogImage={character.poster}
+>
+  <!-- ── Character Hero Header with Blurred Atmospheric Backdrop ── -->
+  <section class="relative min-h-[55vh] flex items-end overflow-hidden border-b border-white/[0.08]">
+    <!-- Blurred Backdrop from Character Poster -->
+    <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
       <img
         src={character.poster}
-        alt={character.name}
-        class="absolute inset-0 w-full h-full object-cover"
+        alt=""
+        aria-hidden="true"
+        class="w-full h-full object-cover scale-110 blur-3xl opacity-20 brightness-50 contrast-125"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/70 to-black/40" />
-      <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+      <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/80 to-transparent" />
+      <div class="absolute inset-0 bg-gradient-to-r from-bg via-transparent to-bg/90" />
     </div>
 
-    <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 pb-12 pt-24">
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+      <!-- Breadcrumb -->
       <a
-        href="/"
-        class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-muted hover:text-white transition-colors mb-6"
+        href="/characters"
+        class="inline-flex items-center gap-1.5 text-xs font-mono text-muted hover:text-white transition-colors uppercase tracking-wider mb-6"
       >
-        ← Back to timeline
+        <span>&larr; Character Roster</span>
       </a>
-      <span class="text-[11px] uppercase tracking-widest text-accent-bright font-bold">
-        Character Spotlight
-      </span>
-      <h1 class="font-display text-5xl sm:text-7xl tracking-wide leading-none mt-2">
-        {character.name}
-      </h1>
-      <p class="text-muted mt-3 text-sm sm:text-base">
-        Played by {character.actor} · {character.tagline}
-      </p>
+
+      <div class="flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-10">
+        <!-- Foreground Portrait (Natural aspect ratio) -->
+        <div class="w-32 sm:w-44 aspect-[3/4] shrink-0 rounded-2xl overflow-hidden border border-white/15 bg-black/70 shadow-2xl">
+          <img
+            src={character.poster}
+            alt={character.name}
+            class="w-full h-full object-cover object-top"
+          />
+        </div>
+
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-crimson shadow-[0_0_8px_rgba(220,38,38,0.8)]"></span>
+            <span class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-crimson-bright">
+              {character.tagline}
+            </span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-6xl font-extrabold text-white tracking-wide leading-none title-glow">
+            {character.name}
+          </h1>
+
+          <p class="text-sm sm:text-base text-text-secondary font-medium">
+            Portrayed by <strong class="text-white">{character.actor}</strong> · {character.movieIds.length} Core MCU Appearances
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Character's movie playlist -->
-  <section class="relative pt-12">
+  <!-- ── Character Movie Timeline ── -->
+  <section class="py-16">
     <CharacterTimeline client:load movieIds={character.movieIds} />
   </section>
 
-  {/* Related Characters Section */}
-  {relatedCharacters.length > 0 && (
-    <section class="relative pt-16 pb-20 border-t border-white/[0.06]">
-      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        <h2 className="font-display text-2xl sm:text-3xl tracking-wide text-center mb-6">
-          Related Characters
-        </h2>
-        <p className="text-muted max-w-xl mx-auto text-center">
-          Characters who have appeared alongside {character.name} in the MCU
-        </p>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {relatedCharacters.map((relatedChar) => (
-            <a
-              key={relatedChar.slug}
-              href={`/character/${relatedChar.slug}`}
-              className="group block rounded-xl overflow-hidden border border-white/[0.08] transition-all duration-300 hover:border-white/20 hover:shadow-lg"
-            >
-              <div className="relative aspect-[2/3] w-full rounded-xl overflow-hidden shadow-2xl shadow-black/60">
-                <img
-                  src={relatedChar.poster}
-                  alt={`${relatedChar.name} poster`}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-              </div>
-              <div className="mt-4 p-4">
-                <h3 className="font-display text-lg tracking-wide mb-2">
-                  {relatedChar.name}
-                </h3>
-                <p className="text-muted text-sm">
-                  {relatedChar.tagline}
-                </p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
+  <!-- ── Cross-Links to Other Characters ── -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
+    <div class="text-center mb-10">
+      <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-dark block mb-1">
+        MORE TITANS
+      </span>
+      <h3 class="font-display text-2xl text-white font-bold">
+        Explore Other MCU Champions
+      </h3>
+    </div>
 
-  <!-- Footer will be added by Layout -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      {otherCharacters.map((c) => (
+        <a
+          href={`/character/${c.slug}`}
+          class="group block p-4 rounded-2xl border border-white/[0.06] bg-[#0c0e18] hover:border-white/20 transition-all text-center space-y-2"
+        >
+          <div class="w-16 h-16 rounded-full overflow-hidden mx-auto border border-white/10 group-hover:scale-105 transition-transform">
+            <img src={c.poster} alt={c.name} class="w-full h-full object-cover object-top" />
+          </div>
+          <h4 class="font-display text-sm font-bold text-white group-hover:text-text-secondary transition-colors">
+            {c.name}
+          </h4>
+          <span class="text-[10px] font-mono text-muted-dark block">
+            {c.tagline}
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
 </Layout>

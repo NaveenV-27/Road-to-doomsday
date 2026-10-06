@@ -1,7 +1,16 @@
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useWatched, useWatchlist } from "../hooks/useUserState.js";
 import { getMovieData } from "../lib/movieUtils.js";
+
+const PHASE_TAGS = {
+  1: "phase-badge-1",
+  2: "phase-badge-2",
+  3: "phase-badge-3",
+  4: "phase-badge-4",
+  5: "phase-badge-5",
+  6: "phase-badge-6",
+};
 
 export default function MovieCard({ item, layout = "timeline", sortMode = "story" }) {
   const movie = getMovieData(item);
@@ -12,243 +21,258 @@ export default function MovieCard({ item, layout = "timeline", sortMode = "story
   const inWatchlist = watchlist.includes(movie.id);
 
   const posterIsPlaceholder = movie.poster?.includes("PLACEHOLDER") || !movie.poster;
-  const timeLeft = movie.releaseDate
-    ? (() => {
-        const diff = new Date(movie.releaseDate).getTime() - Date.now();
-        if (diff <= 0) return null;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        return { days, hours };
-      })()
-    : null;
-  const isUpcoming = !!timeLeft;
+  const badgeClass = PHASE_TAGS[movie.phase] || "phase-badge-1";
 
-  const TYPE_LABEL = { movie: "Movie", series: "Series", special: "Special" };
-  const TYPE_COLOR = { movie: "bg-accent/20", series: "bg-steel/20", special: "bg-accent/20" };
-  const TYPE_TEXT_COLOR = { movie: "text-accent-bright", series: "text-steel-bright", special: "text-accent-bright" };
+  // Check if upcoming
+  const isUpcoming = movie.id === "avengers-doomsday" || movie.year >= 2026;
 
-  return (
-    <motion.div
-      id={movie.id}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      whileHover={{ y: -4, scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className={`group relative scroll-mt-24 rounded-2xl overflow-hidden border transition-all duration-400 bg-surface/80 backdrop-blur-xl shadow-xl shadow-black/50 ${
-        watched
-          ? "border-accent/50 shadow-accent/10"
-          : "border-white/[0.08] hover:border-white/20"
-      } ${layout === "timeline" ? "w-full" : ""}`}
-    >
-      {/* Enhanced Top highlight edge with animation */}
-      <div className="pointer-events-none absolute inset-0 rounded-2xl
-              bg-gradient-to-b from-white/[0.08] via-transparent to-transparent
-              opacity-70 animate-[shine_2s_ease-in-out_infinite]" />
+  // Grid Layout
+  if (layout === "grid") {
+    return (
+      <motion.div
+        id={movie.id}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.4 }}
+        className={`group relative rounded-2xl overflow-hidden border transition-all duration-300 bg-[#0b0e17] flex flex-col justify-between ${
+          watched
+            ? "border-emerald-500/40 shadow-[0_4px_24px_rgba(16,185,129,0.1)]"
+            : "border-white/[0.08] hover:border-white/20 hover:shadow-2xl hover:shadow-black/70 hover:-translate-y-1"
+        }`}
+      >
+        {/* Top Poster Box (Natural 2:3 Portrait Aspect Ratio - NEVER distorted) */}
+        <div className="relative aspect-[2/3] w-full overflow-hidden bg-black/60">
+          {!posterIsPlaceholder ? (
+            <img
+              src={movie.poster}
+              alt={`${movie.title} poster`}
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-[#121522] text-muted">
+              <span className="font-display text-sm font-bold">{movie.title}</span>
+              <span className="text-[10px] font-mono mt-1">Artwork Pending</span>
+            </div>
+          )}
 
-      <div className="relative aspect-[16/9] bg-black overflow-hidden">
-        {posterIsPlaceholder ? (
-          <div className="media-placeholder absolute inset-0 flex flex-col items-center justify-center gap-2 text-muted">
-            <span className="text-xs uppercase tracking-widest">Poster goes here</span>
-            <span className="text-[10px] text-muted/60 font-mono">{movie.poster}</span>
+          {/* Vignette Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0b0e17] via-transparent to-black/40" />
+
+          {/* Top Badges */}
+          <div className="absolute top-3 inset-x-3 flex items-center justify-between gap-2 z-10">
+            <span className={`px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider backdrop-blur-md ${badgeClass}`}>
+              Phase {movie.phase}
+            </span>
+
+            <span className="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-black/70 backdrop-blur-md text-white/90 border border-white/10">
+              {movie.type}
+            </span>
           </div>
-        ) : (
-          <motion.img
-            src={movie.poster}
-            alt={`${movie.title} poster`}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-800"
-            whileHover={{ scale: 1.06, rotate: [0, 2, -2, 0] }}
-            whileTap={{ scale: 0.98 }}
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
-        {isUpcoming && (
-          <motion.div
-            whileInView={{ opacity: [0, 1] }}
-            transition={{ duration: 0.4 }}
-            className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px]">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">
-              Coming Soon
-            </span>
-            <span className="font-display text-lg text-white tracking-wide">
-              {timeLeft.days}d {timeLeft.hours}h
-            </span>
-          </motion.div>
-        )}
-      </div>
-
-      <div className="relative p-4 flex flex-col gap-2">
-        <div className="flex items-center justify-between gap-2">
-          <span className={`inline-block ${TYPE_COLOR[movie.type] ?? "bg-accent/20"} ${TYPE_TEXT_COLOR[movie.type] ?? "text-accent-bright"} text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full
-                  transition-all duration-300
-                  hover:${TYPE_TEXT_COLOR[movie.type] ?? "text-accent-bright"}
-                  hover:bg-${TYPE_COLOR[movie.type] ?? "bg-accent/20"}/30`}>
-            {TYPE_LABEL[movie.type] ?? movie.type}
-          </span>
-          {!isUpcoming && (
-            <motion.button
-              type="button"
-              onClick={() => toggleWatched(movie.id)}
-              aria-pressed={watched}
-              whileTap={{ scale: 0.92 }}
-              className={`text-[11px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full border transition-colors duration-300
-                      ${watched
-                        ? "bg-white text-black border-white"
-                        : "bg-transparent text-muted border-white/15 hover:border-accent/50 hover:text-white"}
-                    `}
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.span
-                  key={watched ? "on" : "off"}
-                  initial={{ opacity: 0, scale: 0.7 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.7 }}
-                  transition={{ duration: 0.15 }}
-                  className="inline-block"
-                >
-                  {watched ? "✓ Watched" : "Mark watched"}
-                </motion.span>
-              </AnimatePresence>
-            </motion.button>
+          {/* Watched status ribbon on poster */}
+          {watched && (
+            <div className="absolute bottom-3 left-3 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-950/80 border border-emerald-500/40 backdrop-blur-md text-emerald-400 text-[10px] font-mono font-bold">
+              <span>✓ WATCHED</span>
+            </div>
           )}
         </div>
 
-        <h3 className="font-display text-xl tracking-wide leading-none mt-1
-                relative inline-block
-                bg-gradient-to-r from-accent via-accent-bright to-accent/20 bg-clip-text text-transparent
-                hover:bg-gradient-to-r from-accent-bright via-accent to-accent/30 bg-clip-text text-transparent
-                transition-all duration-400">
-          {movie.title}
-        </h3>
-        <p className="text-sm text-muted leading-snug
-                transition-all duration-300
-                hover:text-accent-bright/60">{movie.desc}</p>
-        <p className="text-xs text-muted/70 mt-1 flex flex-wrap items-center gap-x-1.5">
-          <span className={sortMode === "release" ? "text-white font-semibold" : ""}
-                transition-all duration-300>
-            {isUpcoming ? "Releases" : "Released"} {movie.year}
-          </span>
-          <span className="text-muted/40">•</span>
-          <span className={sortMode === "story" ? "text-white font-semibold" : ""}
-                transition-all duration-300>
-            Story {movie.chronologicalYear}
-          </span>
-          {movie.cast ? (
-            <>
-              <span className="text-muted/40">•</span>
-              <span>{movie.cast}</span>
-            </>
-          ) : null}
-        </p>
+        {/* Content Details */}
+        <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div className="flex items-center gap-2 text-[11px] font-mono text-muted mb-1.5">
+              <span>Story {movie.chronologicalYear}</span>
+              <span>•</span>
+              <span>Rel. {movie.year}</span>
+            </div>
 
-        {isUpcoming ? (
-          <motion.div
-            whileInView={{ opacity: [0, 1] }}
-            transition={{ duration: 0.4 }}
-            className="mt-1 inline-flex items-center gap-1.5 self-start text-[11px] font-bold uppercase tracking-wide px-3 py-2 rounded-full bg-white/10 text-muted border border-white/15">
-            ⏳ {timeLeft.days}d {timeLeft.hours}h until release
-          </motion.div>
-        ) : (
-          <div className="mt-1 flex flex-wrap items-center gap-2">
-            {/* Watch officially button - only show if official links exist */}
-            {movie.watch.official.length > 0 ? (
-              <>
-                {movie.watch.official.map((link, index) => (
-                  <motion.a
-                    key={index}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide px-3 py-2 rounded-full bg-accent text-white hover:bg-accent-bright transition-colors duration-300"
-                  >
-                    ▶ Watch on {link.platform}
-                  </motion.a>
-                ))}
-              </>
-            ) : (
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide px-3 py-2 rounded-full bg-white/10 text-muted/60 border border-white/10 cursor-not-allowed
-                      transition-all duration-300
-                      hover:bg-white/20 hover:text-white">
-                Check official sources
-              </span>
-            )}
+            <h3 className="font-display text-base sm:text-lg font-bold text-white group-hover:text-text-secondary transition-colors line-clamp-1">
+              <a href={`/movie/${movie.id}`} className="hover:underline">
+                {movie.title}
+              </a>
+            </h3>
 
-            {/* Legal availability locator */}
-            {movie.watch.legalLocator && (
-              <motion.a
-                href={movie.watch.legalLocator}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide px-3 py-2 rounded-full bg-white/10 text-muted hover:text-white border border-white/15
-                        transition-all duration-300"
-              >
-                Where to watch
-              </motion.a>
-            )}
-
-            {/* Detail page link */}
-            <motion.a
-              href={`/movie/${movie.id}`}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide px-3 py-2 rounded-full bg-white/10 text-muted hover:text-white border border-white/15
-                      transition-all duration-300"
-            >
-              Details
-              </motion.a>
+            <p className="text-xs text-muted line-clamp-2 mt-2 leading-relaxed">
+              {movie.desc}
+            </p>
           </div>
-        )}
 
-        {/* Watchlist toggle */}
-        <div className="mt-2 flex justify-center">
-          <motion.button
-            type="button"
-            onClick={() => toggleWatchlist(movie.id)}
-            whileTap={{ scale: 0.92 }}
-            className={`text-[10px] font-bold uppercase tracking-wide px-3 py-1 rounded-full transition-colors duration-300
-                    ${inWatchlist
-                      ? "bg-accent text-white hover:bg-accent-bright"
-                      : "bg-transparent text-muted border-white/10 hover:border-white/20 hover:text-white"}
-                  `}
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.span
-                key={inWatchlist ? "in" : "out"}
-                initial={{ opacity: 0, scale: 0.7 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.7 }}
-                transition={{ duration: 0.15 }}
-                className="inline-block"
+          {/* Action Row */}
+          <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => toggleWatched(movie.id)}
+                aria-label={watched ? "Mark as unwatched" : "Mark as watched"}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all ${
+                  watched
+                    ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30"
+                    : "bg-white/[0.05] text-muted border border-white/10 hover:text-white hover:bg-white/[0.09]"
+                }`}
               >
-                {inWatchlist ? "✓ In Watchlist" : "+ Watchlist"}
-              </motion.span>
-            </AnimatePresence>
-          </motion.button>
+                {watched ? "✓ Seen" : "Mark"}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => toggleWatchlist(movie.id)}
+                aria-label={inWatchlist ? "Remove from watchlist" : "Add to watchlist"}
+                className={`p-1.5 rounded-lg text-xs border transition-all ${
+                  inWatchlist
+                    ? "bg-accent/20 text-accent-bright border-accent/40"
+                    : "bg-white/[0.05] text-muted border-white/10 hover:text-white"
+                }`}
+                title={inWatchlist ? "In Watchlist" : "Add to Watchlist"}
+              >
+                <svg className="w-4 h-4" fill={inWatchlist ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                </svg>
+              </button>
+            </div>
+
+            <a
+              href={`/movie/${movie.id}`}
+              className="text-xs font-mono text-muted hover:text-white transition-colors"
+            >
+              Details &rarr;
+            </a>
+          </div>
         </div>
-      </div>
+      </motion.div>
+    );
+  }
 
-      {/* Enhanced background elements for depth */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        {/* Subtle animated gradient */}
-        <div className="absolute inset-0 -z-10
-                bg-[repeating-linear-gradient(45deg,transparent_0%,transparent_1px,rgba(255,255,255,0.02)_1px,transparent_2px)]
-                bg-[size:400%_400%]
-                opacity-[0.008]
-                animate-[gradientMove_12s_ease-in-out_infinite]"></div>
+  // Timeline Layout (Cinematic horizontal row card)
+  return (
+    <motion.div
+      id={movie.id}
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.45 }}
+      className={`group relative rounded-2xl overflow-hidden border transition-all duration-300 bg-[#0b0e17] shadow-xl ${
+        watched
+          ? "border-emerald-500/30 shadow-[0_4px_24px_rgba(16,185,129,0.08)]"
+          : "border-white/[0.08] hover:border-white/20 hover:shadow-2xl hover:shadow-black/70 hover:-translate-y-0.5"
+      }`}
+    >
+      <div className="flex flex-col sm:flex-row items-stretch">
+        {/* Poster (Controlled 2:3 portrait, not stretched) */}
+        <div className="relative w-full sm:w-44 md:w-48 aspect-[2/3] shrink-0 bg-black/60 overflow-hidden">
+          {!posterIsPlaceholder ? (
+            <img
+              src={movie.poster}
+              alt={`${movie.title} poster`}
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-[#121522] text-muted">
+              <span className="font-display text-sm font-bold">{movie.title}</span>
+            </div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/60 via-transparent to-transparent opacity-60" />
 
-        {/* Corner particles */}
-        <div className="absolute top-3 left-3 -z-10 w-3 h-3
-                bg-gradient-to-r from-accent via-accent-bright to-accent/20
-                blur-[2px] opacity-[0.2]
-                animate-[float_3s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-3 right-3 -z-10 w-3 h-3
-                bg-gradient-to-b from-accent via-accent-bright to-accent/20
-                blur-[2px] opacity-[0.2]
-                animate-[float_4s_ease-in-out_infinite]"></div>
+          <div className="absolute top-3 left-3 z-10">
+            <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase backdrop-blur-md ${badgeClass}`}>
+              Phase {movie.phase}
+            </span>
+          </div>
+        </div>
+
+        {/* Content body */}
+        <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <div className="flex items-center gap-2 text-xs font-mono text-muted">
+                <span className={sortMode === "story" ? "text-crimson-bright font-bold" : "text-white"}>
+                  Story: {movie.chronologicalYear}
+                </span>
+                <span>•</span>
+                <span className={sortMode === "release" ? "text-crimson-bright font-bold" : "text-white"}>
+                  Theatrical: {movie.year}
+                </span>
+                <span>•</span>
+                <span className="capitalize">{movie.type}</span>
+              </div>
+
+              {watched && (
+                <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30">
+                  ✓ WATCHED
+                </span>
+              )}
+            </div>
+
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-white group-hover:text-text-secondary transition-colors leading-tight">
+              <a href={`/movie/${movie.id}`}>
+                {movie.title}
+              </a>
+            </h3>
+
+            {movie.cast && (
+              <p className="text-xs font-mono text-muted-dark mt-1 line-clamp-1">
+                Featuring: <span className="text-muted">{movie.cast}</span>
+              </p>
+            )}
+
+            <p className="text-sm text-muted leading-relaxed mt-3 line-clamp-3">
+              {movie.desc}
+            </p>
+          </div>
+
+          {/* Action Footer */}
+          <div className="pt-4 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => toggleWatched(movie.id)}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all ${
+                  watched
+                    ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30"
+                    : "bg-white/[0.06] text-muted border border-white/10 hover:text-white hover:bg-white/[0.1]"
+                }`}
+              >
+                {watched ? "✓ Watched" : "Mark as Watched"}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => toggleWatchlist(movie.id)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition-all flex items-center gap-1.5 ${
+                  inWatchlist
+                    ? "bg-accent/20 text-accent-bright border-accent/40"
+                    : "bg-white/[0.06] text-muted border-white/10 hover:text-white hover:bg-white/[0.1]"
+                }`}
+              >
+                <svg className="w-3.5 h-3.5" fill={inWatchlist ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                </svg>
+                <span>{inWatchlist ? "In Watchlist" : "+ Watchlist"}</span>
+              </button>
+            </div>
+
+            <div className="flex items-center gap-3">
+              {movie.link && (
+                <a
+                  href={movie.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-mono font-bold text-crimson-bright hover:text-crimson-bright/80 transition-colors uppercase tracking-wider"
+                >
+                  ▶ Watch Link
+                </a>
+              )}
+              <a
+                href={`/movie/${movie.id}`}
+                className="btn-secondary text-xs py-1.5 px-4"
+              >
+                Full Intel &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </motion.div>
   );

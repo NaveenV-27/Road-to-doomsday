@@ -1,63 +1,145 @@
 ---
-import { motion } from "framer-motion";
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+
 const links = [
   { href: "/", label: "Home" },
   { href: "/journey", label: "Journey" },
   { href: "/timeline", label: "Timeline" },
-  { href: "/multiverse", label: "Multiverse" },
   { href: "/characters", label: "Characters" },
+  { href: "/multiverse", label: "Multiverse" },
   { href: "/archive", label: "Archive" },
+  { href: "/watchlist", label: "Watchlist" },
 ];
+
+function isCurrent(href: string) {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+}
 ---
-<nav class="sticky top-0 z-40 border-b border-white/[0.06] bg-bg/80 backdrop-blur-2xl">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <a href="/" class="group relative flex items-center gap-2">
-      <span class="font-display text-sm sm:text-base tracking-[0.2em] text-text font-semibold uppercase
-              relative z-10">
-        Road to <span class="text-accent-bright">Doomsday</span>
+
+<header class="sticky top-0 z-50 w-full border-b border-white/[0.07] bg-[#06070a]/85 backdrop-blur-md transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="/" class="group flex items-center gap-2.5 text-decoration-none">
+      <span class="inline-block w-2 h-2 rounded-full bg-crimson shadow-[0_0_8px_rgba(220,38,38,0.8)] group-hover:scale-125 transition-transform duration-300"></span>
+      <span class="font-display text-sm sm:text-base font-bold tracking-[0.22em] text-white uppercase group-hover:text-text-secondary transition-colors">
+        Road to <span class="text-crimson-bright font-extrabold tracking-[0.25em]">Doomsday</span>
       </span>
-      {/* Animated logo accent */}
-      <div className="absolute -z-10
-              bg-gradient-to-r from-accent-bright via-transparent to-accent-bright/20
-              w-16 h-4 blur-[4px] opacity-0
-              group-hover:opacity-60 transition-opacity duration-300"></div>
     </a>
-    <div class="hidden sm:flex items-center gap-8">
-      {links.map((link) => (
-        <motion.a
-          key={link.href}
-          href={link.href}
-          whileTap={{ scale: [0.95, 1] }}
-          className="relative flex items-center gap-2
-                  text-[11px] font-medium uppercase tracking-[0.15em] text-muted
-                  hover:text-accent-bright transition-colors duration-300
-                  after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px
-                  after:bg-gradient-to-r from-transparent via-accent-bright/20 to-transparent
-                  after:transition-all after:duration-300
-                  hover:after:w-full"
+
+    <!-- Desktop Nav Links -->
+    <nav class="hidden md:flex items-center gap-7 lg:gap-8" aria-label="Main Navigation">
+      {links.map((link) => {
+        const active = isCurrent(link.href);
+        return (
+          <a
+            href={link.href}
+            aria-current={active ? "page" : undefined}
+            class:list={[
+              "relative py-1 text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors duration-200",
+              active
+                ? "text-white"
+                : "text-muted hover:text-white"
+            ]}
           >
             {link.label}
-            {/* Enhanced hover effects */}
-            <div className="absolute inset-0 -z-10
-                    bg-gradient-to-r from-accent-bright/20 via-transparent to-accent-bright/20
-                    blur-[4px] opacity-0
-                    hover:opacity-60 transition-opacity duration-300"></div>
-          </motion.a>
-      ))}
+            {active && (
+              <span class="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-crimson to-transparent" />
+            )}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button
+      id="mobile-menu-btn"
+      type="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-muted hover:text-white hover:bg-white/[0.06] transition-colors focus:outline-none focus:ring-1 focus:ring-white/20"
+    >
+      <svg id="menu-icon-bars" class="w-5 h-5 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer Overlay -->
+  <div
+    id="mobile-menu-drawer"
+    class="md:hidden fixed inset-x-0 top-16 bg-[#080a10]/98 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl transition-all duration-300 ease-in-out opacity-0 pointer-events-none -translate-y-2 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto"
+  >
+    <div class="px-6 py-8 space-y-4">
+      {links.map((link) => {
+        const active = isCurrent(link.href);
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              "flex items-center justify-between py-2.5 text-xs font-semibold uppercase tracking-[0.2em] border-b border-white/[0.04] transition-colors",
+              active ? "text-crimson-bright font-bold" : "text-text-secondary hover:text-white"
+            ]}
+          >
+            <span>{link.label}</span>
+            {active && <span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>}
+          </a>
+        );
+      })}
     </div>
   </div>
-  {/* Enhanced Cinematic bottom accent line with motion */}
-  <div className="relative">
-    <div className="absolute bottom-0 left-0 right-0 h-px
-            bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
-    {/* Animated particles */}
-    <div className="absolute inset-x-0 bottom-0 -z-10
-            bg-[url('/public/bg/nav-particles.png')] bg-repeat opacity-[0.03]
-            animate-[navParticles_8s_linear_infinite]"></div>
-    {/* Pulsing effect */}
-    <div className="absolute inset-0 -z-10
-            bg-gradient-to-r from-transparent via-accent/10 to-transparent
-            blur-[8px] opacity-0
-            hover:opacity-30 transition-opacity duration-300"></div>
-  </div>
-</nav>
+</header>
+
+<script>
+  function setupMobileMenu() {
+    const btn = document.getElementById("mobile-menu-btn");
+    const drawer = document.getElementById("mobile-menu-drawer");
+    const iconBars = document.getElementById("menu-icon-bars");
+    const iconClose = document.getElementById("menu-icon-close");
+
+    if (!btn || !drawer || !iconBars || !iconClose) return;
+
+    let isOpen = false;
+
+    function toggleMenu(open?: boolean) {
+      isOpen = open !== undefined ? open : !isOpen;
+      btn.setAttribute("aria-expanded", String(isOpen));
+
+      if (isOpen) {
+        drawer.classList.remove("opacity-0", "pointer-events-none", "-translate-y-2");
+        drawer.classList.add("opacity-100", "pointer-events-auto", "translate-y-0");
+        iconBars.classList.add("hidden");
+        iconClose.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      } else {
+        drawer.classList.add("opacity-0", "pointer-events-none", "-translate-y-2");
+        drawer.classList.remove("opacity-100", "pointer-events-auto", "translate-y-0");
+        iconBars.classList.remove("hidden");
+        iconClose.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    btn.addEventListener("click", () => toggleMenu());
+
+    // Close on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen) toggleMenu(false);
+    });
+
+    // Close menu when a link is clicked
+    drawer.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => toggleMenu(false));
+    });
+  }
+
+  setupMobileMenu();
+  document.addEventListener("astro:page-load", setupMobileMenu);
+</script>

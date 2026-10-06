@@ -1,161 +1,108 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import UniverseCard from "../components/UniverseCard.jsx";
-import { motion } from "framer-motion";
 import universes from "../data/universes.json";
-
-export function getStaticPaths() {
-  return [{ params: {} }];
-}
 ---
-<Layout title="Multiverse Explorer — Way to Doomsday" description="Explore the various realities, timelines, and universes that exist beyond the main MCU timeline">
-  {/* Enhanced Multiverse Background */}
-  <div className="absolute inset-0 -z-10 pointer-events-none">
-    {/* Animated cosmic background */}
-    <div className="absolute inset-0 bg-[url('/public/bg/cosmic-multiverse.jpg')] bg-cover bg-center opacity-[0.05] animate-[slowFloat_30s_ease-in-out_infinite]" />
 
-    {/* Quantum foam effect */}
-    <div className="absolute inset-0 bg-[url('/public/bg/quantum-foam.png')] bg-repeat opacity-[0.02]" />
+<Layout
+  title="The Multiverse Explorer — Road to Doomsday"
+  description="Explore the known realities, alternate timelines, and branching dimensions converging toward Avengers: Doomsday and Secret Wars."
+>
+  <div class="relative overflow-hidden">
+    <!-- Pure CSS Cosmic Nebula Ambient Layer -->
+    <div class="pointer-events-none absolute inset-0 -z-10 cosmic-radial-bg opacity-80" />
+    <div class="pointer-events-none absolute inset-0 -z-10 cosmic-stars-grid opacity-35" />
 
-    {/* Reality distortion waves */}
-    <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent_0%,transparent_10px,rgba(99,102,241,0.03)_10px,rgba(99,102,241,0.03)_20px,transparent_20px,transparent_30px)] bg-[size:200%_200%] animate-[realityWave_10s_linear_infinite]" />
-
-    {/* Floating particles */}
-    <div className="absolute inset-0 bg-[url('/public/bg/floating-particles.png')] bg-repeat opacity-[0.015] animate-[floatParticles_12s_linear_infinite]" />
-  </div>
-
-  <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pb-20">
-    {/* Enhanced Header with Experimental Design */}
-    <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
-      <div className="text-center">
-        {/* Multiverse Label with Experimental Treatment */}
-        <div className="inline-flex items-center gap-4 mb-4">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.4em] text-muted-dark/50">
-            MULTIVERSE
-          </span>
-          <div className="w-4 h-0.5 bg-gradient-to-r from-cosmic via-crimson to-warm-cream/30" />
-          <span className="text-[10px] font-semibold uppercase tracking-[0.4em] text-muted-dark/50">
-            EXPLORER
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-20">
+      <!-- ── Editorial Page Header ── -->
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/15 border border-accent/30 text-accent-bright">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent-bright animate-ping"></span>
+          <span class="text-[11px] font-mono font-bold uppercase tracking-[0.22em]">
+            MULTIVERSAL CARTOGRAPHY
           </span>
         </div>
 
-        <h1 className="font-display text-5xl sm:text-6xl tracking-[-0.02em] leading-none mb-4
-                relative inline-block
-                bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent
-                drop-shadow-[0_0_25px_rgba(99,102,241,0.4)]">
-          EXPLORE THE MULTIVERSE
+        <h1 class="font-display text-4xl sm:text-6xl font-extrabold text-white tracking-wide title-glow">
+          THE MULTIVERSE <span class="text-accent-bright">NEXUS</span>
         </h1>
 
-        <p className="text-muted max-w-3xl mx-auto text-base leading-relaxed mb-8">
-          Discover the various realities, timelines, and universes that exist beyond the main MCU timeline.
-          Each reality represents a different possibility, a different choice, a different story.
+        <p class="text-sm sm:text-base text-text-secondary leading-relaxed">
+          With the fracturing of the Sacred Timeline in Phase 4 and the impending incursions of Phase 6, multiple cinematic continuities are colliding on the path to Avengers: Doomsday.
         </p>
-
-        {/* Experimental Controls */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
-          <button
-            onClick={() => alert("Reality stabilization protocols engaged!")}
-            className="relative w-full sm:w-auto px-6 py-3 text-[11px] font-bold uppercase tracking-wider rounded-xl
-                    border border-white/[0.15] backdrop-blur-xl
-                    hover:border-white/[0.25] hover:bg-white/[0.10] transition-all duration-500
-                    shadow-[0_0_15px_rgba(255,255,255,0.1)]"
-          >
-            <span className="relative z-10">STABILIZE REALITY</span>
-            <div className="absolute inset-0 -z-10
-                    bg-gradient-to-r from-cosmic via-crimson to-warm-cream/20
-                    blur-[4px] opacity-0
-                    hover:opacity-40 transition-opacity duration-300"></div>
-          </button>
-
-          <button
-            onClick={() => alert("Initiating dimensional scan...")}
-            className="relative w-full sm:w-auto px-6 py-3 text-[11px] font-bold uppercase tracking-wider rounded-xl
-                    border border-white/[0.15] backdrop-blur-xl
-                    hover:border-white/[0.25] hover:bg-white/[0.10] transition-all duration-500
-                    shadow-[0_0_15px_rgba(255,255,255,0.1)]"
-          >
-            <span className="relative z-10">SCAN DIMENSIONS</span>
-            <div className="absolute inset-0 -z-10
-                    bg-gradient-to-r from-cosmic via-crimson to-warm-cream/20
-                    blur-[4px] opacity-0
-                    hover:opacity-40 transition-opacity duration-300"></div>
-          </button>
-        </div>
       </div>
-    </div>
 
-    {/* Enhanced Universe Grid with Experimental Design */}
-    <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-      <h2 className="font-display text-3xl sm:text-4xl tracking-wide text-center mb-10
-              relative inline-block
-              bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-        KNOWN REALITIES & DIMENSIONS
-      </h2>
-
-      <p className="text-muted max-w-2xl mx-auto text-center mb-12">
-        Map of charted territories across the multiversal spectrum
-      </p>
-
-      {/* Experimental Grid Layout */}
-      <div className="relative">
-        {/* Background Experimental Elements */}
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute top-1/6 left-1/12 w-[300px] h-[200px] rounded-full bg-gradient-cosmic/5 blur-[80px]" />
-          <div className="absolute bottom-1/6 right-1/12 w-[250px] h-[150px] rounded-full bg-gradient-[rgba(220,38,38,0.3)] blur-[60px]" />
-          <div className="absolute top-1/3 left-2/3 w-[150px] h-[150px] rounded-full bg-gradient-warm/3 blur-[50px]" />
-          <div className="absolute bottom-1/3 right-1/4 w-[200px] h-[100px] rounded-full bg-gradient-[rgba(99,102,241,0.2)] blur-[40px]" />
+      <!-- ── Section 1: The Prime Timeline (Earth-616) ── -->
+      <section class="space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-crimson shadow-[0_0_8px_rgba(220,38,38,0.8)]"></span>
+          <h2 class="font-display text-2xl font-bold text-white uppercase tracking-wider">
+            Prime Timeline (Earth-616)
+          </h2>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="p-8 sm:p-10 rounded-3xl border border-crimson/30 bg-gradient-to-r from-crimson/10 via-[#0c0e18] to-accent/10 shadow-2xl space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/[0.08] pb-4">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-widest text-crimson-bright font-bold">
+                SACRED REALITY ANCHOR
+              </span>
+              <h3 class="font-display text-2xl font-extrabold text-white mt-1">
+                The Marvel Cinematic Universe (1943 – 2026)
+              </h3>
+            </div>
+            <a href="/timeline" class="btn-primary text-xs self-start sm:self-auto">
+              View Prime Timeline &rarr;
+            </a>
+          </div>
+          <p class="text-sm text-text-secondary leading-relaxed max-w-4xl">
+            The canonical continuum encompassing Phase 1 through Phase 6. From Tony Stark declaring "I am Iron Man" to the reality-shattering consequences of the Darkhold, the Quantum Realm, and Doctor Doom's convergence.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── Section 2: Charted Realities & Legacy Universes ── -->
+      <section class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-white/[0.06] pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-accent-bright shadow-[0_0_8px_rgba(129,140,248,0.8)]"></span>
+            <h2 class="font-display text-2xl font-bold text-white uppercase tracking-wider">
+              Charted Alternate Realities
+            </h2>
+          </div>
+          <span class="text-xs font-mono text-muted-dark">
+            {universes.length} Identified Realities
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {universes.map((uni) => (
-            <motion.div
-              key={uni.id}
-              initial={{ opacity: 0, y: 40, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="group"
-            >
-              <UniverseCard
-                universe={uni}
-                className="transition-all duration-600
-                        hover:scale-[1.03]
-                        hover:rotate-[1deg]
-                        hover:shadow-[0_0_25px_rgba(99,102,241,0.3)]"
-              />
-
-              {/* Experimental Enhancements for Each Universe Card */}
-              <div className="absolute inset-0 -z-10 pointer-events-none
-                      ${uni.id % 3 === 0 ? 'bg-gradient-to-r from-cosmic/3 via-transparent to-cosmic/3 animate-[pulse_4s_ease-in-out_infinite]' : ''}
-                      ${uni.id % 3 === 1 ? 'bg-gradient-to-b from-cosmic/3 via-transparent to-cosmic/3 animate-[pulse_4s_ease-in-out_infinite]' : ''}
-                      ${uni.id % 3 === 2 ? 'bg-gradient-to-l from-cosmic/3 via-transparent to-cosmic/3 animate-[pulse_4s_ease-in-out_infinite]' : ''}"
-              />
-
-              {/* Dimensional Instability Effect */}
-              <div className="absolute inset-0 -z-10
-                      bg-[radial-gradient(circle_at_top_left,_rgba(220,38,38,0.1)_0%,transparent_40%),radial-gradient(circle_at_bottom_right,_rgba(99,102,241,0.08)_0%,transparent_40%)]
-                      bg-[size:400%_400%]
-                      animate-[dimensionalInstability_6s_ease-in-out_infinite]
-                      opacity-${uni.id % 5 === 0 ? '0.3' : uni.id % 5 === 1 ? '0.1' : uni.id % 5 === 2 ? '0.2' : uni.id % 5 === 3 ? '0.15' : '0.25'}"
-              />
-            </motion.div>
+            <UniverseCard universe={uni} client:load />
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* Experimental Footer Information */}
-      <div className="mt-16">
-        <div className="text-center">
-          <p className="text-xs text-muted/60 font-mono tracking-wider">
-            REALITY STABILITY: NOMINAL
-          </p>
-          <p className="text-xs text-muted/60 font-mono tracking-wider">
-            DIMENSIONAL THREAT LEVEL: <span className="text-[rgba(99,102,241,0.6)]">LOW</span>
-          </p>
-          <p className="text-xs text-muted/60 font-mono tracking-wider">
-            CHARTED REALITIES: {universes.length}
-          </p>
+      <!-- ── Section 3: Incursions & Threat Briefing ── -->
+      <section class="p-8 sm:p-12 rounded-3xl border border-white/[0.08] bg-[#0b0e18]/90 backdrop-blur-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-crimson-bright font-bold">
+              THE MULTIVERSAL THREAT
+            </span>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold text-white">
+              Incursions: When Realities Collide
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              As first revealed in <em class="text-white">Doctor Strange in the Multiverse of Madness</em> and expanded in <em class="text-white">Deadpool &amp; Wolverine</em>, multiversal travel causes instability. When two universes collide at their nexus points, neither survives unless balance is forged.
+            </p>
+          </div>
+          <div class="lg:col-span-4 flex justify-start lg:justify-end">
+            <a href="/archive" class="btn-secondary text-xs">
+              Consult Archive Records &rarr;
+            </a>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
-  </section>
+  </div>
 </Layout>

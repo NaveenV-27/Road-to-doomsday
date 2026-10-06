@@ -1,11 +1,10 @@
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
 import movies from "../data/movies.json";
 import MovieCard from "./MovieCard.jsx";
-import ProgressBar from "./ProgressBar.jsx";
 import PhaseTabs from "./PhaseTabs.jsx";
 import Timeline from "./Timeline.jsx";
 import { useWatched, usePreferences } from "../hooks/useUserState.js";
+import { getMovieData, sortMovies } from "../lib/movieUtils.js";
 
 const FILTERS = [
   { key: "all", label: "All" },
@@ -20,8 +19,8 @@ export default function App() {
   const { watchedMap, toggleWatched } = useWatched();
   const { preferences, updatePreferences } = usePreferences();
 
-  const view = preferences.viewMode;
-  const sortMode = preferences.sortMode;
+  const view = preferences.viewMode || "timeline";
+  const sortMode = preferences.sortMode || "story";
 
   const setView = (v) => {
     updatePreferences({ viewMode: v });
@@ -31,199 +30,194 @@ export default function App() {
     updatePreferences({ sortMode: s });
   };
 
-  // Helper to get movie data from either schema
-  const getMovieData = (item) => {
-    // New schema
-    if (item.mediaType) {
-      return {
-        id: item.id,
-        title: item.title,
-        type: item.mediaType,
-        year: item.release.year,
-        releaseDate: item.release.date,
-        chronologicalYear: item.timeline.storyYear,
-        poster: item.art.poster,
-        desc: item.content.description,
-        cast: item.content.cast,
-        watch: item.watch,
-        phase: item.timeline.phase
-      };
-    }
-    // Old schema fallback
-    return {
-      id: item.id,
-      title: item.title,
-      type: item.type,
-      year: item.year,
-      releaseDate: item.releaseDate,
-      chronologicalYear: item.chronologicalYear,
-      poster: item.poster,
-      desc: item.desc,
-      cast: item.cast,
-      watch: item.watch || { official: [], legalLocator: null },
-      phase: item.phase
-    };
-  };
-
-  const sorted = useMemo(() => {
-    const key = sortMode === "story" ? "chronologicalYear" : "year";
-    return [...movies].sort((a, b) => {
-      const dataA = getMovieData(a);
-      const dataB = getMovieData(b);
-      return dataA[key] - dataB[key];
-    });
-  }, [sortMode]);
-
+  // Filter list
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return sorted.filter((item) => {
+    return movies.filter((item) => {
       const data = getMovieData(item);
       if (typeFilter !== "all" && data.type !== typeFilter) return false;
       if (activePhase !== null && data.phase !== activePhase) return false;
       if (!q) return true;
-      const haystack = `${data.title} ${data.desc} ${data.cast} ${data.year}`.toLowerCase();
+      const haystack = `${data.title} ${data.desc} ${data.cast} ${data.year} ${data.chronologicalYear}`.toLowerCase();
       return haystack.includes(q);
     });
-  }, [sorted, query, typeFilter, activePhase]);
+  }, [query, typeFilter, activePhase]);
+
+  // Sort list with canonical movieUtils logic
+  const sorted = useMemo(() => {
+    return sortMovies(filtered, sortMode);
+  }, [filtered, sortMode]);
 
   const watchedCount = useMemo(
-    () => sorted.filter((item) => watchedMap[getMovieData(item).id]).length,
-    [sorted, watchedMap]
+    () => movies.filter((item) => !!watchedMap[item.id]).length,
+    [watchedMap]
   );
 
   return (
-    <div id="timeline" className="w-full scroll-mt-24">
-      {/* Controls row — glass panel */}
-      <div className="sticky top-3 z-30 max-w-6xl mx-auto px-4 sm:px-6 mb-6">
-        <div className="flex flex-wrap items-center gap-3 justify-between rounded-3xl border border-white/10 backdrop-blur-xl px-5 py-4">
-          <div className="flex items-center gap-3 flex-wrap flex-1 min-w-[280px]">
-            <div className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 min-w-[280px] flex-1 max-w-md border border-white/10">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-muted-dark shrink-0">
-                <path d="M21 21l-4.35-4.35" />
-                <circle cx="11" cy="11" r="6" />
-              </svg>
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search title, year, cast..."
-                aria-label="Search timeline"
-                className="bg-transparent outline-none text-sm w-full placeholder:text-muted-dark/60"
-              />
+    <div id="timeline" className="w-full scroll-mt-20">
+      {/* ── Compact Cinematic Controls Header ── */}
+      <div className="sticky top-16 z-30 w-full border-b border-white/[0.08] bg-[#06070a]/90 backdrop-blur-xl py-3.5 mb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            {/* Search Input & Quick Type Filter */}
+            <div className="flex items-center gap-3 w-full md:w-auto flex-1 max-w-xl">
+              <div className="relative flex-1">
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search title, cast, year..."
+                  aria-label="Search timeline"
+                  className="w-full bg-[#10131e] border border-white/10 rounded-xl px-4 py-2 text-xs text-white placeholder:text-muted-dark focus:outline-none focus:border-crimson"
+                />
+                {query && (
+                  <button
+                    onClick={() => setQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-dark hover:text-white text-xs font-mono"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+
+              {/* Type Pills */}
+              <div className="flex items-center bg-[#10131e] border border-white/10 rounded-xl p-1 shrink-0">
+                {FILTERS.map((f) => (
+                  <button
+                    key={f.key}
+                    onClick={() => setTypeFilter(f.key)}
+                    className={`px-3 py-1 rounded-lg text-[11px] font-mono font-semibold uppercase transition-all ${
+                      typeFilter === f.key
+                        ? "bg-white/15 text-white"
+                        : "text-muted hover:text-white"
+                    }`}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            <div className="relative flex items-center gap-2 flex-wrap" role="list" aria-label="Type filters">
-              {FILTERS.map((f) => (
+            {/* Sort & View Mode Switches */}
+            <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+              {/* Order Mode (Story Order vs Theatrical Release Order) */}
+              <div className="flex items-center bg-[#10131e] border border-white/10 rounded-xl p-1">
                 <button
-                  key={f.key}
-                  onClick={() => setTypeFilter(f.key)}
-                  className={`relative text-xs font-bold uppercase tracking-wide px-3 py-2 rounded-full transition-all ${
-                    typeFilter === f.key ? "bg-white/20 text-white" : "bg-transparent text-muted-dark hover:bg-white/10 hover:text-white"
+                  type="button"
+                  onClick={() => setSortMode("story")}
+                  aria-pressed={sortMode === "story"}
+                  title="In-universe chronological story sequence"
+                  className={`px-3 py-1 rounded-lg text-[11px] font-mono font-semibold uppercase transition-all ${
+                    sortMode === "story"
+                      ? "bg-crimson text-white shadow-sm"
+                      : "text-muted hover:text-white"
                   }`}
                 >
-                  {typeFilter === f.key && (
-                    <motion.span
-                      layoutId="filter-pill"
-                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                      className="absolute inset-0 rounded-full bg-white/20"
-                    />
-                  )}
-                  <span className="relative">{f.label}</span>
+                  Story Order
                 </button>
-              ))}
+                <button
+                  type="button"
+                  onClick={() => setSortMode("release")}
+                  aria-pressed={sortMode === "release"}
+                  title="Theatrical release sequence from 2008 Iron Man to 2026 Doomsday"
+                  className={`px-3 py-1 rounded-lg text-[11px] font-mono font-semibold uppercase transition-all ${
+                    sortMode === "release"
+                      ? "bg-crimson text-white shadow-sm"
+                      : "text-muted hover:text-white"
+                  }`}
+                >
+                  Release Order
+                </button>
+              </div>
+
+              {/* View Layout (Timeline spine vs 3-col Grid) */}
+              <div className="flex items-center bg-[#10131e] border border-white/10 rounded-xl p-1">
+                <button
+                  type="button"
+                  onClick={() => setView("timeline")}
+                  aria-pressed={view === "timeline"}
+                  aria-label="Timeline View"
+                  className={`p-1.5 rounded-lg text-xs transition-all ${
+                    view === "timeline" ? "bg-white/15 text-white" : "text-muted hover:text-white"
+                  }`}
+                  title="Timeline Spine View"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setView("grid")}
+                  aria-pressed={view === "grid"}
+                  aria-label="Grid View"
+                  className={`p-1.5 rounded-lg text-xs transition-all ${
+                    view === "grid" ? "bg-white/15 text-white" : "text-muted hover:text-white"
+                  }`}
+                  title="Poster Grid View"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
-
-          <div className="relative flex items-center gap-2 bg-white/5 rounded-xl p-2 border border-white/10">
-            {["story", "release"].map((s) => (
-              <button
-                key={s}
-                onClick={() => setSortMode(s)}
-                aria-pressed={sortMode === s}
-                title={
-                  s === "story"
-                    ? "Sort by MCU in-universe chronology"
-                    : "Sort by real-world theatrical release date"
-                }
-                className={`relative px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wide transition-all ${
-                  sortMode === s ? "bg-white/20 text-white" : "bg-transparent text-muted-dark hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                {sortMode === s && (
-                  <motion.span
-                    layoutId="sort-pill"
-                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    className="absolute inset-0 rounded-lg bg-white/20"
-                  />
-                )}
-                <span className="relative">{s === "story" ? "Story Order" : "Release Order"}</span>
-              </button>
-            ))}
-          </div>
-
-          <div className="relative flex items-center gap-2 bg-white/5 rounded-xl p-2 border border-white/10">
-            {["timeline", "grid"].map((v) => (
-              <button
-                key={v}
-                onClick={() => setView(v)}
-                aria-pressed={view === v}
-                className={`relative px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wide transition-all ${
-                  view === v ? "bg-white/20 text-white" : "bg-transparent text-muted-dark hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                {view === v && (
-                  <motion.span
-                    layoutId="view-pill"
-                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    className="absolute inset-0 rounded-lg bg-white/20"
-                  />
-                )}
-                <span className="relative">{v === "timeline" ? "Timeline" : "Grid"}</span>
-              </button>
-            ))}
-          </div>
         </div>
       </div>
 
-      {/* Phase tabs */}
+      {/* ── Phase Filter Tabs ── */}
       <PhaseTabs activePhase={activePhase} onSelect={setActivePhase} />
 
-      {/* Progress */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-8">
-        <ProgressBar watchedCount={watchedCount} total={sorted.length} />
+      {/* ── Section Status & Result Summary ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 flex items-center justify-between text-xs font-mono text-muted-dark">
+        <span>
+          Showing <strong className="text-white">{sorted.length}</strong> of {movies.length} titles
+          {activePhase ? ` (Phase ${activePhase})` : ""}
+          {sortMode === "story" ? " · Story Chronology" : " · Theatrical Release Order"}
+        </span>
+
+        <span>
+          Watched: <strong className="text-emerald-400">{watchedCount}</strong> / {movies.length}
+        </span>
       </div>
 
-      {/* Section heading */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-6">
-        <div className="flex items-center gap-4">
-          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-white/10" />
-          <h2 className="font-display text-xl sm:text-2xl tracking-[0.3em] text-muted-dark uppercase whitespace-nowrap">
-            Timeline
-          </h2>
-          <span className="h-px flex-1 bg-gradient-to-l from-transparent via-white/10 to-white/10" />
+      {/* ── Empty State ── */}
+      {sorted.length === 0 && (
+        <div className="py-24 text-center max-w-md mx-auto space-y-3">
+          <p className="text-3xl">🔍</p>
+          <h3 className="font-display text-lg text-white font-bold">
+            No Records Found
+          </h3>
+          <p className="text-xs text-muted">
+            No Marvel titles match "{query}". Try resetting your filters.
+          </p>
+          <button
+            onClick={() => {
+              setQuery("");
+              setTypeFilter("all");
+              setActivePhase(null);
+            }}
+            className="btn-secondary text-xs mt-2"
+          >
+            Reset Filters
+          </button>
         </div>
-      </div>
-
-      {/* Empty state */}
-      {filtered.length === 0 && (
-        <p className="text-center text-muted-dark py-12">
-          Nothing matches "{query}". Try a different title, year, or cast member.
-        </p>
       )}
 
-      {/* Timeline view */}
-      {view === "timeline" && filtered.length > 0 && (
+      {/* ── View Rendering ── */}
+      {view === "timeline" && sorted.length > 0 && (
         <Timeline
-          items={filtered}
+          items={sorted}
           watchedMap={watchedMap}
           toggleWatched={toggleWatched}
           sortMode={sortMode}
         />
       )}
 
-      {/* Grid view */}
-      {view === "grid" && filtered.length > 0 && (
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.map((item) => (
+      {view === "grid" && sorted.length > 0 && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          {sorted.map((item) => (
             <MovieCard
               key={item.id}
               item={item}

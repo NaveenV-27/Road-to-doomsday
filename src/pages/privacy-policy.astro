@@ -1,146 +1,93 @@
 ---
-const year = new Date().getFullYear();
+import Layout from "../layouts/Layout.astro";
 ---
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-info">
-      <span class="brand-text">WAY TO <span class="accent">DOOMSDAY</span></span>
-      <p class="tagline">
-        Every MCU movie and series, in order, before Avengers: Doomsday hits theaters.
-        An unofficial fan project — not affiliated with Marvel Studios or Disney.
+<Layout
+  title="Privacy Policy — Road to Doomsday"
+  description="Privacy Policy and LocalStorage data practices for Road to Doomsday."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-12">
+    <!-- Header -->
+    <div class="space-y-3 border-b border-white/[0.08] pb-8">
+      <div class="inline-flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+        <span class="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-crimson-bright">
+          LEGAL &amp; COMPLIANCE
+        </span>
+      </div>
+      <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-wide">
+        PRIVACY <span class="text-crimson-bright">POLICY</span>
+      </h1>
+      <p class="text-xs font-mono text-muted-dark">
+        Effective Date: October 2026 · Client-Side Data Privacy Notice
       </p>
-      <p class="copyright">&copy; {year} Way to Doomsday. All rights reserved.</p>
     </div>
 
-    <div class="footer-contact">
-      <span class="contact-heading">Contact</span>
+    <!-- Content Sections -->
+    <div class="space-y-8 text-sm text-text-secondary leading-relaxed">
+      <section class="space-y-3">
+        <h2 class="font-display text-xl font-bold text-white uppercase tracking-wider">
+          1. Architecture &amp; Data Storage
+        </h2>
+        <p>
+          Road to Doomsday is a static, frontend-only fan companion website. We do not operate user accounts, databases, or authentication systems. All personal tracking data—including your marked watched titles, personal star ratings, custom journal notes, and layout preferences—is stored exclusively in your device's browser using HTML5 <code>LocalStorage</code>.
+        </p>
+        <p>
+          None of your personal viewing data is ever transmitted to our servers or any third-party analytics platforms.
+        </p>
+      </section>
 
-      <a href="https://linkedin.com/in/ayushcmd" target="_blank" rel="noopener noreferrer" class="contact-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-          <rect width="4" height="12" x="2" y="9"></rect>
-          <circle cx="4" cy="4" r="2"></circle>
-        </svg>
-        <span>LinkedIn</span>
-      </a>
+      <section class="space-y-3">
+        <h2 class="font-display text-xl font-bold text-white uppercase tracking-wider">
+          2. LocalStorage Keys Utilized
+        </h2>
+        <p>The application reads and writes strictly to the following keys on your browser:</p>
+        <ul class="list-disc list-inside space-y-1 font-mono text-xs text-muted pl-2">
+          <li><code>waytodoomsday:watched</code> — Tracks movie IDs marked as watched.</li>
+          <li><code>waytodoomsday:view</code> — Preserves preferred display view (timeline vs grid).</li>
+          <li><code>waytodoomsday:sortMode</code> — Preserves preferred sort sequence (story vs release).</li>
+          <li><code>waytodoomsday:state</code> — Unified local state archive for ratings and personal notes.</li>
+        </ul>
+        <p class="text-xs text-muted">
+          You can clear your progress at any time by clearing your browser's site data or LocalStorage.
+        </p>
+      </section>
 
-      <a href="mailto:ayushcmd@outlook.com" class="contact-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-        </svg>
-        <span>ayushcmd@outlook.com</span>
-      </a>
+      <section class="space-y-3">
+        <h2 class="font-display text-xl font-bold text-white uppercase tracking-wider">
+          3. Third-Party Links &amp; Content
+        </h2>
+        <p>
+          The website provides external links to streaming services (such as Disney+) and informational references. We have no control over the privacy practices, content, or availability of external third-party sites.
+        </p>
+      </section>
 
-      <a href="/privacy-policy" class="contact-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <path d="M14 2v6h6"></path>
-          <path d="M16 13H8"></path>
-          <path d="M16 17H8"></path>
-          <path d="M10 9H8"></path>
-        </svg>
-        <span>Privacy Policy</span>
+      <section class="space-y-3">
+        <h2 class="font-display text-xl font-bold text-white uppercase tracking-wider">
+          4. Fan Project Disclaimer
+        </h2>
+        <p>
+          Road to Doomsday is an unofficial, non-commercial fan project created for celebratory and educational MCU tracking purposes. It is not affiliated with, sponsored by, or endorsed by Marvel Studios, The Walt Disney Company, or their respective affiliates. All Marvel characters, imagery, trademarks, and associated intellectual property remain the property of their respective owners.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl font-bold text-white uppercase tracking-wider">
+          5. Contact
+        </h2>
+        <p>
+          For questions, inquiries, or bug reports regarding this fan project, contact:
+        </p>
+        <p class="font-mono text-xs text-crimson-bright">
+          waytodoomsday@gmail.com
+        </p>
+      </section>
+    </div>
+
+    <div class="pt-8 border-t border-white/[0.08]">
+      <a href="/" class="btn-secondary text-xs">
+        &larr; Return to Home
       </a>
     </div>
   </div>
-</footer>
-
-<style>
-  .site-footer {
-    width: 100%;
-    background: #0a0a0a;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 3rem 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-  }
-
-  .footer-info {
-    max-width: 480px;
-    text-align: left;
-  }
-
-  .brand-text {
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    font-size: 1rem;
-    color: #ffffff;
-    text-transform: uppercase;
-  }
-
-  .accent {
-    color: #22c55e;
-  }
-
-  .tagline {
-    margin-top: 0.6rem;
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .copyright {
-    margin-top: 1.25rem;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.35);
-  }
-
-  .footer-contact {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.9rem;
-    text-align: left;
-  }
-
-  .contact-heading {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
-    margin-bottom: 0.25rem;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    color: rgba(255, 255, 255, 0.75);
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: color 0.2s ease;
-  }
-
-  .contact-link svg {
-    flex-shrink: 0;
-    color: rgba(255, 255, 255, 0.55);
-    transition: color 0.2s ease;
-  }
-
-  .contact-link:hover {
-    color: #22c55e;
-  }
-
-  .contact-link:hover svg {
-    color: #22c55e;
-  }
-
-  @media (max-width: 600px) {
-    .footer-inner {
-      flex-direction: column;
-      text-align: left;
-    }
-  }
-</style>
+</Layout>

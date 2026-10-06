@@ -1,138 +1,178 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useWatchlist, useWatched } from "../hooks/useUserState.js";
+import { useState, useMemo } from "react";
+import movies from "../data/movies.json";
 import MovieCard from "./MovieCard.jsx";
-
-// Helper functions to get data from either old or new schema
-function getMovieData(item) {
-  // Handle new schema
-  if (item.mediaType) {
-    return {
-      id: item.id,
-      title: item.title,
-      type: item.mediaType,
-      year: item.release.year,
-      releaseDate: item.release.date,
-      chronologicalYear: item.timeline.storyYear,
-      poster: item.art.poster,
-      desc: item.content.description,
-      cast: item.content.cast,
-      watch: item.watch,
-      connections: item.connections,
-      journey: item.journey
-    };
-  }
-
-  // Handle old schema (fallback for migration)
-  return {
-    id: item.id,
-    title: item.title,
-    type: item.type,
-    year: item.year,
-    releaseDate: item.releaseDate || null,
-    chronologicalYear: item.chronologicalYear,
-    poster: item.poster,
-    desc: item.desc,
-    cast: item.cast,
-    watch: {
-      official: item.link ? [{ platform: "Disney+", url: item.link }] : [],
-      legalLocator: item.play || item.link || null
-    },
-    connections: {
-      characters: [],
-      relatedTitles: []
-    },
-    journey: {
-      importance: "essential",
-      spoilerLevel: 0
-    }
-  };
-}
+import { useWatchlist, useWatched, useCurrentlyWatching } from "../hooks/useUserState.js";
 
 export default function WatchlistTabs() {
-  const { watchlist, toggleWatchlist } = useWatchlist();
+  const [activeTab, setActiveTab] = useState("watchlist");
+  const { watchlist } = useWatchlist();
   const { watchedMap } = useWatched();
-  const [activeTab, setActiveTab] = useState("watchlist"); // watchlist, watched, currently-watching
+  const { currentlyWatching } = useCurrentlyWatching();
 
-  // Get all movies data
-  // Note: In a real implementation, we would import movies.json here
-  // For now, we'll pass it as a prop or use context
+  // Filtered lists
+  const watchlistMovies = useMemo(() => {
+    const set = new Set(watchlist);
+    return movies.filter((m) => set.has(m.id));
+  }, [watchlist]);
+
+  const watchedMovies = useMemo(() => {
+    return movies.filter((m) => !!watchedMap[m.id]);
+  }, [watchedMap]);
+
+  const inProgressMovies = useMemo(() => {
+    const set = new Set(currentlyWatching);
+    return movies.filter((m) => set.has(m.id));
+  }, [currentlyWatching]);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-      {/* Tabs */}
-      <div className="mb-8">
-        <div className="flex flex-wrap border-b border-white/[0.08]">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* ── Shelf Tabs Navigation ── */}
+      <div className="flex items-center justify-between border-b border-white/[0.08] mb-10 overflow-x-auto no-scrollbar gap-4">
+        <div className="flex items-center gap-2 sm:gap-6">
           <button
             onClick={() => setActiveTab("watchlist")}
-            className={`px-4 py-3 text-xs font-bold uppercase tracking-wide transition-colors ${
+            className={`pb-4 px-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
               activeTab === "watchlist"
-                ? "text-white border-b-2 border-accent-bright"
-                : "text-muted hover:text-white"
+                ? "border-crimson text-white"
+                : "border-transparent text-muted hover:text-white"
             }`}
           >
-            Watch Later
+            <span>Watchlist</span>
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-white/[0.08] text-white">
+              {watchlistMovies.length}
+            </span>
           </button>
+
           <button
             onClick={() => setActiveTab("watched")}
-            className={`px-4 py-3 text-xs font-bold uppercase tracking-wide transition-colors ${
+            className={`pb-4 px-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
               activeTab === "watched"
-                ? "text-white border-b-2 border-accent-bright"
-                : "text-muted hover:text-white"
+                ? "border-crimson text-white"
+                : "border-transparent text-muted hover:text-white"
             }`}
           >
-            Watched
+            <span>Watched Collection</span>
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-950/80 text-emerald-400 border border-emerald-500/30">
+              {watchedMovies.length}
+            </span>
           </button>
+
           <button
-            onClick={() => setActiveTab("currently-watching")}
-            className={`px-4 py-3 text-xs font-bold uppercase tracking-wide transition-colors ${
-              activeTab === "currently-watching"
-                ? "text-white border-b-2 border-accent-bright"
-                : "text-muted hover:text-white"
+            onClick={() => setActiveTab("in-progress")}
+            className={`pb-4 px-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
+              activeTab === "in-progress"
+                ? "border-crimson text-white"
+                : "border-transparent text-muted hover:text-white"
             }`}
           >
-            Currently Watching
+            <span>Currently Watching</span>
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-white/[0.08] text-white">
+              {inProgressMovies.length}
+            </span>
           </button>
         </div>
+
+        <a
+          href="/timeline"
+          className="pb-4 text-xs font-mono text-muted hover:text-white transition-colors shrink-0"
+        >
+          Explore Timeline &rarr;
+        </a>
       </div>
 
-      {/* Tab Content */}
-      {activeTab === "watchlist" && (
-        <div className="space-y-6">
-          <h2 className="font-display text-xl tracking-wide mb-6">Watch Later</h2>
-          {watchlist.length === 0 ? (
-            <p className="text-center text-muted py-12">
-              Your watchlist is empty. Add movies to your watchlist to see them here.
-            </p>
-          ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {/* Would map through watchlist and get movie details */}
-              <div className="col-span-3 text-center py-12">
-                <p className="text-muted">Movie data would be loaded here based on watchlist IDs</p>
+      {/* ── Tab Content ── */}
+      <div>
+        {/* Tab 1: Watchlist */}
+        {activeTab === "watchlist" && (
+          <div>
+            {watchlistMovies.length === 0 ? (
+              <div className="py-24 text-center max-w-md mx-auto space-y-4">
+                <span className="text-4xl block">🌌</span>
+                <h3 className="font-display text-2xl text-white font-bold">
+                  Your multiverse is suspiciously empty.
+                </h3>
+                <p className="text-xs text-muted leading-relaxed">
+                  You haven't saved any titles yet. Browse the timeline and tap "+ Watchlist" on movies you want to queue up.
+                </p>
+                <div className="pt-2">
+                  <a href="/timeline" class="btn-primary text-xs">
+                    Browse MCU Timeline
+                  </a>
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {activeTab === "watched" && (
-        <div className="space-y-6">
-          <h2 className="font-display text-xl tracking-wide mb-6">Watched Movies</h2>
-          {/* Would map through watched movies */}
-          <div className="col-span-3 text-center py-12">
-            <p className="text-muted">Watched movies would be displayed here</p>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                {watchlistMovies.map((movie) => (
+                  <MovieCard key={movie.id} item={movie} layout="grid" sortMode="story" />
+                ))}
+              </div>
+            )}
           </div>
-        </div>
-      )}
+        )}
 
-      {activeTab === "currently-watching" && (
-        <div className="space-y-6">
-          <h2 className="font-display text-xl tracking-wide mb-6">Currently Watching</h2>
-          <div className="col-span-3 text-center py-12">
-            <p className="text-muted">Currently watching movies would be displayed here</p>
+        {/* Tab 2: Watched Collection */}
+        {activeTab === "watched" && (
+          <div>
+            {watchedMovies.length === 0 ? (
+              <div className="py-24 text-center max-w-md mx-auto space-y-4">
+                <span className="text-4xl block">📼</span>
+                <h3 className="font-display text-2xl text-white font-bold">
+                  Zero titles logged so far.
+                </h3>
+                <p className="text-xs text-muted leading-relaxed">
+                  Still pretending you haven't seen Iron Man four times? Start checking off the films you've already experienced.
+                </p>
+                <div className="pt-2">
+                  <a href="/timeline" class="btn-primary text-xs">
+                    Open Timeline to Log Films
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className="mb-6 flex items-center justify-between text-xs font-mono text-muted-dark">
+                  <span>
+                    Logged <strong className="text-emerald-400 font-bold">{watchedMovies.length}</strong> of {movies.length} MCU chapters ({Math.round((watchedMovies.length / movies.length) * 100)}% complete)
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                  {watchedMovies.map((movie) => (
+                    <MovieCard key={movie.id} item={movie} layout="grid" sortMode="story" />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-      )}
+        )}
+
+        {/* Tab 3: Currently Watching */}
+        {activeTab === "in-progress" && (
+          <div>
+            {inProgressMovies.length === 0 ? (
+              <div className="py-24 text-center max-w-md mx-auto space-y-4">
+                <span className="text-4xl block">⏳</span>
+                <h3 className="font-display text-2xl text-white font-bold">
+                  Nothing currently on your screen.
+                </h3>
+                <p className="text-xs text-muted leading-relaxed">
+                  Start an MCU marathon today. Jump into your next chapter and mark your journey.
+                </p>
+                <div className="pt-2">
+                  <a href="/timeline" class="btn-primary text-xs">
+                    Pick a Movie to Stream
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                {inProgressMovies.map((movie) => (
+                  <MovieCard key={movie.id} item={movie} layout="grid" sortMode="story" />
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

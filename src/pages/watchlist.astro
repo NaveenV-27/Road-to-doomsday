@@ -1,11 +1,26 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import WatchlistTabs from "../components/WatchlistTabs.jsx";
-
-export function getStaticPaths() {
-  return [{ params: {} }];
-}
 ---
-<Layout title="Watchlist — Way to Doomsday" description="Your personal watchlist for tracking Marvel movies and series">
+
+<Layout
+  title="My Watchlist & Watched Archive — Road to Doomsday"
+  description="Manage your personal Marvel Cinematic Universe watchlist, track completed films, and follow your marathon progress."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4 text-center sm:text-left">
+    <div class="inline-flex items-center gap-2 mb-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse"></span>
+      <span class="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-crimson-bright">
+        PERSONAL ARCHIVE
+      </span>
+    </div>
+    <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-wide">
+      YOUR WATCH <span class="text-crimson-bright">SHELF</span>
+    </h1>
+    <p class="text-sm text-muted max-w-xl mt-2">
+      Track what you've seen, what's next in your queue, and how close you are to completing the marathon before Avengers: Doomsday.
+    </p>
+  </div>
+
   <WatchlistTabs client:load />
 </Layout>

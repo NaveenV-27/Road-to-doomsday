@@ -59,11 +59,6 @@ function migrateOldState() {
     // Save migrated state
     window.localStorage.setItem(STATE_KEY, JSON.stringify(migratedState));
 
-    // Clean up old keys
-    window.localStorage.removeItem(OLD_WATCHED_KEY);
-    window.localStorage.removeItem(OLD_VIEW_KEY);
-    window.localStorage.removeItem(OLD_SORT_KEY);
-
     return migratedState;
   } catch (e) {
     console.error("Migration failed:", e);
@@ -89,6 +84,14 @@ function writeState(state) {
   if (typeof window === "undefined") return;
   try {
     window.localStorage.setItem(STATE_KEY, JSON.stringify(state));
+    // Mirror to legacy keys for seamless backward/forward compatibility
+    window.localStorage.setItem(OLD_WATCHED_KEY, JSON.stringify(state.watched || {}));
+    if (state.preferences?.viewMode) {
+      window.localStorage.setItem(OLD_VIEW_KEY, state.preferences.viewMode);
+    }
+    if (state.preferences?.sortMode) {
+      window.localStorage.setItem(OLD_SORT_KEY, state.preferences.sortMode);
+    }
     listeners.forEach((fn) => fn(state));
   } catch (e) {
     console.error("Failed to write state:", e);

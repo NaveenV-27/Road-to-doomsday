@@ -1,141 +1,91 @@
 ---
-const year = new Date().getFullYear();
+const currentYear = new Date().getFullYear();
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/journey", label: "Journey" },
+  { href: "/timeline", label: "Timeline" },
+  { href: "/characters", label: "Characters" },
+  { href: "/multiverse", label: "Multiverse" },
+  { href: "/archive", label: "Archive" },
+  { href: "/watchlist", label: "Watchlist" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+];
 ---
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-info">
-      <span class="brand-text">Road to <span class="accent">Doomsday</span></span>
-      <p class="tagline">
-        Every MCU movie and series, in order, before Avengers: Doomsday hits theaters.
-        An unofficial fan project — not affiliated with Marvel Studios or Disney.
-      </p>
-      <p class="copyright">&copy; {year} Road to Doomsday. All rights reserved.</p>
+<footer class="w-full border-t border-white/[0.08] bg-[#050608] text-muted text-xs pt-16 pb-12 mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-white/[0.06]">
+      <!-- Brand & Mission -->
+      <div class="space-y-4">
+        <a href="/" class="inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-crimson shadow-[0_0_8px_rgba(220,38,38,0.8)]"></span>
+          <span class="font-display text-sm font-bold tracking-[0.2em] text-white uppercase">
+            Road to <span class="text-crimson-bright">Doomsday</span>
+          </span>
+        </a>
+        <p class="text-muted-dark leading-relaxed text-[13px] max-w-sm">
+          A dedicated interactive cinematic companion for tracing the journey across the Marvel Cinematic Universe toward <span class="text-text-secondary">Avengers: Doomsday</span>.
+        </p>
+        <p class="text-[11px] text-muted-dark/80">
+          Unofficial fan project. Not affiliated with, authorized, or endorsed by Marvel Studios, Disney, or their subsidiaries.
+        </p>
+      </div>
+
+      <!-- Quick Navigation -->
+      <div>
+        <h4 class="font-display text-[11px] font-bold uppercase tracking-[0.2em] text-text-secondary mb-4">
+          Navigation
+        </h4>
+        <ul class="grid grid-cols-2 gap-2.5">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-muted hover:text-white transition-colors duration-200 text-[12px] uppercase tracking-wider font-medium"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact & Legal -->
+      <div class="space-y-4">
+        <h4 class="font-display text-[11px] font-bold uppercase tracking-[0.2em] text-text-secondary mb-4">
+          Contact & Legal
+        </h4>
+        <div class="space-y-2.5">
+          <a
+            href="mailto:waytodoomsday@gmail.com"
+            class="flex items-center gap-2.5 text-muted hover:text-white transition-colors text-[13px]"
+          >
+            <svg class="w-4 h-4 text-muted-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>waytodoomsday@gmail.com</span>
+          </a>
+          <a
+            href="/privacy-policy"
+            class="flex items-center gap-2.5 text-muted hover:text-white transition-colors text-[13px]"
+          >
+            <svg class="w-4 h-4 text-muted-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>Privacy Policy</span>
+          </a>
+        </div>
+        <p class="font-mono text-[11px] text-muted-dark/80 pt-2">
+          "One timeline. Countless stories."
+        </p>
+      </div>
     </div>
 
-    <div class="footer-contact">
-      <span class="contact-heading">Contact</span>
-
-
-
-      <a href="mailto:waytodoomsday@gmail.com" class="contact-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-        </svg>
-        <span>waytodoomsday@gmail.com</span>
-      </a>
-
-      <a href="/privacy-policy" class="contact-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <path d="M14 2v6h6"></path>
-          <path d="M16 13H8"></path>
-          <path d="M16 17H8"></path>
-          <path d="M10 9H8"></path>
-        </svg>
-        <span>Privacy Policy</span>
-      </a>
+    <!-- Bottom Copyright -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-muted-dark font-mono">
+      <span>&copy; {currentYear} Road to Doomsday. All original fan curation reserved.</span>
+      <span>Marvel, Avengers, and related titles & logos &copy; Marvel &amp; Disney.</span>
     </div>
   </div>
 </footer>
-
-<style>
-  .site-footer {
-    width: 100%;
-    background: #0a0a0a;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 3rem 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-  }
-
-  .footer-info {
-    max-width: 480px;
-    text-align: left;
-  }
-
-  .brand-text {
-    font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    font-size: 1rem;
-    color: #ffffff;
-    text-transform: uppercase;
-  }
-
-  .accent {
-    color: var(--color-accent-bright);
-  }
-
-  .tagline {
-    margin-top: 0.6rem;
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .copyright {
-    margin-top: 1.25rem;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.35);
-  }
-
-  .footer-contact {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.9rem;
-    text-align: left;
-  }
-
-  .contact-heading {
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
-    margin-bottom: 0.25rem;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    color: rgba(255, 255, 255, 0.75);
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: color 0.2s ease;
-  }
-
-  .contact-link svg {
-    flex-shrink: 0;
-    color: rgba(255, 255, 255, 0.55);
-    transition: color 0.2s ease;
-  }
-
-  .contact-link:hover {
-    color: var(--color-accent-bright);
-  }
-
-  .contact-link:hover svg {
-    color: var(--color-accent-bright);
-  }
-
-  @media (max-width: 600px) {
-    .footer-inner {
-      flex-direction: column;
-      text-align: left;
-    }
-  }
-</style>

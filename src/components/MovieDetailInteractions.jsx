@@ -1,523 +1,311 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useWatched, useWatchlist, useRatings, useNotes, usePreferences } from "../hooks/useUserState.js";
+import { useRatings, useNotes } from "../hooks/useUserState.js";
 import { getMovieData } from "../lib/movieUtils.js";
 
-export default function MovieDetailInteractions({ movie, relatedFacts, moviePostCredits }) {
-  const movieData = getMovieData(movie);
-  const { watchedMap, toggleWatched } = useWatched();
-  const { watchlist, toggleWatchlist } = useWatchlist();
+export default function MovieDetailInteractions({ movie, relatedFacts = [], moviePostCredits = [] }) {
+  const data = getMovieData(movie);
   const { ratings, setRating } = useRatings();
   const { notes, setNote } = useNotes();
-  const { preferences, updatePreferences } = usePreferences();
 
-  const watched = !!watchedMap[movieData.id];
-  const inWatchlist = watchlist.includes(movieData.id);
-  const userRating = ratings[movieData.id] || 0;
-  const userNote = notes[movieData.id] || "";
+  const userRating = ratings[data.id] || 0;
+  const userNote = notes[data.id] || "";
+
+  const [activeTab, setActiveTab] = useState("synopsis");
+  const [editingNote, setEditingNote] = useState(false);
+  const [noteDraft, setNoteDraft] = useState(userNote);
+  const [revealedPostCredits, setRevealedPostCredits] = useState({});
+
+  const handleSaveNote = () => {
+    setNote(data.id, noteDraft);
+    setEditingNote(false);
+  };
+
+  const toggleRevealScene = (idx) => {
+    setRevealedPostCredits((prev) => ({
+      ...prev,
+      [idx]: !prev[idx],
+    }));
+  };
 
   return (
-    <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute inset-0 bg-[url('/public/bg/faint-film-grain.png')] bg-repeat opacity-[0.01]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(99,102,241,0.02)_0%,transparent_70%)] bg-[size:800%_800%] animate-[floatGradient_12s_ease-in-out_infinite]" />
+    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-white/[0.08]">
+      {/* ── User Log: Rating & Personal Journal ── */}
+      <div className="mb-12 p-6 sm:p-8 rounded-2xl border border-white/[0.08] bg-[#0c0e18]/80 backdrop-blur-xl flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xl">
+        {/* Star Rating */}
+        <div>
+          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-dark block mb-2">
+            YOUR PERSONAL RATING
+          </span>
+          <div className="flex items-center gap-1.5">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <button
+                key={star}
+                type="button"
+                onClick={() => setRating(data.id, star === userRating ? 0 : star)}
+                aria-label={`Rate ${star} stars`}
+                className="p-1 text-2xl transition-transform hover:scale-125 focus:outline-none"
+              >
+                <span className={star <= userRating ? "text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" : "text-white/20 hover:text-white/40"}>
+                  ★
+                </span>
+              </button>
+            ))}
+            <span className="ml-3 text-xs font-mono text-muted">
+              {userRating > 0 ? `${userRating}/5 Stars` : "Not rated yet"}
+            </span>
+          </div>
+        </div>
+
+        {/* Personal Note Preview / Button */}
+        <div className="flex-1 md:max-w-md md:text-right">
+          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-dark block mb-2">
+            FAN NOTES &amp; MEMORIES
+          </span>
+          {userNote && !editingNote ? (
+            <div className="flex items-center justify-between md:justify-end gap-3">
+              <p className="text-xs text-text-secondary italic line-clamp-1 max-w-xs text-left">
+                "{userNote}"
+              </p>
+              <button
+                onClick={() => {
+                  setNoteDraft(userNote);
+                  setEditingNote(true);
+                }}
+                className="text-xs font-mono text-crimson-bright hover:underline shrink-0"
+              >
+                Edit
+              </button>
+            </div>
+          ) : !editingNote ? (
+            <button
+              onClick={() => {
+                setNoteDraft(userNote);
+                setEditingNote(true);
+              }}
+              className="text-xs font-mono text-muted hover:text-white border border-white/10 px-3.5 py-1.5 rounded-lg transition-colors"
+            >
+              + Add personal note / thoughts
+            </button>
+          ) : null}
+        </div>
       </div>
 
-      {/* Actions Bar with Enhanced Design */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mb-10"
-      >
-        <div className="flex flex-wrap items-center gap-4">
-          {/* Watched Button */}
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={() => toggleWatched(movieData.id)}
-            className={`flex items-center gap-3 px-5 py-3 rounded-xl font-bold uppercase tracking-wider text-[11px]
-                      transition-all duration-500
-                      ${watched
-                        ? "bg-white text-black border-white shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                        : "bg-transparent text-muted border-white/15 hover:border-accent/50 hover:text-white hover:bg-white/5"
-                      }`}
-          >
-            {watched ? (
-              <>
-                <motion.span whileInView={{ scale: [0.8, 1, 0.9, 1] }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                  ✓
-                </motion.span>
-                <span>Watched</span>
-              </>
-            ) : (
-              <>
-                <motion.span whileInView={{ scale: [0.8, 1, 0.9, 1] }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                  +
-                </motion.span>
-                <span>Mark watched</span>
-              </>
-            )}
-          </motion.button>
-
-          {/* Watchlist Button */}
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={() => toggleWatchlist(movieData.id)}
-            className={`flex items-center gap-3 px-5 py-3 rounded-xl font-bold uppercase tracking-wider text-[11px]
-                      transition-all duration-500
-                      ${inWatchlist
-                        ? "bg-accent text-white hover:bg-accent-bright shadow-[0_0_15px_rgba(99,102,241,0.3)]"
-                        : "bg-transparent text-muted border-white/10 hover:border-white/20 hover:text-white hover:bg-white/5"
-                      }`}
-          >
-            {inWatchlist ? (
-              <>
-                <motion.span whileInView={{ scale: [0.8, 1, 0.9, 1] }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                  ✓
-                </motion.span>
-                <span>In Watchlist</span>
-              </>
-            ) : (
-              <>
-                <motion.span whileInView={{ scale: [0.8, 1, 0.9, 1] }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                  +
-                </motion.span>
-                <span>+ Watchlist</span>
-              </>
-            )}
-          </motion.button>
-
-          {/* Rating Section */}
-          <motion.div
-            whileInView={{ scale: [0.8, 1, 0.9, 1] }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="flex items-center gap-3"
-          >
-            <span className="text-xs text-muted">Your Rating:</span>
-            <div className="flex items-center gap-2">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <motion.button
-                  key={star}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => setRating(movieData.id, star)}
-                  className={`w-6 h-6 flex items-center justify-center rounded-full font-bold text-[12px]
-                            transition-all duration-300
-                            ${star <= userRating
-                              ? "text-accent-bright glow-cosmic"
-                              : "text-muted/50 hover:text-accent-bright hover:bg-white/5"
-                            }`}
-                >
-                  ★
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Note Button */}
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const newNote = prompt("Add your notes:", userNote) || "";
-              if (newNote !== null) setNote(movieData.id, newNote);
-            }}
-            className={`flex items-center gap-3 px-5 py-3 rounded-xl font-bold uppercase tracking-wider text-[11px]
-                      transition-all duration-500
-                      bg-transparent text-muted border-white/10 hover:border-white/20 hover:text-white hover:bg-white/5`}
-          >
-            {userNote ? (
-              <>
-                <motion.span whileInView={{ scale: [0.8, 1, 0.9, 1] }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                  📝
-                </motion.span>
-                <span>Edit Note</span>
-              </>
-            ) : (
-              <>
-                <motion.span whileInView={{ scale: [0.8, 1, 0.9, 1] }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                  +
-                </motion.span>
-                <span>Add Note</span>
-              </>
-            )}
-          </motion.button>
-        </div>
-      </motion.div>
-
-      {/* Tabs with Enhanced Design */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mb-12"
-      >
-        <div className="flex flex-wrap border-b border-white/[0.08]">
-          {[{
-            tab: "synopsis",
-            label: "Synopsis",
-            icon: "📖"
-          }, {
-            tab: "journey",
-            label: "Journey",
-            icon: "🛤️"
-          }, {
-            tab: "connections",
-            label: "Connections",
-            icon: "🔗"
-          }, ...(relatedFacts.length > 0 ? [{
-            tab: "facts",
-            label: "Facts",
-            icon: "💡"
-          }] : []),
-          ...(moviePostCredits.length > 0 ? [{
-            tab: "postcredits",
-            label: "Post-Credits",
-            icon: "🎬"
-          }] : [])
-          ].map((tabItem) => (
-            <motion.button
-              key={tabItem.tab}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => updatePreferences({ activeTab: tabItem.tab })}
-              className={`flex items-center gap-2 px-5 py-4 text-xs font-bold uppercase tracking-wider
-                        transition-all duration-500
-                        ${preferences.activeTab === tabItem.tab
-                          ? "text-white border-b-2 border-accent-bright glow-cosmic"
-                          : "text-muted hover:text-white hover:border-white/20"
-                        }`}
+      {/* Note Editor Modal / Inline Area */}
+      {editingNote && (
+        <div className="mb-12 p-6 rounded-2xl border border-white/15 bg-[#121624] shadow-2xl space-y-4">
+          <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider">
+            Your Personal Review / Notes for {data.title}
+          </h4>
+          <textarea
+            value={noteDraft}
+            onChange={(e) => setNoteDraft(e.target.value)}
+            placeholder="What were your favorite scenes, cameos, or theories?"
+            rows={3}
+            className="w-full bg-[#0a0d16] border border-white/15 rounded-xl p-3 text-sm text-white placeholder:text-muted-dark focus:outline-none focus:border-crimson"
+          />
+          <div className="flex items-center justify-end gap-3">
+            <button
+              onClick={() => setEditingNote(false)}
+              className="text-xs font-mono px-4 py-2 rounded-lg text-muted hover:text-white"
             >
-              <span className="text-xl">{tabItem.icon}</span>
-              <span>{tabItem.label}</span>
-            </motion.button>
-          ))}
+              Cancel
+            </button>
+            <button
+              onClick={handleSaveNote}
+              className="btn-primary text-xs py-2 px-5"
+            >
+              Save Note
+            </button>
+          </div>
         </div>
-      </motion.div>
+      )}
 
-      {/* Tab Content with Enhanced Motion */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="space-y-10"
-      >
-        {/* Synopsis Tab */}
-        {preferences.activeTab === "synopsis" && (
-          <motion.div
-            key="synopsis"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+      {/* ── Content Tabs ── */}
+      <div className="border-b border-white/[0.08] flex items-center gap-6 overflow-x-auto no-scrollbar mb-10">
+        <button
+          onClick={() => setActiveTab("synopsis")}
+          className={`pb-4 text-xs font-mono uppercase tracking-[0.16em] font-bold border-b-2 transition-colors shrink-0 ${
+            activeTab === "synopsis"
+              ? "border-crimson text-white"
+              : "border-transparent text-muted hover:text-white"
+          }`}
+        >
+          Overview &amp; Story
+        </button>
+
+        {moviePostCredits.length > 0 && (
+          <button
+            onClick={() => setActiveTab("postcredits")}
+            className={`pb-4 text-xs font-mono uppercase tracking-[0.16em] font-bold border-b-2 transition-colors shrink-0 flex items-center gap-2 ${
+              activeTab === "postcredits"
+                ? "border-crimson text-white"
+                : "border-transparent text-muted hover:text-white"
+            }`}
           >
-            <div>
-              <h2 className="font-display text-xl tracking-wide mb-6
-                      relative inline-block
-                      bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-                Synopsis
-              </h2>
-              <p className="text-muted leading-snug text-base mb-6">
+            <span>Post-Credit Scenes</span>
+            <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-crimson/30 text-crimson-bright">
+              {moviePostCredits.length}
+            </span>
+          </button>
+        )}
+
+        {relatedFacts.length > 0 && (
+          <button
+            onClick={() => setActiveTab("facts")}
+            className={`pb-4 text-xs font-mono uppercase tracking-[0.16em] font-bold border-b-2 transition-colors shrink-0 flex items-center gap-2 ${
+              activeTab === "facts"
+                ? "border-crimson text-white"
+                : "border-transparent text-muted hover:text-white"
+            }`}
+          >
+            <span>Archive Intel</span>
+            <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-accent/30 text-accent-bright">
+              {relatedFacts.length}
+            </span>
+          </button>
+        )}
+      </div>
+
+      {/* ── Tab Content ── */}
+      <div>
+        {/* Synopsis Tab */}
+        {activeTab === "synopsis" && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div className="lg:col-span-8 space-y-6">
+              <h3 className="font-display text-2xl text-white font-bold">
+                Narrative Synopsis
+              </h3>
+              <p className="text-base text-text-secondary leading-relaxed">
                 {data.desc}
               </p>
 
-              {moviePostCredits.length > 0 && (
-                <SpoilerGuard
-                  title="Post-Credit Scenes"
-                  description="These scenes contain spoilers for future movies."
-                >
-                  <div className="space-y-6">
-                    {moviePostCredits.map((scene, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="mb-4"
-                      >
-                        <h3 className="font-display text-lg text-accent-broken/80 mb-3
-                                relative inline-block
-                                bg-gradient-to-r from-cosmic via-crimson to-warm-cream/30 bg-clip-text text-transparent">
-                          {scene.title}
-                        </h3>
-                        <p className="text-muted">{scene.description}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </SpoilerGuard>
-              )}
+              <div className="pt-6 border-t border-white/[0.06] space-y-3">
+                <h4 className="font-display text-xs font-bold uppercase tracking-widest text-muted-dark">
+                  Timeline Significance
+                </h4>
+                <p className="text-sm text-muted leading-relaxed">
+                  Takes place during MCU in-universe year <strong className="text-white">{data.chronologicalYear}</strong>.
+                  Categorized within Phase {data.phase} of the Marvel Cinematic Universe storytelling hierarchy.
+                </p>
+              </div>
             </div>
-          </>
+
+            <div className="lg:col-span-4 space-y-4 bg-[#0a0d15] border border-white/[0.06] p-6 rounded-2xl h-fit">
+              <h4 className="font-display text-xs font-bold uppercase tracking-widest text-text-secondary">
+                Production Dossier
+              </h4>
+              <dl className="space-y-3 text-xs font-mono">
+                <div>
+                  <dt className="text-muted-dark">Canonical Format</dt>
+                  <dd className="text-white capitalize">{data.type}</dd>
+                </div>
+                <div>
+                  <dt className="text-muted-dark">Theatrical Release Year</dt>
+                  <dd className="text-white">{data.year}</dd>
+                </div>
+                <div>
+                  <dt className="text-muted-dark">Chronological Story Order</dt>
+                  <dd className="text-crimson-bright font-bold">{data.chronologicalYear}</dd>
+                </div>
+                <div>
+                  <dt className="text-muted-dark">Phase</dt>
+                  <dd className="text-white">Phase {data.phase}</dd>
+                </div>
+                {data.cast && (
+                  <div>
+                    <dt className="text-muted-dark">Headlining Cast</dt>
+                    <dd className="text-white">{data.cast}</dd>
+                  </div>
+                )}
+              </dl>
+            </div>
+          </div>
         )}
 
-        {/* Journey Tab */}
-        {preferences.activeTab === "journey" && (
-          <motion.div
-            key="journey"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <div>
-              <h2 className="font-display text-xl tracking-wide mb-6
-                      relative inline-block
-                      bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-                Journey Significance
-              </h2>
-              <div className="bg-surface/80 backdrop-blur-xl rounded-xl border border-white/[0.08] p-6">
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center
-                                  bg-gradient-to-b from-cosmic via-crimson to-warm-cream/20
-                                  text-accent-bright font-display
-                                  shadow-[0_0_10px_rgba(99,102,241,0.2)]`}>
-                    {movieData.journey.importance.charAt(0).toUpperCase()}
+        {/* Post-Credits Tab with Interactive Spoiler Guard */}
+        {activeTab === "postcredits" && (
+          <div className="space-y-6 max-w-4xl">
+            <div className="p-4 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-200 text-xs font-mono flex items-center gap-3">
+              <span>⚠️</span>
+              <span>Spoiler Warning: Post-credit scenes reveal pivotal story twists connecting future MCU events.</span>
+            </div>
+
+            <div className="space-y-6">
+              {moviePostCredits.map((scene, idx) => {
+                const isRevealed = !!revealedPostCredits[idx];
+                return (
+                  <div
+                    key={idx}
+                    className="p-6 rounded-2xl border border-white/[0.08] bg-[#0c0e18] space-y-4"
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <span className="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-crimson/20 text-crimson-bright font-bold">
+                          {scene.position || "Post-Credits"}
+                        </span>
+                        <h4 className="font-display text-lg font-bold text-white">
+                          {scene.title}
+                        </h4>
+                      </div>
+                      <button
+                        onClick={() => toggleRevealScene(idx)}
+                        className="text-xs font-mono px-3 py-1.5 rounded-lg border border-white/10 hover:border-white/20 text-muted hover:text-white transition-colors"
+                      >
+                        {isRevealed ? "Hide Spoiler" : "Reveal Scene"}
+                      </button>
+                    </div>
+
+                    {isRevealed ? (
+                      <p className="text-sm text-text-secondary leading-relaxed pt-2 border-t border-white/[0.05]">
+                        {scene.description}
+                      </p>
+                    ) : (
+                      <div
+                        onClick={() => toggleRevealScene(idx)}
+                        className="p-4 rounded-xl bg-white/[0.03] border border-dashed border-white/10 text-center cursor-pointer hover:bg-white/[0.06] transition-colors"
+                      >
+                        <p className="text-xs font-mono text-muted">
+                          [CLASSIFIED POST-CREDIT INTEL — CLICK TO DECRYPT]
+                        </p>
+                      </div>
+                    )}
                   </div>
-                  <div>
-                    <h3 className="font-display text-lg tracking-wide mb-2">
-                      Importance: {movieData.journey.importance}
-                    </h3>
-                    <p className="text-muted">
-                      Spoiler Level: {movieData.journey.spoilerLevel}/4
-                    </p>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Archive Intel Tab */}
+        {activeTab === "facts" && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
+            {relatedFacts.map((fact) => (
+              <div
+                key={fact.id}
+                className="cinematic-card p-6 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-[10px] font-mono text-crimson-bright uppercase">
+                      FILE #{fact.id}
+                    </span>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-white/[0.05] text-muted">
+                      {fact.type}
+                    </span>
                   </div>
+                  <h4 className="font-display text-base font-bold text-white mb-2">
+                    {fact.title}
+                  </h4>
+                  <p className="text-xs text-muted leading-relaxed">
+                    {fact.body}
+                  </p>
                 </div>
               </div>
-            </div>
-          </>
+            ))}
+          </div>
         )}
-
-        {/* Connections Tab */}
-        {preferences.activeTab === "connections" && (
-          <motion.div
-            key="connections"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <div>
-              <h2 className="font-display text-xl tracking-wide mb-6
-                      relative inline-block
-                      bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-                Connections
-              </h2>
-              {movieData.connections.characters.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="mb-8"
-                >
-                  <div>
-                    <h3 className="font-display text-lg tracking-wide mb-3">
-                      Featured Characters
-                    </h3>
-                    <div className="flex flex-wrap gap-3">
-                      {movieData.connections.characters.map((charId) => (
-                        <motion.div
-                          key={charId}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3 }}
-                          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold
-                                  bg-surface/80 backdrop-blur-xl border border-white/[0.08]
-                                  hover:bg-white/5 hover:text-white transition-all duration-300"
-                        >
-                          {charId.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-              {movieData.connections.relatedTitles.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="mb-8"
-                >
-                  <div>
-                    <h3 className="font-display text-lg tracking-wide mb-3">
-                      Related Titles
-                    </h3>
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      {movieData.connections.relatedTitles.map((relatedId) => {
-                        const relatedMovie = movies.find(m => m.id === relatedId);
-                        return (
-                          <motion.a
-                            key={relatedId}
-                            href={`/movie/${relatedId}`}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.3 }}
-                            className="group block rounded-xl overflow-hidden border border-white/[0.08]
-                                    transition-all duration-500
-                                    hover:border-white/20 hover:shadow-lg hover:scale-[1.02]"
-                          >
-                            {relatedMovie && (
-                              <>
-                                <div className="p-4">
-                                  <h3 className="font-display text-lg tracking-wide mb-3">{relatedMovie.title}</h3>
-                                  <p className="text-muted text-sm">{relatedMovie.year}</p>
-                                </div>
-                                <div className="absolute inset-0 -z-10
-                                        bg-gradient-to-b from-cosmic via-crimson to-warm-cream/10
-                                        blur-[4px] opacity-0
-                                        hover:opacity-40 transition-opacity duration-300"></div>
-                              </>
-                            )}
-                          </motion.a>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </div>
-          </>
-        )}
-
-        {/* Facts Tab */}
-        {preferences.activeTab === "facts" && relatedFacts.length > 0 && (
-          <motion.div
-            key="facts"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <div>
-              <h2 className="font-display text-xl tracking-wide mb-6
-                      relative inline-block
-                      bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-                Fun Facts
-              </h2>
-              <div className="space-y-6">
-                {relatedFacts.map((fact) => (
-                  <motion.div
-                    key={fact.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="bg-surface/80 backdrop-blur-xl rounded-xl border border-white/[0.08] p-6"
-                  >
-                    <h3 className="font-display text-lg tracking-wide mb-3">{fact.title}</h3>
-                    <SpoilerGuard
-                      title="Spoiler Warning"
-                      description="This fact may contain spoilers."
-                      showWhen={fact.spoilerLevel > 0 && !preferences.spoilers}
-                    >
-                      <p className="text-muted">{fact.body}</p>
-                    </SpoilerGuard>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </>
-        )}
-
-        {/* Post-Credits Tab */}
-        {preferences.activeTab === "postcredits" && moviePostCredits.length > 0 && (
-          <motion.div
-            key="postcredits"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <div>
-              <h2 className="font-display text-xl tracking-wide mb-6
-                      relative inline-block
-                      bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-                Post-Credit Scenes
-              </h2>
-              <div className="space-y-6">
-                {moviePostCredits.map((scene, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <SpoilerGuard
-                      title="Spoiler Warning"
-                      description="This scene contains spoilers for future movies."
-                      showWhen={scene.spoiler && !preferences.spoilers}
-                    >
-                      <h3 className="font-display text-lg text-accent-broken/80 mb-3">{scene.title}</h3>
-                      <p className="text-muted">{scene.description}</p>
-                    </SpoilerGuard>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </>
-        )}
-      </motion.div>
-
-      {/* Watch Options with Enhanced Design */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mt-14 pt-10 border-t border-white/[0.08]"
-      >
-        <h2 className="font-display text-xl tracking-wide mb-6
-                relative inline-block
-                bg-gradient-to-r from-cosmic via-crimson to-warm-cream bg-clip-text text-transparent">
-          How to Watch
-        </h2>
-        <div className="space-y-5">
-          {movieData.watch.official.length > 0 ? (
-            <>
-              {movieData.watch.official.map((option, index) => (
-                <motion.a
-                  key={index}
-                  href={option.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="flex items-center gap-4 px-6 py-4 rounded-xl
-                          border border-accent/30 bg-accent/20
-                          hover:bg-accent/30 hover:shadow-[0_0_10px_rgba(99,102,241,0.2)]
-                          transition-all duration-500"
-                >
-                  <span className="flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center text-xs font-bold">
-                      ▶
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-wide">Watch on</span>
-                  </span>
-                  <span className="font-display text-lg">{option.platform}</span>
-                </motion.a>
-              ))}
-            </>
-          ) : (
-            <p className="text-muted">
-              No official streaming links available. Check your local providers.
-            </p>
-          )}
-          {movieData.watch.legalLocator && (
-            <motion.a
-              href={movieData.watch.legalLocator}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="flex items-center gap-4 px-6 py-4 rounded-xl
-                      border border-white/20 bg-white/10
-                      hover:bg-white/20 hover:shadow-[0_0_5px_rgba(255,255,255,0.1)]
-                      transition-all duration-500"
-            >
-              <span className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">
-                  🔍
-                </span>
-                <span className="text-xs font-bold uppercase tracking-wide">Where to watch</span>
-              </span>
-              <span className="font-display text-lg">JustWatch</span>
-            </motion.a>
-          )}
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

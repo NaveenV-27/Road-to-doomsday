@@ -1,58 +1,107 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import CharacterSpotlight from "../components/CharacterSpotlight.jsx";
-import { motion } from "framer-motion";
 import CHARACTERS from "../data/characters.json";
+import movies from "../data/movies.json";
 
-export function getStaticPaths() {
-  return CHARACTERS.map((character) => ({
-    params: { slug: character.slug }
-  }));
-}
+// Character specific color styles
+const CHARACTER_THEMES = {
+  "iron-man": { accent: "text-amber-400", border: "border-amber-500/30", glow: "hover:shadow-amber-500/20" },
+  "captain-america": { accent: "text-blue-400", border: "border-blue-500/30", glow: "hover:shadow-blue-500/20" },
+  "thor": { accent: "text-cyan-400", border: "border-cyan-500/30", glow: "hover:shadow-cyan-500/20" },
+  "spider-man": { accent: "text-red-400", border: "border-red-500/30", glow: "hover:shadow-red-500/20" },
+  "star-lord": { accent: "text-purple-400", border: "border-purple-500/30", glow: "hover:shadow-purple-500/20" },
+};
 ---
-<Layout title="Characters — Way to Doomsday" description="Discover the heroes, villains, and legends of the Marvel Cinematic Universe">
-  <section class="relative pt-20 pb-24 border-t border-white/[0.06]">
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="font-display text-2xl sm:text-3xl tracking-wide text-center mb-6">
-        CHARACTER SPOTLIGHT
-      </h2>
-      <p class="text-muted max-w-xl mx-auto text-center">
-        The faces that shape the Marvel Cinematic Universe
+
+<Layout
+  title="MCU Character Roster — Road to Doomsday"
+  description="Discover the heroes, villains, and icons shaping the road to Avengers: Doomsday. Explore their dedicated movie journeys and MCU arcs."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Editorial Page Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <div class="inline-flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse"></span>
+        <span class="text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-crimson-bright">
+          MCU HALL OF LEGENDS
+        </span>
+      </div>
+      <h1 class="font-display text-4xl sm:text-6xl font-extrabold text-white tracking-wide title-glow">
+        THE CHARACTER <span class="text-crimson-bright">ROSTER</span>
+      </h1>
+      <p class="text-sm sm:text-base text-muted leading-relaxed">
+        Trace the individual cinematic arcs of the foundational titans who defined the Infinity Saga and are setting the stage for Doomsday.
       </p>
     </div>
-  </section>
 
-  <section class="relative pt-16">
-    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {CHARACTERS.map((character) => (
+    <!-- Roster Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {CHARACTERS.map((char) => {
+        const theme = CHARACTER_THEMES[char.slug] || { accent: "text-crimson-bright", border: "border-crimson/30", glow: "hover:shadow-crimson/20" };
+        const appearances = char.movieIds.map((id) => movies.find((m) => m.id === id)).filter(Boolean);
+
+        return (
           <a
-            key={character.slug}
-            href={`/character/${character.slug}`}
-            className="group block rounded-2xl overflow-hidden border border-white/[0.08] transition-all duration-300 hover:border-white/20 hover:shadow-lg"
+            href={`/character/${char.slug}`}
+            class={`group block rounded-3xl overflow-hidden border border-white/[0.08] bg-[#0c0e18] transition-all duration-500 hover:border-white/25 hover:-translate-y-2 hover:shadow-2xl ${theme.glow}`}
           >
-            <div className="relative aspect-[2/3] w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/60">
+            <!-- Large Character Artwork (2:3 Aspect Ratio) -->
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-black/60">
               <img
-                src={character.poster}
-                alt={`${character.name} poster`}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                src={char.poster}
+                alt={char.name}
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e18] via-transparent to-black/30 opacity-90" />
+
+              <!-- Floating Badges on Poster -->
+              <div class="absolute top-4 right-4 z-10">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-black/70 backdrop-blur-md text-white border border-white/15">
+                  {char.tagline}
+                </span>
+              </div>
+
+              <div class="absolute bottom-4 left-4 right-4 z-10">
+                <span class={`text-[11px] font-mono uppercase tracking-widest font-semibold ${theme.accent}`}>
+                  {char.actor}
+                </span>
+                <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white group-hover:text-text-secondary transition-colors leading-tight">
+                  {char.name}
+                </h3>
+              </div>
             </div>
-            <div className="mt-4 p-4">
-              <h3 className="font-display text-lg tracking-wide mb-2">
-                {character.name}
-              </h3>
-              <p className="text-muted text-sm">
-                {character.tagline}
-              </p>
-              <div className="mt-2 flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-surface/80 border border-white/[0.08]">
-                {character.filmCount} FILMS
+
+            <!-- Content Footer -->
+            <div class="p-6 space-y-4">
+              <div class="space-y-1">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-muted-dark block">
+                  APPEARANCES ({char.movieIds.length} TITLES):
+                </span>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  {appearances.slice(0, 4).map((m) => (
+                    <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/[0.04] text-muted-dark border border-white/[0.06]">
+                      {m.title}
+                    </span>
+                  ))}
+                  {appearances.length > 4 && (
+                    <span class="px-2 py-0.5 text-[10px] font-mono text-muted-dark">
+                      +{appearances.length - 4} more
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono">
+                <span class="text-muted group-hover:text-white transition-colors">
+                  View Full MCU Story Arc
+                </span>
+                <span class="text-crimson-bright font-bold">&rarr;</span>
               </div>
             </div>
           </a>
-        ))}
-      </div>
+        );
+      })}
     </div>
-  </section>
+  </div>
 </Layout>

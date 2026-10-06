@@ -1,11 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import MovieHero from "../../components/MovieHero.jsx";
-import SpoilerGuard from "../../components/SpoilerGuard.jsx";
 import MovieDetailInteractions from "../../components/MovieDetailInteractions.jsx";
 import movies from "../../data/movies.json";
 import facts from "../../data/facts.json";
 import postCredits from "../../data/postCredits.json";
+import { getMovieData } from "../../lib/movieUtils.js";
 
 export function getStaticPaths() {
   return movies.map((movie) => ({
@@ -15,70 +15,24 @@ export function getStaticPaths() {
 }
 
 const { movie } = Astro.props;
-
-// Helper functions to get data from either old or new schema
-function getMovieData(item) {
-  // Handle new schema
-  if (item.mediaType) {
-    return {
-      id: item.id,
-      title: item.title,
-      type: item.mediaType,
-      year: item.release.year,
-      releaseDate: item.release.date,
-      chronologicalYear: item.timeline.storyYear,
-      poster: item.art.poster,
-      desc: item.content.description,
-      cast: item.content.cast,
-      watch: item.watch,
-      connections: item.connections,
-      journey: item.journey
-    };
-  }
-
-  // Handle old schema (fallback for migration)
-  return {
-    id: item.id,
-    title: item.title,
-    type: item.type,
-    year: item.year,
-    releaseDate: item.releaseDate || null,
-    chronologicalYear: item.chronologicalYear,
-    poster: item.poster,
-    desc: item.desc,
-    cast: item.cast,
-    watch: {
-      official: item.link ? [{ platform: "Disney+", url: item.link }] : [],
-      legalLocator: item.play || item.link || null
-    },
-    connections: {
-      characters: [],
-      relatedTitles: []
-    },
-    journey: {
-      importance: "essential",
-      spoilerLevel: 0
-    }
-  };
-}
-
 const movieData = getMovieData(movie);
 
-// Get related facts
-const relatedFacts = facts.filter(fact =>
+// Filter related facts
+const relatedFacts = facts.filter((fact) =>
   fact.relatedMovies && fact.relatedMovies.includes(movieData.id)
 );
 
-// Get post-credit scenes
-const moviePostCredits = postCredits.find(pc => pc.movieId === movieData.id)?.scenes || [];
+// Filter post-credit scenes
+const moviePostCredits = postCredits.find((pc) => pc.movieId === movieData.id)?.scenes || [];
 ---
-<Layout title={`${movieData.title} — Way to Doomsday`} description={movieData.desc}>
-  <!-- Movie Hero -->
-  <div class="relative pt-20 pb-16">
-    <MovieHero client:load movie={movie} posterIsPlaceholder={movieData.poster?.includes("PLACEHOLDER") || !movieData.poster} />
-  </div>
 
-  <!-- Movie Content (Client-only for interactivity) -->
+<Layout
+  title={`${movieData.title} (${movieData.year}) — Road to Doomsday`}
+  description={movieData.desc}
+  ogImage={movieData.poster}
+>
+  <MovieHero client:load movie={movie} />
+
   <MovieDetailInteractions
     client:load
     movie={movie}
