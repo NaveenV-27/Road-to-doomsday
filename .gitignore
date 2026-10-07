@@ -39,3 +39,6 @@ Guide.md
 .vscode/*
 !.vscode/extensions.json
 
+*.md
+!README.md
+
