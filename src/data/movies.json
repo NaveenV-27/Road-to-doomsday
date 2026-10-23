@@ -10,7 +10,33 @@
     "desc": "Steve Rogers becomes the first super soldier to fight in WWII.",
     "cast": "Chris Evans",
     "link": "https://drive.google.com/file/d/1pyDfNCAHoes5WzeG1__tGz4QFXJGNj_J/view?usp=drivesdk",
-    "play": "https://vegamovie.site/15888-captain-america-the-first-avenger-2011-hindi-dual-audio-movie-hevc-170mb-brrip.html"
+    "play": "https://vegamovie.site/15888-captain-america-the-first-avenger-2011-hindi-dual-audio-movie-hevc-170mb-brrip.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1660000034",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "captain-marvel",
@@ -23,7 +49,33 @@
     "desc": "Carol Danvers discovers her past and her powers while caught in a Kree-Skrull war.",
     "cast": "Brie Larson",
     "link": "https://drive.google.com/file/d/1iC589abEQE9OW0D0Qq6otrg3QiYUkIVm/view?usp=drivesdk",
-    "play": "https://vegamovie.site/2940-captain-marvel-2019-hindi-720p.html"
+    "play": "https://vegamovie.site/2940-captain-marvel-2019-hindi-720p.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260014878",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "iron-man",
@@ -36,7 +88,33 @@
     "desc": "Tony Stark builds his first armored suit after being held captive.",
     "cast": "Robert Downey Jr.",
     "link": "https://drive.google.com/file/d/12htxsq3w372_HYDbnRppYi5QusiKvcAM/view?usp=drivesdk",
-    "play": "https://new1.hdhub4u.af/iron-man-2008-hindi-bluray/"
+    "play": "https://new1.hdhub4u.af/iron-man-2008-hindi-bluray/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1660000038",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "incredible-hulk",
@@ -49,7 +127,33 @@
     "desc": "Bruce Banner evades the military while trying to control his rage.",
     "cast": "Edward Norton",
     "link": "https://drive.google.com/file/d/1mVdHoJeI6zAkZhLHUHfeXSWPNiq6vAKj/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/17499-the-incredible-hulk-2008-hindi-dual-audio-720p-bluray-900mb.html"
+    "play": "https://vegamoviess.pro/17499-the-incredible-hulk-2008-hindi-dual-audio-720p-bluray-900mb.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1000046231",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "iron-man-2",
@@ -62,7 +166,33 @@
     "desc": "Tony faces new threats while his health quietly deteriorates.",
     "cast": "Robert Downey Jr.",
     "link": "https://drive.google.com/file/d/1VHWftfT7r8dizh63kk2HPvc5g5lldxk6/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/24108-iron-man-2-2010-hindi-dual-audio-480p-bluray-350mb.html"
+    "play": "https://vegamoviess.pro/24108-iron-man-2-2010-hindi-dual-audio-480p-bluray-350mb.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1660000039",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "thor",
@@ -75,7 +205,33 @@
     "desc": "Thor is banished to Earth and must learn humility to reclaim his hammer.",
     "cast": "Chris Hemsworth",
     "link": "https://drive.google.com/file/d/1zaHAefO8yPANrTWfV0RCX5EtCef9BA8X/view?usp=drivesdk",
-    "play": "https://hdstream4u.com/file/7vozr67g0ivo"
+    "play": "https://hdstream4u.com/file/7vozr67g0ivo",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1660000044",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "avengers",
@@ -88,7 +244,33 @@
     "desc": "Earth's mightiest heroes assemble to stop Loki and the Chitauri.",
     "cast": "Ensemble",
     "link": "https://drive.google.com/file/d/16j-9L8G74ruil8wHC_muRItIdJjDpToc/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/26388-the-avengers-2012-hindi-dual-audio-480p-bluray-450mb.html"
+    "play": "https://vegamoviess.pro/26388-the-avengers-2012-hindi-dual-audio-480p-bluray-450mb.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1660000015",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "iron-man-3",
@@ -101,7 +283,33 @@
     "desc": "Tony battles PTSD and a new enemy calling himself the Mandarin.",
     "cast": "Robert Downey Jr.",
     "link": "https://drive.google.com/file/d/1E4OnUbyx0Yqq_PCyT94wxjndSKuqH5Lh/view?usp=drivesdk",
-    "play": "https://prmovies.directory/iron-man-3-2013-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/iron-man-3-2013-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1660000042",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "thor-dark-world",
@@ -114,7 +322,33 @@
     "desc": "Thor fights to save the universe from the ancient Dark Elves.",
     "cast": "Chris Hemsworth",
     "link": "https://drive.google.com/file/d/1psbOCq3V2IaC4jRYXmuyM6xKe_XGvtii/view?usp=drivesdk",
-    "play": "https://prmovies.directory/thor-the-dark-world-2013-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/thor-the-dark-world-2013-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260018142",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "captain-america-winter-soldier",
@@ -127,7 +361,33 @@
     "desc": "Cap uncovers a conspiracy embedded inside S.H.I.E.L.D. itself.",
     "cast": "Chris Evans",
     "link": "https://drive.google.com/file/d/1iPXMC1uKeb9c6wZE0JhnZXDUl8Jhocin/view?usp=drivesdk",
-    "play": "https://prmovies.directory/captain-america-the-winter-soldier-2014-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/captain-america-the-winter-soldier-2014-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260016410",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "guardians-vol-1",
@@ -140,7 +400,33 @@
     "desc": "A ragtag crew protects the galaxy from a fanatical warlord.",
     "cast": "Chris Pratt",
     "link": "https://drive.google.com/file/d/1bFUk1tNGqfsUhkMG15sxkDWXjKLi1Lge/view?usp=drivesdk",
-    "play": "https://prmovies.directory/guardians-of-the-galaxy-2014-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/guardians-of-the-galaxy-2014-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260018294",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "guardians-vol-2",
@@ -153,7 +439,33 @@
     "desc": "The Guardians uncover Peter Quill's true parentage while dodging a new threat.",
     "cast": "Chris Pratt",
     "link": "https://drive.google.com/file/d/1z-n4kKXasupQR8Rjn9uWCD3JENRzRTHU/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/5823-guardians-of-the-galaxy-vol-2-2017-hindi-dual-audio-hevc-720p-bluray.html"
+    "play": "https://vegamoviess.pro/5823-guardians-of-the-galaxy-vol-2-2017-hindi-dual-audio-hevc-720p-bluray.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260018295",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "avengers-age-of-ultron",
@@ -166,7 +478,33 @@
     "desc": "The Avengers face an artificial intelligence of their own making.",
     "cast": "Ensemble",
     "link": "https://drive.google.com/file/d/11ZrGifbBMJ3bW2SU3NUk3nLBEzZCHglh/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/7014-avengers-age-of-ultron-2015-hindi-dual-audio-480p-bluray-400mb.html"
+    "play": "https://vegamoviess.pro/7014-avengers-age-of-ultron-2015-hindi-dual-audio-480p-bluray-400mb.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260018315",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "ant-man",
@@ -179,7 +517,33 @@
     "desc": "Scott Lang becomes the size-shifting hero, Ant-Man.",
     "cast": "Paul Rudd",
     "link": "https://drive.google.com/file/d/1Q9252SjS0rFSR6fAJgfkHlIBhPygomwe/view?usp=drivesdk",
-    "play": "https://prmovies.directory/ant-man-2015-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/ant-man-2015-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260018141",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "captain-america-civil-war",
@@ -192,7 +556,22 @@
     "desc": "The Avengers split into two camps over a government accountability act.",
     "cast": "Chris Evans",
     "link": "https://drive.google.com/file/d/1-QcffVwfyoVQLjWPkPbCGksEhVvFoOIg/view?usp=drivesdk",
-    "play": "https://prmovies.directory/captain-america-civil-war-2016-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/captain-america-civil-war-2016-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "provider listed; direct provider title URL still needs verification",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "official-info-only",
+      "verificationNotes": "A current India catalogue listed a provider, but a title-specific provider URL was not confirmed. The button must not claim to be a direct stream."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie",
+    "officialInfoUrl": "https://www.marvel.com/movies/captain-america-civil-war"
   },
   {
     "id": "black-widow",
@@ -205,7 +584,33 @@
     "desc": "Natasha Romanoff confronts her past as a spy while on the run.",
     "cast": "Scarlett Johansson",
     "link": "https://drive.google.com/file/d/1pziYZwJnPI6lgVMud4eEycR82tmwbAy8/view?usp=drivesdk",
-    "play": "https://prmovies.directory/black-widow-2021-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/black-widow-2021-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260067485",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "black-panther",
@@ -218,7 +623,33 @@
     "desc": "T'Challa returns home to claim the throne and protect Wakanda's secrets.",
     "cast": "Chadwick Boseman",
     "link": "https://drive.google.com/file/d/1KjATC-E4ZLq1kRbp9VCLGeTe3QgAWl97/view?usp=drivesdk",
-    "play": "https://prmovies.directory/black-panther-2018-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/black-panther-2018-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1660010672",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "spider-man-homecoming",
@@ -231,7 +662,33 @@
     "desc": "Peter Parker balances high school life with his new Avengers ambitions.",
     "cast": "Tom Holland",
     "link": "https://drive.google.com/file/d/1ogSXcFRKoTecsIT4UIllUuN8jKf2oocO/view?usp=drivesdk",
-    "play": "https://prmovies.directory/spider-man-homecoming-2017-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/spider-man-homecoming-2017-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "SonyLIV",
+        "url": "https://www.sonyliv.com/movies/spider-man-homecoming-1000042078",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "SonyLIV"
+      ],
+      "notes": "Buy/rent options vary; JustWatch lists Apple TV Store purchase and Zee5/Amazon Video/Apple TV rental.",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "doctor-strange",
@@ -244,7 +701,33 @@
     "desc": "A brilliant surgeon learns the mystic arts after a career-ending accident.",
     "cast": "Benedict Cumberbatch",
     "link": "https://drive.google.com/file/d/18kySU-SHYIc1T8GwYmRh3l59y2kSOu9v/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/18231-doctor-strange-hinid-dubbed-hevc-720p-khatrimaza.html"
+    "play": "https://vegamoviess.pro/18231-doctor-strange-hinid-dubbed-hevc-720p-khatrimaza.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260018179",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "thor-ragnarok",
@@ -257,7 +740,33 @@
     "desc": "Thor must escape captivity and stop Hela from destroying Asgard.",
     "cast": "Chris Hemsworth",
     "link": "https://drive.google.com/file/d/1bs_YJTPwwTwwaAOuEUlNiFOf-kA8RCao/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/16857-thor-ragnarok-2017-dual-audio-hindi-480p-bluray-420mb.html"
+    "play": "https://vegamoviess.pro/16857-thor-ragnarok-2017-dual-audio-hindi-480p-bluray-420mb.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1660010577",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "avengers-infinity-war",
@@ -270,7 +779,33 @@
     "desc": "The Avengers race to stop Thanos from collecting the Infinity Stones.",
     "cast": "Ensemble",
     "link": "https://drive.google.com/file/d/1SalTeTJ8QekB8U2wiJeH0hURtp4KRVn1/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/25038-avengers-infinity-war-2018-hindi-dual-audio-bluray-hevc-250mb-esubs.html"
+    "play": "https://vegamoviess.pro/25038-avengers-infinity-war-2018-hindi-dual-audio-bluray-hevc-250mb-esubs.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1660010677",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "ant-man-wasp",
@@ -283,7 +818,33 @@
     "desc": "Scott teams up with Hope van Dyne on a rescue mission into the Quantum Realm.",
     "cast": "Paul Rudd",
     "link": "https://drive.google.com/file/d/1gQgVSAaqJcv9xV5YFFyNEzJNSFVAd4Kz/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/16458-ant-man-and-the-wasp-2018-hindi-org-dual-audio-720p-bluray-1-1gb.html"
+    "play": "https://vegamoviess.pro/16458-ant-man-and-the-wasp-2018-hindi-org-dual-audio-720p-bluray-1-1gb.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1660010696",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "avengers-endgame",
@@ -296,7 +857,33 @@
     "desc": "The remaining Avengers attempt a time heist to undo the Blip.",
     "cast": "Ensemble",
     "link": "https://drive.google.com/file/d/1sP0fM6lKK_7aQdIS9PrlxMcF2Gn50dK2/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/426-avengers-endgame-2019-hindi-dual-audio-720p.html"
+    "play": "https://vegamoviess.pro/426-avengers-endgame-2019-hindi-dual-audio-720p.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260013556",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "wandavision",
@@ -309,7 +896,31 @@
     "desc": "Wanda Maximoff builds a sitcom reality in Westview to bury her grief.",
     "cast": "Elizabeth Olsen",
     "link": "",
-    "play": "https://prmovies.directory/wandavision-2021-season-1-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/wandavision-2021-season-1-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260051735",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "falcon-winter-soldier",
@@ -322,7 +933,31 @@
     "desc": "Sam Wilson and Bucky Barnes team up against a new Super Soldier threat.",
     "cast": "Anthony Mackie",
     "link": "",
-    "play": "https://new1.hdhub4u.af/the-falcon-and-the-winter-soldier-season-1-webrip-all-episodes/"
+    "play": "https://new1.hdhub4u.af/the-falcon-and-the-winter-soldier-season-1-webrip-all-episodes/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260056499",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "loki",
@@ -335,7 +970,31 @@
     "desc": "A variant Loki is recruited by the TVA to fix fractures in the timeline.",
     "cast": "Tom Hiddleston",
     "link": "",
-    "play": "https://new1.hdhub4u.af/loki-season-1-webrip-all-episodes/"
+    "play": "https://new1.hdhub4u.af/loki-season-1-webrip-all-episodes/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260063525",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "what-if",
@@ -348,7 +1007,31 @@
     "desc": "The Watcher explores alternate realities born from single changed moments.",
     "cast": "Jeffrey Wright",
     "link": "",
-    "play": "https://new1.hdhub4u.af/what-if-season-3-hindi-hq-dub-webrip-all-episodes/"
+    "play": "https://new1.hdhub4u.af/what-if-season-3-hindi-hq-dub-webrip-all-episodes/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260066060",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU multiverse animation",
+    "contentCategory": "series"
   },
   {
     "id": "shang-chi",
@@ -361,7 +1044,33 @@
     "desc": "Shang-Chi confronts his father's legacy and the mysterious Ten Rings.",
     "cast": "Simu Liu",
     "link": "https://drive.google.com/file/d/1aYBHbSfznlTioOHT9WH-gC4Q6-DcZBHk/view?usp=drivesdk",
-    "play": "https://new1.hdhub4u.af/shang-chi-and-the-legend-of-the-ten-rings-2021-bluray-hindi-dd5-1-english-1080p-720p-480p-dual-audio-esubs-full-movie/"
+    "play": "https://new1.hdhub4u.af/shang-chi-and-the-legend-of-the-ten-rings-2021-bluray-hindi-dd5-1-english-1080p-720p-480p-dual-audio-esubs-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260072682",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "eternals",
@@ -374,7 +1083,33 @@
     "desc": "An ancient group of immortals reunites to face the emergence of the Deviants.",
     "cast": "Gemma Chan",
     "link": "https://drive.google.com/file/d/1LcCENpJFvs7nAbFKdsDh95tlmheE98YZ/view?usp=drivesdk",
-    "play": ""
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260077949",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "hawkeye",
@@ -387,7 +1122,31 @@
     "desc": "Clint Barton trains Kate Bishop while an old enemy resurfaces at Christmas.",
     "cast": "Jeremy Renner",
     "link": "",
-    "play": "https://vegamoviess.pro/26433-hawkeye-2021-season-1-dual-audio-hindi-hdrip-720p-480p.html"
+    "play": "https://vegamoviess.pro/26433-hawkeye-2021-season-1-dual-audio-hindi-hdrip-720p-480p.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260073689",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "spider-man-far-from-home",
@@ -400,7 +1159,33 @@
     "desc": "Peter Parker faces Mysterio while grieving Tony Stark on a school trip to Europe.",
     "cast": "Tom Holland",
     "link": "https://drive.google.com/file/d/1P8JN-5fZIpwYv2ENeRDaCs4-TJBKa3Na/view?usp=drivesdk",
-    "play": ""
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "SonyLIV",
+        "url": "https://www.sonyliv.com/movies/spider-man-far-from-home-1000214938?watch=true",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "SonyLIV"
+      ],
+      "notes": "JustWatch also lists Apple TV Store purchase and Zee5/Amazon Video/Apple TV rental.",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "spider-man-no-way-home",
@@ -413,7 +1198,33 @@
     "desc": "A spell gone wrong tears open the multiverse and Peter's secret identity.",
     "cast": "Tom Holland",
     "link": "https://drive.google.com/file/d/1jaIBXijrmc4Oy4lLqWnonufdPY2mET_f/view?usp=drivesdk",
-    "play": ""
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "SonyLIV",
+        "url": "https://www.sonyliv.com/movies/spider-man-no-way-home-1000224331",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "SonyLIV"
+      ],
+      "notes": "JustWatch lists Apple TV Store purchase and Zee5/Apple TV/Amazon Video rental.",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "moon-knight",
@@ -426,7 +1237,31 @@
     "desc": "Steven Grant discovers he shares a body with mercenary Marc Spector.",
     "cast": "Oscar Isaac",
     "link": "",
-    "play": "https://new1.hdhub4u.af/moon-knight-season-1-webrip-all-episodes/"
+    "play": "https://new1.hdhub4u.af/moon-knight-season-1-webrip-all-episodes/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260089807",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "ms-marvel",
@@ -439,7 +1274,31 @@
     "desc": "Kamala Khan discovers her powers and becomes her idols' biggest fan turned hero.",
     "cast": "Iman Vellani",
     "link": "",
-    "play": "https://prmovies.directory/ms-marvel-2022-season-1-hindi-dubbed-hotstar-specials-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/ms-marvel-2022-season-1-hindi-dubbed-hotstar-specials-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/shows/ms-marvel/1260098459",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "doctor-strange-multiverse-of-madness",
@@ -452,7 +1311,33 @@
     "desc": "Strange journeys across realities to protect a girl who can travel between them.",
     "cast": "Benedict Cumberbatch",
     "link": "https://drive.google.com/file/d/1m9JD9RklN3jCKl-rpuvbNsLMBZkCDG_3/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/15135-doctor-strange-in-the-multiverse-of-madness-2022.html"
+    "play": "https://vegamoviess.pro/15135-doctor-strange-in-the-multiverse-of-madness-2022.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260103761",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "thor-love-and-thunder",
@@ -465,7 +1350,33 @@
     "desc": "Thor seeks inner peace but must face Gorr the God Butcher instead.",
     "cast": "Chris Hemsworth",
     "link": "https://drive.google.com/file/d/1yfbPJKcEHcHdWtugtjtFi4i6bVc_FVrR/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/26010-thor-love-and-thunder-2022-hindi-dual-audio-hdcam-720p-480p.html"
+    "play": "https://vegamoviess.pro/26010-thor-love-and-thunder-2022-hindi-dual-audio-hdcam-720p-480p.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260110008",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "she-hulk",
@@ -478,7 +1389,31 @@
     "desc": "Jennifer Walters navigates life and law as a newly-minted Hulk.",
     "cast": "Tatiana Maslany",
     "link": "",
-    "play": "https://prmovies.directory/she-hulk-attorney-at-law-2022-season-1-hindi-dubbed-hotstar-specials-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/she-hulk-attorney-at-law-2022-season-1-hindi-dubbed-hotstar-specials-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/shows/she-hulk-attorney-at-law/1260103788",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "black-panther-wakanda-forever",
@@ -491,7 +1426,33 @@
     "desc": "Wakanda fights to protect its nation from world powers while mourning T'Challa and confronting Namor's underwater kingdom.",
     "cast": "Letitia Wright",
     "link": "https://drive.google.com/file/d/1rtl5P0iJ0IJpyDadNsie8Cpo7uFb7J02/view?usp=drivesdk",
-    "play": "https://new1.hdhub4u.af/black-panther-wakanda-forever-2022-hindi-bluray-full-movie/"
+    "play": "https://new1.hdhub4u.af/black-panther-wakanda-forever-2022-hindi-bluray-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260118821",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "werewolf-by-night",
@@ -502,9 +1463,21 @@
     "chronologicalYear": 2025,
     "poster": "/posters/Werewolf_By_Night.webp",
     "desc": "Monster hunters compete in a deadly contest at a gothic mansion.",
-    "cast": "Gael Garc\u00eda Bernal",
+    "cast": "Gael García Bernal",
     "link": "",
-    "play": "https://prmovies.directory/werewolf-by-night-2022-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/werewolf-by-night-2022-Watch-online-full-movie/",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "not available for streaming in India on current listing",
+      "providers": [],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "special",
+    "contentCategory": "special"
   },
   {
     "id": "secret-invasion",
@@ -517,7 +1490,31 @@
     "desc": "Nick Fury uncovers a shape-shifting Skrull conspiracy on Earth.",
     "cast": "Samuel L. Jackson",
     "link": "",
-    "play": "https://new1.hdhub4u.af/secret-invasion-season-1-hindi-webrip-all-episodes/"
+    "play": "https://new1.hdhub4u.af/secret-invasion-season-1-hindi-webrip-all-episodes/",
+    "officialWatch": [
+      {
+        "provider": "Disney+ (official title page; Indian routing not independently confirmed)",
+        "url": "https://www.disneyplus.com/series/secret-invasion/3iHQtD1BDpgN",
+        "accessType": "subscription-region-dependent",
+        "region": "global title page; India routing not confirmed",
+        "urlType": "official-title",
+        "verificationStatus": "official Disney+ title URL verified; do not assume it resolves to an India playback page"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "official-global-title-url-added-india-routing-unconfirmed",
+      "verificationNotes": "Official Disney+ title page added. Current India offers list JioHotstar/VI movies and tv, but this exact Disney+ URL has not been confirmed to redirect to an India playback page."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "ant-man-quantumania",
@@ -530,7 +1527,33 @@
     "desc": "The Lang-van Dyne family is pulled into the Quantum Realm to face Kang.",
     "cast": "Paul Rudd",
     "link": "https://drive.google.com/file/d/1Gcv3ekgK4XvD88XcQQjdJyCEWB0pFKNe/view?usp=drivesdk",
-    "play": "https://prmovies.directory/ant-man-and-the-wasp-quantumania-2023-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/ant-man-and-the-wasp-quantumania-2023-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260140795",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "guardians-vol-3",
@@ -543,7 +1566,33 @@
     "desc": "The Guardians risk everything to save Rocket from his dark origins.",
     "cast": "Chris Pratt",
     "link": "https://drive.google.com/file/d/1zSNyNMvnHQ-4byyynzyZsPfqEzOK6o02/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/32631-guardians-of-the-galaxy-vol-3-2023-hindi-cleaned-dual-audio-hdts-720p-480p.html"
+    "play": "https://vegamoviess.pro/32631-guardians-of-the-galaxy-vol-3-2023-hindi-cleaned-dual-audio-hdts-720p-480p.html",
+    "officialWatch": [
+      {
+        "provider": "VI movies and tv",
+        "url": "https://moviesandtv.myvi.in/movie/guardians-of-the-galaxy-vol-3",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "VI movies and tv"
+      ],
+      "notes": "JustWatch lists VI movies and tv only; cross-checked against OTTweek India guide updated/crawled in 2026. Recheck at deployment.",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "the-marvels",
@@ -556,7 +1605,33 @@
     "desc": "Carol Danvers, Kamala Khan, and Monica Rambeau swap places when their powers entangle.",
     "cast": "Brie Larson",
     "link": "https://drive.google.com/file/d/1LP49ipNG9ZzDqw75mXEmlH_AOmwHDurX/view?usp=drivesdk",
-    "play": "https://prmovies.directory/the-marvels-2023-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/the-marvels-2023-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "VI movies and tv",
+        "url": "https://moviesandtv.myvi.in/movie/the-marvels",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "VI movies and tv"
+      ],
+      "notes": "JustWatch India currently lists VI movies and tv only; recheck at deployment.",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "echo",
@@ -569,7 +1644,30 @@
     "desc": "Maya Lopez returns home and confronts her family ties to Kingpin's empire.",
     "cast": "Alaqua Cox",
     "link": "",
-    "play": "https://prmovies.directory/echo-2024-season-1-hindi-dubbed-hotstar-specials-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/echo-2024-season-1-hindi-dubbed-hotstar-specials-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260160875",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "agatha-all-along",
@@ -582,7 +1680,31 @@
     "desc": "A stripped-of-power Agatha Harkness walks the Witches' Road for a shot at redemption.",
     "cast": "Kathryn Hahn",
     "link": "",
-    "play": "https://prmovies.directory/agatha-all-along-2024-season-1-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/agatha-all-along-2024-season-1-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "Disney+ (official title page; Indian routing not independently confirmed)",
+        "url": "https://www.disneyplus.com/series/agatha-all-along/6Nf0RIVHbJnh",
+        "accessType": "subscription-region-dependent",
+        "region": "global title page; India routing not confirmed",
+        "urlType": "official-title",
+        "verificationStatus": "official Disney+ title URL verified; do not assume it resolves to an India playback page"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "official-global-title-url-added-india-routing-unconfirmed",
+      "verificationNotes": "Official Disney+ title page added. Current India offers list JioHotstar/VI movies and tv, but this exact Disney+ URL has not been confirmed to redirect to an India playback page."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "deadpool-and-wolverine",
@@ -595,7 +1717,33 @@
     "desc": "Deadpool drags a reluctant Wolverine variant into a fight to save his universe.",
     "cast": "Ryan Reynolds",
     "link": "https://drive.google.com/file/d/1IpgSUBdPoSlP29UvPBUPbbZpPwEqKsoC/view?usp=drivesdk",
-    "play": "https://prmovies.directory/deadpool-wolverine-2024-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/deadpool-wolverine-2024-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/movies/deadpool-and-wolverine/1271305185",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "JustWatch currently says streaming on JioHotstar; an older India article reported no subscription home, so this is a source conflict resolved in favor of the newer title page.",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "captain-america-brave-new-world",
@@ -608,7 +1756,20 @@
     "desc": "Sam Wilson steps fully into the Captain America mantle amid a global crisis.",
     "cast": "Anthony Mackie",
     "link": "https://drive.google.com/file/d/1c1MatpQkIAjqnKFlWGBfKKVoPMsTvVgF/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/38520-captain-america-brave-new-world-2025-hindi-dubbed-camrip-1080p-720p-480p.html"
+    "play": "https://vegamoviess.pro/38520-captain-america-brave-new-world-2025-hindi-dubbed-camrip-1080p-720p-480p.html",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "needs verification; India availability sources conflict",
+      "providers": [],
+      "notes": "JustWatch currently reports no streaming provider in India and lists cinema tickets; no legal stream link verified. Conflicting source signal: OTTweek has a Disney+ branded title page, but its current India guide and JustWatch list no Indian subscription offer. Do not hard-code an unverified provider deep-link; treat availability as unresolved and recheck at deployment.",
+      "directLinkStatus": "needs-verification",
+      "verificationNotes": "Do not present as streamable until the title page and India access are verified directly on the provider."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie",
+    "officialInfoUrl": "https://www.marvel.com/movies/captain-america-brave-new-world"
   },
   {
     "id": "daredevil-born-again",
@@ -621,7 +1782,30 @@
     "desc": "Matt Murdock and Wilson Fisk's paths collide again in New York.",
     "cast": "Charlie Cox",
     "link": "",
-    "play": "https://prmovies.directory/daredevil-born-again-2025-season-1-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/daredevil-born-again-2025-season-1-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1271337450",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series; season 1 and season 2",
+    "contentCategory": "series"
   },
   {
     "id": "ironheart",
@@ -634,7 +1818,30 @@
     "desc": "Genius inventor Riri Williams builds her own armored suit and crosses paths with magic.",
     "cast": "Dominique Thorne",
     "link": "",
-    "play": "https://prmovies.directory/ironheart-2025-season-1-episode-4-6-hindi-dubbed-hotstar-specials-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/ironheart-2025-season-1-episode-4-6-hindi-dubbed-hotstar-specials-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1271341040",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "thunderbolts",
@@ -647,7 +1854,33 @@
     "desc": "A team of morally grey antiheroes is thrown together on a doomed black-ops mission.",
     "cast": "Florence Pugh",
     "link": "https://drive.google.com/file/d/1LojebgyU_sA2jWdnYAhH9HHMx069a7p6/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/43437-thunderbolts-2025-hindi-dual-audio-web-dl-720p-480p-1080p.html"
+    "play": "https://vegamoviess.pro/43437-thunderbolts-2025-hindi-dual-audio-web-dl-720p-480p-1080p.html",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/1271337437",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "direct provider title URL captured; live access may vary",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "provider-url-captured",
+      "accessTypes": [
+        "subscription"
+      ],
+      "verificationNotes": "Direct provider-owned title URL captured from current India title offer or official provider page. Revalidate availability in the actual browser because catalogues and rights change."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "fantastic-four-first-steps",
@@ -660,7 +1893,20 @@
     "desc": "Marvel's First Family defends their retro-futuristic Earth from Galactus.",
     "cast": "Pedro Pascal",
     "link": "https://drive.google.com/file/d/1hyzhIDBXb52XTK40wqhOoG4OtXDs5aTt/view?usp=drivesdk",
-    "play": "https://vegamoviess.pro/45582-the-fantastic-4-first-steps-2025-hindi-dual-audio-web-dl-720p-480p-1080p.html"
+    "play": "https://vegamoviess.pro/45582-the-fantastic-4-first-steps-2025-hindi-dual-audio-web-dl-720p-480p-1080p.html",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "official studio page available; India streaming deep link not verified",
+      "providers": [],
+      "notes": "Current India streaming guide lists JioHotstar; title-specific JustWatch locator slug is plausible but needs click validation before deployment.",
+      "directLinkStatus": "official-info-only",
+      "verificationNotes": "Do not guess a JioHotstar title ID. Use the official information page until a direct India provider URL is confirmed."
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie",
+    "officialInfoUrl": "https://www.marvel.com/movies/the-fantastic-four-first-steps"
   },
   {
     "id": "wonder-man",
@@ -673,7 +1919,30 @@
     "desc": "Stuntman Simon Williams gets pulled into the superhero life he's always doubled for.",
     "cast": "Yahya Abdul-Mateen II",
     "link": "",
-    "play": "https://prmovies.directory/wonder-man-2026-season-1-hindi-dubbed-Watch-online-full-movie/"
+    "play": "https://prmovies.directory/wonder-man-2026-season-1-hindi-dubbed-Watch-online-full-movie/",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1271460126",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series"
   },
   {
     "id": "spider-man-brand-new-day",
@@ -686,7 +1955,40 @@
     "desc": "Peter Parker fights crime full-time in a world that's forgotten him, until a hidden new threat forces a change he can't control.",
     "cast": "Tom Holland",
     "link": "https://drive.google.com/file/d/1-PNNQH-An7npeCFK8FUsC2E-ixqgOQuo/view?usp=drivesdk",
-    "play": "https://slast430did.com/play/tt22084616"
+    "play": "https://slast430did.com/play/tt22084616",
+    "officialWatch": [
+      {
+        "provider": "Apple TV Store",
+        "url": "https://tv.apple.com/in/movie/spider-man-brand-new-day/umc.cmc.j7nnkr546ksfwf7f9aaihqsr?playableId=tvs.sbd.9001%3A6793590242",
+        "accessType": "rent",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      },
+      {
+        "provider": "Prime Video",
+        "url": "https://www.primevideo.com/detail?camp=1789&gti=amzn1.dv.gti.7bb04e11-fe7f-4528-bd0e-84d1312f15c5",
+        "accessType": "rent",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider URL captured from a current India offer or official provider title page; confirm availability at visit time"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "official rental/purchase links listed; access type is rental",
+      "providers": [
+        "Apple TV Store",
+        "Prime Video"
+      ],
+      "notes": "No Indian subscription stream is listed as of 14 Oct 2026; JustWatch says rent on Amazon Video/Apple TV and buy on Apple TV Store.",
+      "accessTypes": [
+        "rent"
+      ]
+    },
+    "scope": "MCU mainline film",
+    "contentCategory": "movie"
   },
   {
     "id": "avengers-doomsday",
@@ -700,6 +2002,1095 @@
     "cast": "Ensemble",
     "releaseDate": "2026-12-18",
     "link": "",
-    "play": ""
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "not yet released",
+      "providers": [],
+      "notes": "Scheduled for theatrical release on 2026-12-18. No streaming destination should be shown until an official streaming release is announced.",
+      "directLinkStatus": "not-released",
+      "verificationNotes": "This title has not been released yet. Do not render Watch Officially, Watch Link, rental, or streaming buttons unless a verified official stream is added after release."
+    },
+    "scope": "upcoming MCU film",
+    "contentCategory": "movie",
+    "officialInfoUrl": "https://movies.disney.com/avengers-doomsday",
+    "posterFallbackUrl": "https://lumiere-a.akamaihd.net/v1/images/g_movies_avengersdoomsday_d23update_poster_8c2ab836.jpeg?region=0%2C0%2C1300%2C730",
+    "releaseStatus": "upcoming",
+    "releaseStatusLabel": "NOT YET RELEASED",
+    "officialInfoLabel": "Official Film Information"
+  },
+  {
+    "id": "visionquest",
+    "title": "VisionQuest",
+    "type": "series",
+    "year": 2026,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1271652473",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "provider title URL captured; India entitlement/availability may vary",
+      "providers": [
+        "JioHotstar (provider URL captured; regional playback should be tested)"
+      ],
+      "notes": "Marvel confirms it premiered 14 Oct 2026 exclusively on Disney+; India-specific title landing page still needs validation.",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU mainline series",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "eyes-of-wakanda",
+    "title": "Eyes of Wakanda",
+    "type": "series",
+    "year": 2025,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1271341047",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU canon animation",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-zombies",
+    "title": "Marvel Zombies",
+    "type": "series",
+    "year": 2025,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1271435441",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU multiverse animation",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "your-friendly-neighborhood-spider-man",
+    "title": "Your Friendly Neighborhood Spider-Man",
+    "type": "series",
+    "year": 2025,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1271340193",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "Marvel Studios alternate-universe animation",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "x-men-97",
+    "title": "X-Men '97",
+    "type": "series",
+    "year": 2024,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1271269585",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "Marvel multiverse/adjacent animation",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-daredevil",
+    "title": "Marvel's Daredevil",
+    "type": "series",
+    "year": 2015,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/shows/daredevil/1260091261",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "Included as an additional/legacy catalog, not silently merged into the mainline continuity.",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU-connected/legacy Marvel Television",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-jessica-jones",
+    "title": "Marvel's Jessica Jones",
+    "type": "series",
+    "year": 2015,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/shows/marvels-jessica-jones/1260089834",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "Included as an additional/legacy catalog, not silently merged into the mainline continuity.",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU-connected/legacy Marvel Television",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-luke-cage",
+    "title": "Marvel's Luke Cage",
+    "type": "series",
+    "year": 2016,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/shows/marvels-luke-cage/1260091266",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "official provider title URL supplied by the user; Indian Hotstar route"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming title page supplied",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "User supplied the direct provider link.",
+      "directLinkStatus": "user-supplied-official-provider-url",
+      "verificationNotes": "Use the user-supplied India Hotstar title URL as the direct watch destination. Playback entitlement may depend on account and catalogue access."
+    },
+    "scope": "MCU-connected/legacy Marvel Television",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue",
+    "officialInfoUrl": "https://www.marvel.com/tv-shows/",
+    "officialInfoLabel": "Marvel official TV catalogue (information page only; not a direct watch link)"
+  },
+  {
+    "id": "marvel-s-iron-fist",
+    "title": "Marvel's Iron Fist",
+    "type": "series",
+    "year": 2017,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260091304",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "Included as an additional/legacy catalog, not silently merged into the mainline continuity.",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU-connected/legacy Marvel Television",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-the-defenders",
+    "title": "Marvel's The Defenders",
+    "type": "series",
+    "year": 2017,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/shows/marvels-the-defenders/1260091248",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "Included as an additional/legacy catalog, not silently merged into the mainline continuity.",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU-connected/legacy Marvel Television",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-the-punisher",
+    "title": "Marvel's The Punisher",
+    "type": "series",
+    "year": 2017,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260096415",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "Included as an additional/legacy catalog, not silently merged into the mainline continuity.",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU-connected/legacy Marvel Television",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-agent-carter",
+    "title": "Marvel's Agent Carter",
+    "type": "series",
+    "year": 2015,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260027685",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "Included as an additional/legacy catalog, not silently merged into the mainline continuity.",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU-connected/legacy Marvel Television",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-agents-of-s-h-i-e-l-d",
+    "title": "Marvel's Agents of S.H.I.E.L.D.",
+    "type": "series",
+    "year": 2013,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260027734",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "Included as an additional/legacy catalog, not silently merged into the mainline continuity.",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU-connected/legacy Marvel Television",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-inhumans",
+    "title": "Marvel's Inhumans",
+    "type": "series",
+    "year": 2017,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/1260027737",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "Included as an additional/legacy catalog, not silently merged into the mainline continuity.",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU-connected/legacy Marvel Television",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-cloak-dagger",
+    "title": "Marvel's Cloak & Dagger",
+    "type": "series",
+    "year": 2018,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [
+      {
+        "provider": "JioHotstar",
+        "url": "https://www.hotstar.com/in/shows/marvels-cloak-and-dagger/1260027851",
+        "accessType": "subscription",
+        "region": "IN",
+        "urlType": "direct-title",
+        "verificationStatus": "provider-owned Hotstar destination URL captured from the India streaming offer or official title page; playback and account entitlement may vary"
+      }
+    ],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "Included as an additional/legacy catalog, not silently merged into the mainline continuity.",
+      "directLinkStatus": "direct-provider-title-url-added",
+      "verificationNotes": "JioHotstar destination link added. The URL is provider-owned; title availability, subscription eligibility, and redirects may vary by account/region."
+    },
+    "scope": "MCU-connected/legacy Marvel Television",
+    "contentCategory": "series",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "the-guardians-of-the-galaxy-holiday-special",
+    "title": "The Guardians of the Galaxy Holiday Special",
+    "type": "special",
+    "year": 2022,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar",
+        "VI movies and tv"
+      ],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "special",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "werewolf-by-night-in-color",
+    "title": "Werewolf by Night in Color",
+    "type": "special",
+    "year": 2023,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "VI movies and tv"
+      ],
+      "notes": "Treat as a separate release/version. Provider status is based on a stale May 2025 JustWatch listing.",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "alternate color presentation of special",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "the-punisher-one-last-kill",
+    "title": "The Punisher: One Last Kill",
+    "type": "special",
+    "year": 2026,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "streaming listed",
+      "providers": [
+        "JioHotstar"
+      ],
+      "notes": "Released 12 May 2026; official Marvel confirms the title belongs to Marvel Television. JustWatch lists JioHotstar.",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "Marvel Television special",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "the-consultant-marvel-one-shot",
+    "title": "The Consultant (Marvel One-Shot)",
+    "type": "special",
+    "year": 2011,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "no verified standalone India streaming link",
+      "providers": [],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "MCU short film/One-Shot",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "a-funny-thing-happened-on-the-way-to-thor-s-hammer-marvel-one-shot",
+    "title": "A Funny Thing Happened on the Way to Thor’s Hammer (Marvel One-Shot)",
+    "type": "special",
+    "year": 2011,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "no verified standalone India streaming link",
+      "providers": [],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "MCU short film/One-Shot",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "item-47-marvel-one-shot",
+    "title": "Item 47 (Marvel One-Shot)",
+    "type": "special",
+    "year": 2012,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "no verified standalone India streaming link",
+      "providers": [],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "MCU short film/One-Shot",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "agent-carter-marvel-one-shot-short-film",
+    "title": "Agent Carter (Marvel One-Shot short film)",
+    "type": "special",
+    "year": 2013,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "no verified standalone India streaming link",
+      "providers": [],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "MCU short film/One-Shot",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "all-hail-the-king-marvel-one-shot",
+    "title": "All Hail the King (Marvel One-Shot)",
+    "type": "special",
+    "year": 2014,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "no verified standalone India streaming link",
+      "providers": [],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "MCU short film/One-Shot",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "whih-newsfront",
+    "title": "WHIH Newsfront",
+    "type": "special",
+    "year": 2015,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "no verified standalone India streaming link",
+      "providers": [],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "in-universe MCU web short series",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "agents-of-s-h-i-e-l-d-slingshot",
+    "title": "Agents of S.H.I.E.L.D.: Slingshot",
+    "type": "special",
+    "year": 2016,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "no verified standalone India streaming link",
+      "providers": [],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "MCU-connected web miniseries",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "team-thor-team-thor-part-2-team-darryl",
+    "title": "Team Thor / Team Thor: Part 2 / Team Darryl",
+    "type": "special",
+    "year": 2016,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "no verified standalone India streaming link",
+      "providers": [],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "MCU bonus short films",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "peter-s-to-do-list",
+    "title": "Peter’s To-Do List",
+    "type": "special",
+    "year": 2019,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "no verified standalone India streaming link",
+      "providers": [],
+      "notes": "",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "MCU bonus short film",
+    "contentCategory": "special",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-studios-assembled-collection",
+    "title": "Marvel Studios: Assembled (collection)",
+    "type": "special",
+    "year": 2021,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "India availability not verified",
+      "providers": [],
+      "notes": "Individual specials have inconsistent Indian availability; one JustWatch India example says unavailable. Not treated as plot canon.",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "behind-the-scenes documentary collection",
+    "contentCategory": "documentary",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-616",
+    "title": "Marvel’s 616",
+    "type": "special",
+    "year": 2020,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "India availability not verified",
+      "providers": [],
+      "notes": "Marvel catalog lists the title; a current India streaming landing page was not verified.",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "Marvel documentary series",
+    "contentCategory": "documentary",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-behind-the-mask",
+    "title": "Marvel’s Behind the Mask",
+    "type": "special",
+    "year": 2021,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "India availability not verified",
+      "providers": [],
+      "notes": "No India-specific streaming page verified in this pass.",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "Marvel documentary special",
+    "contentCategory": "documentary",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "mpower",
+    "title": "MPower",
+    "type": "special",
+    "year": 2023,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "India availability not verified",
+      "providers": [],
+      "notes": "Marvel catalog lists the title; no India-specific streaming page verified in this pass.",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "Marvel documentary series",
+    "contentCategory": "documentary",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "voices-rising-the-music-of-wakanda-forever",
+    "title": "Voices Rising: The Music of Wakanda Forever",
+    "type": "special",
+    "year": 2023,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "India availability not verified",
+      "providers": [],
+      "notes": "Marvel catalog lists the title; no India-specific streaming page verified in this pass.",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "Marvel documentary series",
+    "contentCategory": "documentary",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "marvel-s-hero-project",
+    "title": "Marvel’s Hero Project",
+    "type": "special",
+    "year": 2019,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "India availability not verified",
+      "providers": [],
+      "notes": "Marvel catalog lists the title; no India-specific streaming page verified in this pass.",
+      "directLinkStatus": "not-verified-in-this-movie-link-pass",
+      "verificationNotes": "No direct provider-owned title URL was individually confirmed in this pass. Do not use an availability-aggregator URL as a watch destination."
+    },
+    "scope": "Marvel documentary series",
+    "contentCategory": "documentary",
+    "releaseStatus": "released_or_catalogue"
+  },
+  {
+    "id": "avengers-secret-wars",
+    "title": "Avengers: Secret Wars",
+    "type": "movie",
+    "year": 2027,
+    "phase": null,
+    "chronologicalYear": null,
+    "poster": "",
+    "desc": "",
+    "cast": "",
+    "link": "",
+    "play": "",
+    "officialWatch": [],
+    "availability": {
+      "region": "IN",
+      "checkedAt": "2026-10-24",
+      "status": "not yet released",
+      "providers": [],
+      "notes": "Announced for theatrical release on 2027-12-17. No streaming destination should be shown until an official streaming release is announced.",
+      "directLinkStatus": "not-released",
+      "verificationNotes": "This title has not been released yet. Do not render Watch Officially, Watch Link, rental, or streaming buttons unless a verified official stream is added after release.",
+      "posterNote": "No confirmed released official theatrical poster URL was found in this pass. Use a designed placeholder until official artwork is available."
+    },
+    "scope": "upcoming MCU film",
+    "contentCategory": "movie",
+    "releaseStatus": "upcoming",
+    "posterFallbackUrl": null,
+    "releaseDate": "2027-12-17",
+    "releaseStatusLabel": "NOT YET RELEASED"
   }
 ]

@@ -1,4 +1,4 @@
-// Canonical Theatrical Release Order Sequence for all 54 MCU Titles
+// Canonical Theatrical Release Order Sequence for MCU Titles
 export const MCU_RELEASE_ORDER = [
   "iron-man", // May 2008
   "incredible-hulk", // Jun 2008
@@ -54,6 +54,7 @@ export const MCU_RELEASE_ORDER = [
   "wonder-man", // Dec 2025
   "spider-man-brand-new-day", // 2026
   "avengers-doomsday", // Dec 2026
+  "avengers-secret-wars", // Dec 2027
 ];
 
 const releaseOrderMap = new Map();
@@ -61,25 +62,59 @@ MCU_RELEASE_ORDER.forEach((id, index) => {
   releaseOrderMap.set(id, index);
 });
 
-// Helper function to get data from the original movies.json format
-// Preserves all original canonical fields intact
+/**
+ * Formats an ISO date string (e.g. "2026-12-18") into a human-friendly format (e.g. "December 18, 2026")
+ */
+export function formatReadableDate(dateStr) {
+  if (!dateStr) return null;
+  try {
+    const parts = dateStr.split("-").map(Number);
+    if (parts.length === 3 && parts[0] && parts[1] && parts[2]) {
+      const [y, m, d] = parts;
+      const date = new Date(Date.UTC(y, m - 1, d));
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        timeZone: "UTC",
+      });
+    }
+    return dateStr;
+  } catch {
+    return dateStr;
+  }
+}
+
+// Helper function to extract and normalize data from the canonical movies.json format
+// Preserves all original fields and values intact
 export function getMovieData(item) {
   if (!item) return null;
 
   return {
-    // Preserve original fields exactly
+    // Preserve canonical original fields
     id: item.id,
     title: item.title,
     type: item.type,
     year: item.year,
     phase: item.phase,
     chronologicalYear: item.chronologicalYear,
-    poster: item.poster,
-    desc: item.desc,
-    cast: item.cast,
-    link: item.link,
-    play: item.play,
+    poster: item.poster || "",
+    desc: item.desc || "",
+    cast: item.cast || "",
+    link: item.link || "",
+    play: item.play || "",
     releaseDate: item.releaseDate || null,
+
+    // Schema extensions
+    officialWatch: Array.isArray(item.officialWatch) ? item.officialWatch : [],
+    availability: item.availability || null,
+    scope: item.scope || null,
+    contentCategory: item.contentCategory || null,
+    officialInfoUrl: item.officialInfoUrl || null,
+    officialInfoLabel: item.officialInfoLabel || null,
+    releaseStatus: item.releaseStatus || "released",
+    releaseStatusLabel: item.releaseStatusLabel || (item.releaseStatus === "upcoming" ? "NOT YET RELEASED" : null),
+    posterFallbackUrl: item.posterFallbackUrl || null,
 
     // Expose normalized property names
     mediaType: item.type,
@@ -90,9 +125,9 @@ export function getMovieData(item) {
     // Release order index
     releaseOrderIndex: releaseOrderMap.has(item.id) ? releaseOrderMap.get(item.id) : 999,
 
-    // Watch fields
+    // Watch fields (normalized helper)
     watch: {
-      official: item.link ? [{ platform: "Disney+", url: item.link }] : [],
+      official: Array.isArray(item.officialWatch) ? item.officialWatch : [],
       legalLocator: item.play || item.link || null,
     },
 
@@ -112,22 +147,61 @@ export function getMovieData(item) {
 
 /**
  * Sorts movie items by either "story" (chronological in-universe) or "release" (theatrical)
+ * Null chronologicalYear values sort to the end when in story order.
  */
 export function sortMovies(items, sortMode = "story") {
   const cloned = [...items];
+
   if (sortMode === "release") {
     return cloned.sort((a, b) => {
+      const yearA = typeof a.year === "number" ? a.year : 9999;
+      const yearB = typeof b.year === "number" ? b.year : 9999;
+
+      if (yearA !== yearB) {
+        return yearA - yearB;
+      }
+
+      // If releaseDate exists on both, sort by releaseDate
+      if (a.releaseDate && b.releaseDate) {
+        if (a.releaseDate < b.releaseDate) return -1;
+        if (a.releaseDate > b.releaseDate) return 1;
+      }
+
+      // If mapped in MCU_RELEASE_ORDER, use that order
       const idxA = releaseOrderMap.has(a.id) ? releaseOrderMap.get(a.id) : 999;
       const idxB = releaseOrderMap.has(b.id) ? releaseOrderMap.get(b.id) : 999;
-      if (idxA !== idxB) return idxA - idxB;
-      return (a.year || 0) - (b.year || 0);
+      if (idxA !== idxB) {
+        return idxA - idxB;
+      }
+
+      return (a.title || "").localeCompare(b.title || "");
     });
   }
 
-  // Story order: by chronologicalYear, then fallback to original order
+  // Story order:
+  // Items with chronologicalYear sort by story era (e.g. 1942 -> 1995 -> 2010...)
+  // Items with null/undefined chronologicalYear sort to the end (Infinity), ordered by release year.
   return cloned.sort((a, b) => {
-    const diff = (a.chronologicalYear || 0) - (b.chronologicalYear || 0);
-    if (diff !== 0) return diff;
-    return (a.year || 0) - (b.year || 0);
+    const chronoA = a.chronologicalYear !== null && a.chronologicalYear !== undefined ? a.chronologicalYear : Infinity;
+    const chronoB = b.chronologicalYear !== null && b.chronologicalYear !== undefined ? b.chronologicalYear : Infinity;
+
+    if (chronoA !== chronoB) {
+      return chronoA - chronoB;
+    }
+
+    // Tie-breaker when both have same chronologicalYear or both are null (Infinity)
+    const yearA = typeof a.year === "number" ? a.year : 9999;
+    const yearB = typeof b.year === "number" ? b.year : 9999;
+    if (yearA !== yearB) {
+      return yearA - yearB;
+    }
+
+    const idxA = releaseOrderMap.has(a.id) ? releaseOrderMap.get(a.id) : 999;
+    const idxB = releaseOrderMap.has(b.id) ? releaseOrderMap.get(b.id) : 999;
+    if (idxA !== idxB) {
+      return idxA - idxB;
+    }
+
+    return (a.title || "").localeCompare(b.title || "");
   });
 }

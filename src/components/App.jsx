@@ -10,12 +10,13 @@ const FILTERS = [
   { key: "all", label: "All" },
   { key: "movie", label: "Movies" },
   { key: "series", label: "Series" },
+  { key: "special", label: "Specials" },
 ];
 
 export default function App() {
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState("all");
-  const [activePhase, setActivePhase] = useState(null); // null = all phases
+  const [activePhase, setActivePhase] = useState(null); // null = all phases, "other" = unphased multiverse
   const { watchedMap, toggleWatched } = useWatched();
   const { preferences, updatePreferences } = usePreferences();
 
@@ -36,9 +37,15 @@ export default function App() {
     return movies.filter((item) => {
       const data = getMovieData(item);
       if (typeFilter !== "all" && data.type !== typeFilter) return false;
-      if (activePhase !== null && data.phase !== activePhase) return false;
+
+      if (activePhase === "other") {
+        if (data.phase !== null) return false;
+      } else if (activePhase !== null) {
+        if (data.phase !== activePhase) return false;
+      }
+
       if (!q) return true;
-      const haystack = `${data.title} ${data.desc} ${data.cast} ${data.year} ${data.chronologicalYear}`.toLowerCase();
+      const haystack = `${data.title} ${data.desc} ${data.cast} ${data.year} ${data.chronologicalYear || ""} ${data.contentCategory || ""}`.toLowerCase();
       return haystack.includes(q);
     });
   }, [query, typeFilter, activePhase]);
@@ -55,13 +62,13 @@ export default function App() {
 
   return (
     <div id="timeline" className="w-full scroll-mt-20">
-      {/* ── Compact Cinematic Controls Header ── */}
-      <div className="sticky top-16 z-30 w-full border-b border-white/[0.08] bg-[#06070a]/90 backdrop-blur-xl py-3.5 mb-8">
+      {/* Compact Cinematic Controls Header */}
+      <div className="sticky top-16 z-30 w-full border-b border-white/[0.08] bg-[#06070a]/90 backdrop-blur-xl py-3.5 mb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Search Input & Quick Type Filter */}
-            <div className="flex items-center gap-3 w-full md:w-auto flex-1 max-w-xl">
-              <div className="relative flex-1">
+            <div className="flex flex-wrap items-center gap-3 w-full md:w-auto flex-1 max-w-xl">
+              <div className="relative flex-1 min-w-[200px]">
                 <input
                   type="text"
                   value={query}
@@ -119,7 +126,7 @@ export default function App() {
                   type="button"
                   onClick={() => setSortMode("release")}
                   aria-pressed={sortMode === "release"}
-                  title="Theatrical release sequence from 2008 Iron Man to 2026 Doomsday"
+                  title="Theatrical release sequence from 2008 Iron Man to future releases"
                   className={`px-3 py-1 rounded-lg text-[11px] font-mono font-semibold uppercase transition-all ${
                     sortMode === "release"
                       ? "bg-crimson text-white shadow-sm"
@@ -130,7 +137,7 @@ export default function App() {
                 </button>
               </div>
 
-              {/* View Layout (Timeline spine vs 3-col Grid) */}
+              {/* View Layout (Timeline spine vs Grid) */}
               <div className="flex items-center bg-[#10131e] border border-white/10 rounded-xl p-1">
                 <button
                   type="button"
@@ -143,7 +150,7 @@ export default function App() {
                   title="Timeline Spine View"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                 </button>
                 <button
@@ -157,7 +164,7 @@ export default function App() {
                   title="Poster Grid View"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                   </svg>
                 </button>
               </div>
@@ -166,14 +173,14 @@ export default function App() {
         </div>
       </div>
 
-      {/* ── Phase Filter Tabs ── */}
+      {/* Phase Filter Tabs */}
       <PhaseTabs activePhase={activePhase} onSelect={setActivePhase} />
 
-      {/* ── Section Status & Result Summary ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 flex items-center justify-between text-xs font-mono text-muted-dark">
+      {/* Section Status & Result Summary */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-muted-dark">
         <span>
           Showing <strong className="text-white">{sorted.length}</strong> of {movies.length} titles
-          {activePhase ? ` (Phase ${activePhase})` : ""}
+          {activePhase === "other" ? " (Multiverse & Specials)" : activePhase ? ` (Phase ${activePhase})` : ""}
           {sortMode === "story" ? " · Story Chronology" : " · Theatrical Release Order"}
         </span>
 
@@ -182,7 +189,7 @@ export default function App() {
         </span>
       </div>
 
-      {/* ── Empty State ── */}
+      {/* Empty State */}
       {sorted.length === 0 && (
         <div className="py-24 text-center max-w-md mx-auto space-y-3">
           <p className="text-3xl">🔍</p>
@@ -205,7 +212,7 @@ export default function App() {
         </div>
       )}
 
-      {/* ── View Rendering ── */}
+      {/* View Rendering */}
       {view === "timeline" && sorted.length > 0 && (
         <Timeline
           items={sorted}

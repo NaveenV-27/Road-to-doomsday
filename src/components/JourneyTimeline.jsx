@@ -1,8 +1,7 @@
 import { useMemo } from "react";
 import { useWatched } from "../hooks/useUserState.js";
-import { motion } from "framer-motion";
 import movies from "../data/movies.json";
-import { getMovieData, sortMovies } from "../lib/movieUtils.js";
+import { sortMovies } from "../lib/movieUtils.js";
 import MovieCard from "./MovieCard.jsx";
 
 const PHASE_METADATA = {
@@ -12,10 +11,11 @@ const PHASE_METADATA = {
   4: { title: "Phase 4: Multiverse Unbound", subtitle: "Grief, Nexus Beings, and Alternate Realities", color: "#a78bfa" },
   5: { title: "Phase 5: Secret Invasions", subtitle: "Convergences, Incursions, and Mutants", color: "#ec4899" },
   6: { title: "Phase 6: The Road to Doomsday", subtitle: "The Ultimate Collision", color: "#34d399" },
+  other: { title: "Multiverse, Specials & Catalog", subtitle: "Expanded Continuity, Specials, and One-Shots", color: "#06b6d4" },
 };
 
 export default function JourneyTimeline() {
-  const { watchedMap, toggleWatched } = useWatched();
+  const { watchedMap } = useWatched();
 
   // Story order sequence
   const storyMovies = useMemo(() => {
@@ -28,17 +28,22 @@ export default function JourneyTimeline() {
 
   // Group by phase
   const phasesGrouped = useMemo(() => {
-    const map = {};
+    const map = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], other: [] };
     storyMovies.forEach((m) => {
-      if (!map[m.phase]) map[m.phase] = [];
-      map[m.phase].push(m);
+      if (m.phase && map[m.phase]) {
+        map[m.phase].push(m);
+      } else {
+        map.other.push(m);
+      }
     });
     return map;
   }, [storyMovies]);
 
+  const allSections = [1, 2, 3, 4, 5, 6, "other"];
+
   return (
     <div className="w-full max-w-5xl mx-auto py-12 px-4 sm:px-6">
-      {/* ── Journey Progress Header ── */}
+      {/* Journey Progress Header */}
       <div className="mb-16 p-8 rounded-3xl border border-white/10 bg-[#0c0e18]/90 backdrop-blur-2xl shadow-2xl">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-6">
           <div>
@@ -49,7 +54,7 @@ export default function JourneyTimeline() {
               MCU STORYLINE <span className="text-crimson-bright">ROADMAP</span>
             </h1>
             <p className="text-xs text-muted mt-2 max-w-xl">
-              Chronological in-universe order starting in 1943 with Captain America and advancing toward the 2026 Doomsday convergence.
+              Chronological in-universe order starting in 1943 with Captain America and advancing toward the future Doomsday convergence.
             </p>
           </div>
 
@@ -72,18 +77,18 @@ export default function JourneyTimeline() {
         </div>
       </div>
 
-      {/* ── Phase-by-Phase Roadmap Spine ── */}
+      {/* Phase-by-Phase Roadmap Spine */}
       <div className="space-y-20">
-        {[1, 2, 3, 4, 5, 6].map((phaseNum) => {
-          const phaseMovies = phasesGrouped[phaseNum] || [];
-          if (phaseMovies.length === 0) return null;
+        {allSections.map((secKey) => {
+          const secMovies = phasesGrouped[secKey] || [];
+          if (secMovies.length === 0) return null;
 
-          const meta = PHASE_METADATA[phaseNum] || PHASE_METADATA[1];
-          const phaseWatched = phaseMovies.filter((m) => !!watchedMap[m.id]).length;
-          const isPhaseDone = phaseWatched === phaseMovies.length;
+          const meta = PHASE_METADATA[secKey] || PHASE_METADATA.other;
+          const secWatched = secMovies.filter((m) => !!watchedMap[m.id]).length;
+          const isSecDone = secWatched === secMovies.length;
 
           return (
-            <div key={phaseNum} className="relative">
+            <div key={secKey} className="relative">
               {/* Phase Banner Header */}
               <div className="sticky top-20 z-20 mb-8 py-3 px-6 rounded-2xl bg-[#090b12]/95 border border-white/10 backdrop-blur-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xl">
                 <div className="flex items-center gap-3">
@@ -103,19 +108,19 @@ export default function JourneyTimeline() {
 
                 <div className="flex items-center gap-3 text-xs font-mono text-muted">
                   <span>
-                    {phaseWatched}/{phaseMovies.length} Completed
+                    {secWatched}/{secMovies.length} Completed
                   </span>
-                  {isPhaseDone && (
+                  {isSecDone && (
                     <span className="px-2 py-0.5 rounded text-[10px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-500/40">
-                      ✓ PHASE CLEARED
+                      ✓ SECTION CLEARED
                     </span>
                   )}
                 </div>
               </div>
 
-              {/* Items in this Phase */}
+              {/* Items in this Section */}
               <div className="relative pl-6 sm:pl-8 space-y-8 border-l-2 border-white/[0.08] ml-4 sm:ml-6">
-                {phaseMovies.map((movie) => {
+                {secMovies.map((movie) => {
                   const watched = !!watchedMap[movie.id];
                   return (
                     <div key={movie.id} className="relative">

@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useWatched, useWatchlist } from "../hooks/useUserState.js";
-import { getMovieData } from "../lib/movieUtils.js";
+import { getMovieData, formatReadableDate } from "../lib/movieUtils.js";
 
 const PHASE_CLASSES = {
   1: "phase-badge-1",
@@ -11,6 +12,63 @@ const PHASE_CLASSES = {
   6: "phase-badge-6",
 };
 
+function HeroPoster({ movie }) {
+  const initialSrc = movie.poster || movie.posterFallbackUrl || "";
+  const [imgSrc, setImgSrc] = useState(initialSrc);
+  const [fallbackAttempted, setFallbackAttempted] = useState(false);
+  const [hasFailed, setHasFailed] = useState(!initialSrc);
+
+  const handleError = () => {
+    if (!fallbackAttempted && movie.posterFallbackUrl && imgSrc !== movie.posterFallbackUrl) {
+      setFallbackAttempted(true);
+      setImgSrc(movie.posterFallbackUrl);
+    } else {
+      setHasFailed(true);
+    }
+  };
+
+  if (!hasFailed && imgSrc) {
+    return (
+      <img
+        src={imgSrc}
+        alt={`${movie.title} poster`}
+        onError={handleError}
+        className="w-full h-full object-cover"
+      />
+    );
+  }
+
+  return (
+    <div className="w-full h-full flex flex-col items-center justify-between p-6 text-center bg-gradient-to-b from-[#131726] via-[#0b0e17] to-[#05060b] border border-white/[0.08] relative select-none">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-crimson/20 via-transparent to-transparent pointer-events-none" />
+
+      <div className="relative z-10 pt-4">
+        <span className="px-3 py-1 rounded text-[10px] font-mono uppercase tracking-widest font-bold bg-white/[0.06] text-muted-dark border border-white/10">
+          {movie.type === "series" ? "MCU SERIES" : movie.type === "special" ? "SPECIAL PRESENTATION" : "MCU PRODUCTION"}
+        </span>
+      </div>
+
+      <div className="relative z-10 my-auto px-4 space-y-3">
+        <div className="w-12 h-12 mx-auto rounded-full bg-crimson/15 border border-crimson/40 flex items-center justify-center text-crimson-bright text-lg font-mono font-bold">
+          ★
+        </div>
+        <h4 className="font-display text-base sm:text-lg font-bold text-white leading-snug">
+          {movie.title}
+        </h4>
+        <span className="text-xs font-mono text-muted-dark block">
+          {movie.year || "Release Pending"}
+        </span>
+      </div>
+
+      <div className="relative z-10 pb-4">
+        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-dark/80">
+          Official Production Archive
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function MovieHero({ movie }) {
   const data = getMovieData(movie);
   const { watchedMap, toggleWatched } = useWatched();
@@ -18,22 +76,30 @@ export default function MovieHero({ movie }) {
 
   const watched = !!watchedMap[data.id];
   const inWatchlist = watchlist.includes(data.id);
-  const badgeClass = PHASE_CLASSES[data.phase] || "phase-badge-1";
+  const isUpcoming = data.releaseStatus === "upcoming" || data.id === "avengers-doomsday" || data.id === "avengers-secret-wars";
+  const badgeClass = data.phase ? (PHASE_CLASSES[data.phase] || "phase-badge-1") : "bg-white/10 text-muted border border-white/10";
+  const formattedReleaseDate = formatReadableDate(data.releaseDate);
+
+  // Watch CTA data
+  const officialWatchList = Array.isArray(data.officialWatch) ? data.officialWatch : [];
+  const primaryWatch = officialWatchList.length > 0 ? officialWatchList[0] : null;
+
+  const hasLink1 = !!data.link;
+  const hasLink2 = !!data.play && data.play !== data.link;
 
   return (
     <div className="relative w-full overflow-hidden min-h-[70vh] flex items-center">
-      {/* ── Dynamic Atmospheric Backdrop Generated From Movie Poster ── */}
+      {/* Dynamic Atmospheric Backdrop */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         {data.poster && (
           <img
             src={data.poster}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover scale-125 blur-3xl opacity-25 brightness-50 contrast-125"
+            className="absolute inset-0 w-full h-full object-cover scale-125 blur-3xl opacity-20 brightness-50 contrast-125"
           />
         )}
-        {/* Layered gradients: dark vignette and bottom seamless transition */}
-        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/80 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/85 to-black/75" />
         <div className="absolute inset-0 bg-gradient-to-r from-bg via-transparent to-bg/90" />
         <div className="absolute inset-0 hero-vignette opacity-80" />
       </div>
@@ -41,7 +107,7 @@ export default function MovieHero({ movie }) {
       {/* Main Editorial Layout */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16">
-          {/* ── Controlled Foreground Poster (25-35% desktop width, Natural 2:3 ratio) ── */}
+          {/* Controlled Foreground Poster (Natural 2:3 ratio, never distorted) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -49,11 +115,7 @@ export default function MovieHero({ movie }) {
             className="w-full max-w-[280px] sm:max-w-[320px] lg:w-[32%] shrink-0"
           >
             <div className="relative aspect-[2/3] w-full rounded-2xl overflow-hidden border border-white/15 bg-black/70 shadow-2xl shadow-black/80">
-              <img
-                src={data.poster}
-                alt={`${data.title} poster`}
-                className="w-full h-full object-cover"
-              />
+              <HeroPoster movie={data} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
               {/* Watched Badge on Poster */}
@@ -62,18 +124,26 @@ export default function MovieHero({ movie }) {
                   <span>✓ WATCHED</span>
                 </div>
               )}
+
+              {/* Upcoming Badge on Poster */}
+              {isUpcoming && !watched && (
+                <div className="absolute bottom-3 left-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-950/90 border border-amber-400/50 backdrop-blur-md text-amber-300 text-xs font-mono font-bold shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  <span>{data.releaseStatusLabel || "NOT YET RELEASED"}</span>
+                </div>
+              )}
             </div>
           </motion.div>
 
-          {/* ── Movie Intel & Actions ── */}
+          {/* Movie Intel & Actions */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="flex-1 space-y-6 text-center lg:text-left"
           >
-            {/* Breadcrumb / Back Link */}
-            <div className="flex items-center justify-center lg:justify-start gap-3">
+            {/* Breadcrumb / Category Row */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <a
                 href="/timeline"
                 className="inline-flex items-center gap-1.5 text-xs font-mono text-muted hover:text-white transition-colors uppercase tracking-wider"
@@ -82,12 +152,22 @@ export default function MovieHero({ movie }) {
               </a>
               <span className="text-white/20">•</span>
               <span className={`px-2.5 py-0.5 rounded text-[11px] font-mono font-bold uppercase tracking-wider ${badgeClass}`}>
-                Phase {data.phase}
+                {data.phase ? `Phase ${data.phase}` : "Multiverse & Specials"}
               </span>
               <span className="text-white/20">•</span>
               <span className="px-2 py-0.5 rounded text-[11px] font-mono uppercase bg-white/[0.06] text-text-secondary border border-white/10">
                 {data.type}
               </span>
+
+              {isUpcoming && (
+                <>
+                  <span className="text-white/20">•</span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-amber-500/15 border border-amber-400/40 text-amber-300 text-[11px] font-mono font-bold uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    <span>{data.releaseStatusLabel || "NOT YET RELEASED"}</span>
+                  </span>
+                </>
+              )}
             </div>
 
             {/* Title */}
@@ -98,14 +178,14 @@ export default function MovieHero({ movie }) {
             {/* Metadata Pills */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs font-mono">
               <span className="px-3 py-1 rounded-lg bg-[#111422] border border-white/10 text-white">
-                Story Year: <strong className="text-crimson-bright font-bold">{data.chronologicalYear}</strong>
+                Story Era: <strong className="text-crimson-bright font-bold">{data.chronologicalYear || "Unplaced"}</strong>
               </span>
               <span className="px-3 py-1 rounded-lg bg-[#111422] border border-white/10 text-white">
-                Theatrical Release: <strong className="text-white font-bold">{data.year}</strong>
+                Theatrical Year: <strong className="text-white font-bold">{data.year}</strong>
               </span>
-              {data.releaseDate && (
-                <span className="px-3 py-1 rounded-lg bg-[#111422] border border-white/10 text-muted">
-                  Premiere: {data.releaseDate}
+              {formattedReleaseDate && (
+                <span className="px-3 py-1 rounded-lg bg-[#111422] border border-amber-500/30 text-amber-300 font-bold">
+                  Premiere: {formattedReleaseDate}
                 </span>
               )}
             </div>
@@ -122,28 +202,88 @@ export default function MovieHero({ movie }) {
               {data.desc}
             </p>
 
-            {/* Primary Action Buttons */}
+            {/* Action Buttons & Strict Watch Hierarchy */}
             <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-              {/* Preserved Original Stream Link / Watch */}
-              {data.link ? (
-                <a
-                  href={data.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary text-xs py-3 px-6"
-                >
-                  ▶ Watch on Disney+ / Stream
-                </a>
-              ) : data.play ? (
-                <a
-                  href={data.play}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary text-xs py-3 px-6"
-                >
-                  ▶ Watch Now
-                </a>
-              ) : null}
+              {isUpcoming ? (
+                /* Upcoming: NO watch/stream CTAs */
+                data.officialInfoUrl ? (
+                  <a
+                    href={data.officialInfoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary text-xs py-3 px-6 text-cyan-400 border-cyan-500/40 hover:border-cyan-400 inline-flex items-center gap-2"
+                  >
+                    <span>{data.officialInfoLabel || "Official Film Information"}</span>
+                    <span>&nearr;</span>
+                  </a>
+                ) : (
+                  <div className="px-5 py-3 rounded-lg text-xs font-mono bg-amber-500/10 border border-amber-400/30 text-amber-300 font-bold">
+                    Theatrical Premiere: {formattedReleaseDate || data.year}
+                  </div>
+                )
+              ) : (
+                /* Released: Strict Watch CTAs */
+                <>
+                  {primaryWatch ? (
+                    primaryWatch.urlType === "direct-title" ? (
+                      <a
+                        href={primaryWatch.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary text-xs py-3 px-6 font-bold"
+                      >
+                        ▶ Watch Officially
+                      </a>
+                    ) : (
+                      <a
+                        href={primaryWatch.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary text-xs py-3 px-6 text-amber-300 border-amber-500/40 hover:border-amber-400 font-bold inline-flex items-center gap-2"
+                        title={primaryWatch.verificationStatus || "Provider title destination"}
+                      >
+                        <span>Open Official Provider Page</span>
+                        <span>&nearr;</span>
+                      </a>
+                    )
+                  ) : data.officialInfoUrl ? (
+                    <a
+                      href={data.officialInfoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-secondary text-xs py-3 px-6 text-crimson-bright border-crimson/50 hover:border-crimson inline-flex items-center gap-2"
+                    >
+                      <span>{data.officialInfoLabel || "Official Title Page"}</span>
+                      <span>&nearr;</span>
+                    </a>
+                  ) : null}
+
+                  {/* Secondary Curated Links */}
+                  {hasLink1 && (
+                    <a
+                      href={data.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-mono font-bold text-crimson-bright hover:text-white px-4 py-3 rounded-lg border border-white/10 hover:border-white/20 transition-colors"
+                      title="User Curated Link 1"
+                    >
+                      Watch Link 1
+                    </a>
+                  )}
+
+                  {hasLink2 && (
+                    <a
+                      href={data.play}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-mono font-bold text-crimson-bright hover:text-white px-4 py-3 rounded-lg border border-white/10 hover:border-white/20 transition-colors"
+                      title="User Curated Link 2"
+                    >
+                      Watch Link 2
+                    </a>
+                  )}
+                </>
+              )}
 
               {/* Watched Toggle */}
               <button
@@ -169,7 +309,7 @@ export default function MovieHero({ movie }) {
                 }`}
               >
                 <svg className="w-4 h-4" fill={inWatchlist ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
                 </svg>
                 <span>{inWatchlist ? "In Watchlist" : "Add to Watchlist"}</span>
               </button>

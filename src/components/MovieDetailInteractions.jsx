@@ -185,8 +185,16 @@ export default function MovieDetailInteractions({ movie, relatedFacts = [], movi
                   Timeline Significance
                 </h4>
                 <p className="text-sm text-muted leading-relaxed">
-                  Takes place during MCU in-universe year <strong className="text-white">{data.chronologicalYear}</strong>.
-                  Categorized within Phase {data.phase} of the Marvel Cinematic Universe storytelling hierarchy.
+                  {data.chronologicalYear ? (
+                    <>Takes place during MCU in-universe year <strong className="text-white">{data.chronologicalYear}</strong>. </>
+                  ) : (
+                    <>Timeline placement operates in the wider multiverse or as a standalone story. </>
+                  )}
+                  {data.phase ? (
+                    <>Categorized within Phase {data.phase} of the Marvel Cinematic Universe storytelling hierarchy.</>
+                  ) : (
+                    <>Catalogued within the broader Multiverse &amp; Special Collections.</>
+                  )}
                 </p>
               </div>
             </div>
@@ -206,11 +214,13 @@ export default function MovieDetailInteractions({ movie, relatedFacts = [], movi
                 </div>
                 <div>
                   <dt className="text-muted-dark">Chronological Story Order</dt>
-                  <dd className="text-crimson-bright font-bold">{data.chronologicalYear}</dd>
+                  <dd className="text-crimson-bright font-bold">
+                    {data.chronologicalYear ? `Year ${data.chronologicalYear}` : "Unplaced / Multiverse"}
+                  </dd>
                 </div>
                 <div>
                   <dt className="text-muted-dark">Phase</dt>
-                  <dd className="text-white">Phase {data.phase}</dd>
+                  <dd className="text-white">{data.phase ? `Phase ${data.phase}` : "Multiverse / Special"}</dd>
                 </div>
                 {data.cast && (
                   <div>

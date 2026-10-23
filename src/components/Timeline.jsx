@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import MovieCard from "./MovieCard.jsx";
 import { getMovieData } from "../lib/movieUtils.js";
 
@@ -20,7 +19,6 @@ export default function Timeline({ items, watchedMap, toggleWatched, sortMode })
     );
   }
 
-  // Detect phase boundary changes
   return (
     <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
       {/* Central Spine */}
@@ -30,7 +28,7 @@ export default function Timeline({ items, watchedMap, toggleWatched, sortMode })
         {items.map((item, i) => {
           const data = getMovieData(item);
           const watched = !!watchedMap[data.id];
-          const phaseColor = PHASE_COLORS[data.phase] || "#ef4444";
+          const phaseColor = data.phase ? (PHASE_COLORS[data.phase] || "#ef4444") : "#06b6d4";
 
           // Detect if phase changes from previous item
           const prevItem = i > 0 ? getMovieData(items[i - 1]) : null;
@@ -38,7 +36,7 @@ export default function Timeline({ items, watchedMap, toggleWatched, sortMode })
 
           return (
             <div key={item.id} className="relative">
-              {/* Optional Phase Marker Divider when Phase changes */}
+              {/* Phase Marker Divider when Phase changes */}
               {isNewPhase && (
                 <div className="relative flex items-center justify-center my-6 z-20">
                   <div className="px-4 py-1.5 rounded-full bg-[#0b0e17] border border-white/15 text-[11px] font-mono font-bold uppercase tracking-[0.2em] shadow-xl flex items-center gap-2">
@@ -46,10 +44,14 @@ export default function Timeline({ items, watchedMap, toggleWatched, sortMode })
                       className="w-2 h-2 rounded-full"
                       style={{ backgroundColor: phaseColor }}
                     />
-                    <span className="text-white">Phase {data.phase}</span>
+                    <span className="text-white">
+                      {data.phase ? `Phase ${data.phase}` : "Multiverse & Specials"}
+                    </span>
                     <span className="text-muted-dark">•</span>
                     <span className="text-muted-dark">
-                      {sortMode === "story" ? `Story Era ${data.chronologicalYear}` : `Release Year ${data.year}`}
+                      {sortMode === "story"
+                        ? (data.chronologicalYear ? `Story Era ${data.chronologicalYear}` : "Multiverse Slate")
+                        : `Theatrical Year ${data.year}`}
                     </span>
                   </div>
                 </div>

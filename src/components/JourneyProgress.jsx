@@ -1,8 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useWatched } from "../hooks/useUserState.js";
 import { motion } from "framer-motion";
 import movies from "../data/movies.json";
-import { getMovieData } from "../lib/movieUtils.js";
+import { getMovieData, sortMovies } from "../lib/movieUtils.js";
 
 const PHASE_COLORS = {
   1: { name: "Phase 1: Assemble", color: "#f59e0b", badgeClass: "phase-badge-1" },
@@ -17,9 +17,9 @@ export default function JourneyProgress() {
   const { watchedMap } = useWatched();
   const total = movies.length;
 
-  // Normalized story order
+  // Normalized story order via canonical movieUtils logic
   const storyMovies = useMemo(() => {
-    return [...movies].sort((a, b) => a.chronologicalYear - b.chronologicalYear);
+    return sortMovies(movies, "story");
   }, []);
 
   const watchedCount = useMemo(() => {
@@ -34,7 +34,7 @@ export default function JourneyProgress() {
   }, [storyMovies, watchedMap]);
 
   // Current active phase
-  const currentPhaseNum = nextMovie ? nextMovie.phase : 6;
+  const currentPhaseNum = nextMovie && nextMovie.phase ? nextMovie.phase : 6;
   const currentPhaseInfo = PHASE_COLORS[currentPhaseNum] || PHASE_COLORS[1];
 
   // Milestone phases completion
@@ -70,7 +70,7 @@ export default function JourneyProgress() {
             {watchedCount === 0
               ? "Your timeline awaits. Mark titles as watched to chart your course across all 6 Phases."
               : watchedCount === total
-              ? "All 54 chapters cleared. You are fully prepared for Avengers: Doomsday."
+              ? `All ${total} chapters cleared. You are fully prepared for Avengers: Doomsday.`
               : `You have cleared ${watchedCount} of ${total} Marvel Cinematic Universe stories (${percentage}%).`}
           </p>
         </div>
@@ -127,27 +127,34 @@ export default function JourneyProgress() {
                 {nextMovie ? "NEXT IN STORY ORDER" : "STATUS: READY"}
               </span>
               <span className={`px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${currentPhaseInfo.badgeClass}`}>
-                Phase {currentPhaseNum}
+                {nextMovie && nextMovie.phase ? `Phase ${nextMovie.phase}` : "Multiverse"}
               </span>
             </div>
 
             {nextMovie ? (
               <div className="flex gap-5 items-start mt-4">
-                <div className="relative w-24 sm:w-28 aspect-[2/3] shrink-0 rounded-xl overflow-hidden border border-white/10 shadow-lg">
-                  <img
-                    src={nextMovie.poster}
-                    alt={nextMovie.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="relative w-24 sm:w-28 aspect-[2/3] shrink-0 rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/60">
+                  {nextMovie.poster ? (
+                    <img
+                      src={nextMovie.poster}
+                      alt={nextMovie.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center p-2 text-center bg-[#101424]">
+                      <span className="text-crimson-bright text-xs font-bold">★</span>
+                      <span className="text-[9px] font-display text-white mt-1 line-clamp-2">{nextMovie.title}</span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-display text-xl sm:text-2xl text-white font-bold leading-tight">
                     {nextMovie.title}
                   </h3>
                   <div className="flex items-center gap-2 mt-2 text-xs font-mono text-muted">
-                    <span>Story Year: <strong className="text-white">{nextMovie.chronologicalYear}</strong></span>
+                    <span>Story: <strong className="text-white">{nextMovie.chronologicalYear || "Unplaced"}</strong></span>
                     <span>•</span>
                     <span className="capitalize">{nextMovie.type}</span>
                   </div>
@@ -163,7 +170,7 @@ export default function JourneyProgress() {
                   All Timelines Conquered
                 </h3>
                 <p className="text-xs text-muted max-w-xs mx-auto">
-                  You've watched all 54 entries leading toward Doomsday. Ready for the theatre premiere.
+                  You've watched all {total} entries leading toward Doomsday. Ready for the theatre premiere.
                 </p>
               </div>
             )}
@@ -174,77 +181,80 @@ export default function JourneyProgress() {
               <>
                 <a
                   href={`/movie/${nextMovie.id}`}
-                  class="btn-primary text-xs py-2.5 px-5 w-full sm:w-auto"
+                  className="btn-primary text-xs py-2.5 px-5 w-full sm:w-auto"
                 >
                   View Details &amp; Stream
                 </a>
-                <a
-                  href="/timeline"
-                  class="text-xs text-muted hover:text-white transition-colors uppercase tracking-wider font-mono font-medium"
-                >
-                  Jump to timeline &rarr;
-                </a>
+                <span className="text-[11px] font-mono text-muted-dark hidden sm:inline">
+                  {nextMovie.year} Theatrical
+                </span>
               </>
             ) : (
-              <a
-                href="/timeline"
-                class="btn-secondary text-xs py-2.5 px-5 w-full text-center"
-              >
-                Explore Full MCU Catalog
+              <a href="/timeline" className="btn-secondary text-xs py-2 px-4">
+                Review Timeline Archive
               </a>
             )}
           </div>
         </div>
 
-        {/* Phase Breakdown Grid */}
-        <div className="lg:col-span-7 bg-[#0b0e18]/60 border border-white/[0.06] rounded-2xl p-6 sm:p-7 flex flex-col justify-between">
-          <div>
-            <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-text-secondary mb-4">
-              MCU Saga Milestones
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5">
-              {[1, 2, 3, 4, 5, 6].map((p) => {
-                const info = PHASE_COLORS[p];
-                const stats = phaseProgress[p];
-                const pct = stats.total > 0 ? Math.round((stats.watched / stats.total) * 100) : 0;
-                return (
-                  <div
-                    key={p}
-                    className={`p-3.5 rounded-xl border transition-all ${
-                      stats.completed
-                        ? "bg-[#141b2b]/80 border-accent/40 shadow-[0_0_15px_rgba(99,102,241,0.15)]"
-                        : "bg-[#0f121d]/70 border-white/[0.06]"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between gap-1 mb-2">
-                      <span className="text-[11px] font-bold text-white font-display">
-                        Phase {p}
+        {/* Phase Checkpoints Breakdown */}
+        <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[1, 2, 3, 4, 5, 6].map((phaseNum) => {
+            const pInfo = PHASE_COLORS[phaseNum];
+            const pData = phaseProgress[phaseNum] || { total: 0, watched: 0, completed: false };
+            const pPercent = pData.total > 0 ? Math.round((pData.watched / pData.total) * 100) : 0;
+
+            return (
+              <div
+                key={phaseNum}
+                className={`p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${
+                  pData.completed
+                    ? "bg-emerald-950/20 border-emerald-500/30"
+                    : "bg-[#0a0d16]/70 border-white/[0.07] hover:border-white/15"
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-xs font-mono font-bold tracking-wider text-white">
+                      {pInfo.name}
+                    </span>
+                    {pData.completed && (
+                      <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded">
+                        CLEARED
                       </span>
-                      {stats.completed ? (
-                        <span className="text-[10px] font-mono text-emerald-400 font-bold">✓ DONE</span>
-                      ) : (
-                        <span className="text-[10px] font-mono text-muted-dark">{pct}%</span>
-                      )}
-                    </div>
-                    <div className="w-full bg-white/[0.06] h-1.5 rounded-full overflow-hidden mb-2">
-                      <div
-                        className="h-full bg-crimson rounded-full"
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                    <span className="text-[10px] font-mono text-muted block truncate">
-                      {stats.watched}/{stats.total} titles
+                    )}
+                  </div>
+
+                  <div className="flex items-baseline justify-between text-xs font-mono text-muted-dark mb-2">
+                    <span>Progress</span>
+                    <span className="text-white">
+                      {pData.watched} / {pData.total}
                     </span>
                   </div>
-                );
-              })}
-            </div>
-          </div>
 
-          <div className="mt-5 pt-4 border-t border-white/[0.05] flex items-center justify-between text-xs text-muted font-mono">
-            <span>Current Saga: <strong className="text-text-secondary">Multiverse Saga (Phases 4–6)</strong></span>
-            <span className="text-muted-dark">Target: Avengers: Doomsday</span>
-          </div>
+                  <div className="h-1.5 w-full bg-[#141828] rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all duration-500"
+                      style={{
+                        width: `${pPercent}%`,
+                        backgroundColor: pData.completed ? "#10b981" : pInfo.color,
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-white/[0.04] flex items-center justify-between text-[11px] font-mono text-muted-dark">
+                  <span>{pPercent}% complete</span>
+                  <a
+                    href={`/timeline`}
+                    className="hover:text-white transition-colors"
+                  >
+                    View Phase &rarr;
+                  </a>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

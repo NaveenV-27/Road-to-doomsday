@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import movies from "../data/movies.json";
 import MovieCard from "./MovieCard.jsx";
 import { useWatched } from "../hooks/useUserState.js";
+import { sortMovies } from "../lib/movieUtils.js";
 
 export default function CharacterTimeline({ movieIds = [] }) {
   const { watchedMap } = useWatched();
@@ -9,10 +10,10 @@ export default function CharacterTimeline({ movieIds = [] }) {
 
   const items = useMemo(() => {
     const byId = new Map(movies.map((m) => [m.id, m]));
-    return movieIds
+    const matched = movieIds
       .map((id) => byId.get(id))
-      .filter(Boolean)
-      .sort((a, b) => a.chronologicalYear - b.chronologicalYear);
+      .filter(Boolean);
+    return sortMovies(matched, "story");
   }, [movieIds]);
 
   const watchedCount = items.filter((item) => !!watchedMap[item.id]).length;

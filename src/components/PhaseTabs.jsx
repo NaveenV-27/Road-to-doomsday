@@ -1,39 +1,53 @@
 import { useMemo } from "react";
-import movies from "../data/movies.json";
+
+const STANDARD_PHASES = [1, 2, 3, 4, 5, 6];
 
 export default function PhaseTabs({ activePhase, onSelect }) {
-  const phases = useMemo(
-    () => [...new Set(movies.map((m) => m.phase))].sort((a, b) => a - b),
-    []
-  );
-
   return (
-    <div id="phases" className="scroll-mt-24 max-w-5xl mx-auto px-4 sm:px-6 pt-4 pb-6">
+    <div id="phases" className="scroll-mt-24 max-w-5xl mx-auto px-4 sm:px-6 pt-2 pb-6">
       <div className="flex items-center justify-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar">
+        {/* All Titles */}
         <button
+          type="button"
           onClick={() => onSelect(null)}
-          className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-wide border-b-2 transition-colors ${
-            activePhase === null ? "border-accent-bright text-white" : "border-transparent text-muted hover:text-white"
+          className={`shrink-0 px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider border-b-2 transition-all ${
+            activePhase === null
+              ? "border-crimson text-white bg-white/[0.04]"
+              : "border-transparent text-muted hover:text-white"
           }`}
         >
-          All
+          All Sagas
         </button>
-        {phases.map((p) => (
+
+        {/* Phase 1 to Phase 6 */}
+        {STANDARD_PHASES.map((p) => (
           <button
             key={p}
+            type="button"
             onClick={() => onSelect(p)}
-            className={`shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-wide border-b-2 transition-colors ${
-              activePhase === p ? "border-accent-bright text-white" : "border-transparent text-muted hover:text-white"
+            className={`shrink-0 px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider border-b-2 transition-all ${
+              activePhase === p
+                ? "border-crimson text-white bg-white/[0.04]"
+                : "border-transparent text-muted hover:text-white"
             }`}
           >
             Phase {p}
           </button>
         ))}
+
+        {/* Multiverse & Specials (Titles with phase: null) */}
+        <button
+          type="button"
+          onClick={() => onSelect("other")}
+          className={`shrink-0 px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider border-b-2 transition-all ${
+            activePhase === "other"
+              ? "border-accent-bright text-white bg-white/[0.04]"
+              : "border-transparent text-muted hover:text-white"
+          }`}
+        >
+          Multiverse &amp; Specials
+        </button>
       </div>
     </div>
   );
 }
-
-/* TODO once App.jsx is shared: render <PhaseTabs /> inside App.jsx,
-   keep activePhase in App's state, and filter the movieIds passed to
-   <CharacterTimeline /> by that phase before sorting. */
